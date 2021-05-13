@@ -1,6 +1,6 @@
 ---
 name: KPT 회고록 작성 탬플릿
-about: KPT 회고록 작성 탬플릿
+about: KPT 회고록 작성 탬플릿입니다
 title: ''
 labels: ''
 assignees: ''
