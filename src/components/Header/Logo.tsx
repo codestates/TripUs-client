@@ -15,7 +15,7 @@ const LogoWrapper = styled.div`
   height: 100%;
 
   img {
-    height: 1.5rem;
+    height: 2rem;
   }
 `;
 
