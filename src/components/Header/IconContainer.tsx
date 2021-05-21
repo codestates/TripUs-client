@@ -1,7 +1,9 @@
 import React, { MouseEvent } from "react";
 import styled from "styled-components";
 
-import Icon from "./Icon";
+import HamburgerIcon from "./HamburgerIcon";
+import UserIcon from "./UserIcon";
+
 import Dropdown from "./Dropdown";
 
 const IconContainerWrapper = styled.div`
@@ -30,7 +32,8 @@ const IconContainer = ({
 }) => {
   return (
     <IconContainerWrapper onClick={handleClick}>
-      <Icon />
+      <HamburgerIcon />
+      <UserIcon />
       {dropdownOpen ? <Dropdown /> : null}
     </IconContainerWrapper>
   );
