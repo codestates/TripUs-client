@@ -6,14 +6,23 @@ import Header from "./components/Header/Header";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const openDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
 
+  window.addEventListener("click", () => {
+    setDropdownOpen(false);
+  });
+
   return (
     <Router>
-      <Header dropdownOpen={dropdownOpen} openDropdown={openDropdown} />
+      <Header
+        isLogin={isLogin}
+        dropdownOpen={dropdownOpen}
+        openDropdown={openDropdown}
+      />
     </Router>
   );
 };
