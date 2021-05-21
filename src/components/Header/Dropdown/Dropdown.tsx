@@ -8,8 +8,9 @@ const DropdownContainer = styled.div`
   position: absolute;
   top: 75px;
   height: 300px;
-  min-width: 120px;
+  min-width: 150px;
   border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   right: 0;
 
@@ -25,12 +26,12 @@ const DropdownListContainer = styled.div`
   align-items: center;
 `;
 
-const Dropdown = () => {
+const Dropdown = ({ isLogin }: { isLogin: boolean }) => {
   return (
     <DropdownContainer>
       <DropdownListContainer>
-        <ShortDropDownMenu />
-        <LongDropdownMenu />
+        <ShortDropDownMenu isLogin={isLogin} />
+        <LongDropdownMenu isLogin={isLogin} />
       </DropdownListContainer>
     </DropdownContainer>
   );
