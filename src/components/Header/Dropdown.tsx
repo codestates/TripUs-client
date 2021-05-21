@@ -1,13 +1,15 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const DropdownContainer = styled.div`
   position: absolute;
-  top: 85px;
+  top: 75px;
   height: 240px;
   min-width: 120px;
   border-radius: 4px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  right: 0;
 `;
 
 const DropdownListContainer = styled.div`
@@ -17,7 +19,7 @@ const DropdownListContainer = styled.div`
   align-items: center;
 `;
 
-const DropdownList = styled.ul`
+const DropdownList = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,18 +30,17 @@ const DropdownList = styled.ul`
   width: 100%;
 `;
 
-const DropdownItem = styled.li`
+const DropdownItem = styled(Link)`
   font-weight: 400;
   padding-left: 16px;
-  a {
-    text-decoration: none;
-    color: #000;
-  }
+  text-decoration: none;
+  color: #000;
 `;
 
 const StyleBreak = styled.hr`
   margin: 0;
   padding: 0;
+  border-style: ridge;
 `;
 
 const Dropdown = () => {
@@ -47,23 +48,13 @@ const Dropdown = () => {
     <DropdownContainer>
       <DropdownListContainer>
         <DropdownList>
-          <DropdownItem>
-            <Link to="/profile">내 프로필</Link>
-          </DropdownItem>
-          <DropdownItem>
-            <Link to="/account">내 계정</Link>
-          </DropdownItem>
+          <DropdownItem to="/profile">내 프로필</DropdownItem>
+          <DropdownItem to="/account">내 계정</DropdownItem>
           <StyleBreak />
-          <DropdownItem>
-            <Link to="/my-posts">내 작성목록</Link>
-          </DropdownItem>
-          <DropdownItem>
-            <Link to="/my-applications">내 신청목록</Link>
-          </DropdownItem>
+          <DropdownItem to="/my-posts">내 작성목록</DropdownItem>
+          <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
           <StyleBreak />
-          <DropdownItem>
-            <Link to="/signout">로그아웃</Link>
-          </DropdownItem>
+          <DropdownItem to="/signout">로그아웃</DropdownItem>
         </DropdownList>
       </DropdownListContainer>
     </DropdownContainer>
