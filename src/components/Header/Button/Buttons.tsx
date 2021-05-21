@@ -8,7 +8,7 @@ export const RegularButton = styled(Link)`
   margin: 0 4px;
   padding: 16px;
   border-radius: 4px;
-  border: 1px solid #fff;
+  border: 1px solid transparent;
   transition: all 0.3s ease;
   outline: none;
 

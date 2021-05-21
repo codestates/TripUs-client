@@ -26,7 +26,11 @@ const NavBar = ({
   return (
     <NavBarWrapper>
       <ButtonBar />
-      <IconContainer dropdownOpen={dropdownOpen} handleClick={handleClick} />
+      <IconContainer
+        isLogin={isLogin}
+        dropdownOpen={dropdownOpen}
+        handleClick={handleClick}
+      />
     </NavBarWrapper>
   );
 };

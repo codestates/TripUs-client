@@ -30,7 +30,7 @@ const StyleBreak = styled.hr`
   border-style: ridge;
 `;
 
-const ShortDropDownMenu = () => {
+const ShortDropDownMenu = ({ isLogin }: { isLogin: boolean }) => {
   return (
     <ShortDropdownList>
       <DropdownItem to="/profile">내 프로필</DropdownItem>
@@ -39,7 +39,14 @@ const ShortDropDownMenu = () => {
       <DropdownItem to="/my-posts">내 작성목록</DropdownItem>
       <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
       <StyleBreak />
-      <DropdownItem to="/signout">로그아웃</DropdownItem>
+      {isLogin ? (
+        <DropdownItem to="/signout">로그아웃</DropdownItem>
+      ) : (
+        <>
+          <DropdownItem to="/login">로그인</DropdownItem>
+          <DropdownItem to="/signup">회원가입</DropdownItem>
+        </>
+      )}
     </ShortDropdownList>
   );
 };

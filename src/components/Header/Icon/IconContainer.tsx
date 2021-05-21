@@ -24,9 +24,11 @@ const IconContainerWrapper = styled.div`
 `;
 
 const IconContainer = ({
+  isLogin,
   dropdownOpen,
   handleClick,
 }: {
+  isLogin: boolean;
   dropdownOpen: boolean;
   handleClick: (e: MouseEvent<HTMLDivElement>) => void;
 }) => {
@@ -34,7 +36,7 @@ const IconContainer = ({
     <IconContainerWrapper onClick={handleClick}>
       <HamburgerIcon />
       <UserIcon />
-      {dropdownOpen ? <Dropdown /> : null}
+      {dropdownOpen ? <Dropdown isLogin={isLogin} /> : null}
     </IconContainerWrapper>
   );
 };
