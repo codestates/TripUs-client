@@ -2,8 +2,8 @@ import React, { MouseEvent } from "react";
 import styled from "styled-components";
 
 // components
-import ButtonBar from "./ButtonBar";
-import IconContainer from "./IconContainer";
+import ButtonBar from "./Button/ButtonBar";
+import IconContainer from "./Icon/IconContainer";
 
 const NavBarWrapper = styled.div`
   position: absolute;
