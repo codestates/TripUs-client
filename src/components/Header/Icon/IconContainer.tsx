@@ -4,7 +4,7 @@ import styled from "styled-components";
 import HamburgerIcon from "./HamburgerIcon";
 import UserIcon from "./UserIcon";
 
-import Dropdown from "./Dropdown";
+import Dropdown from "../Dropdown/Dropdown";
 
 const IconContainerWrapper = styled.div`
   height: 100%;
