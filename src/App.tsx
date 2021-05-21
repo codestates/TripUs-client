@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // components
 import Header from "./components/Header/Header";
-
+import FooterComponent from "./components/Footer";
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -14,6 +14,7 @@ const App = () => {
   return (
     <Router>
       <Header dropdownOpen={dropdownOpen} openDropdown={openDropdown} />
+      <FooterComponent />
     </Router>
   );
 };
