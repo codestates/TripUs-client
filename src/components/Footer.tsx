@@ -4,7 +4,9 @@ import styled from "styled-components";
 //img
 import { DiGithubBadge } from "react-icons/di";
 //footer,serInfo ,nameLogoContainer, Name, githubLogo
-
+//반응형 순서
+//1. 전체 컴포에 media query
+//2. flex-direction container랑 깃네브에 두번준다
 const Footer = styled.footer`
   position: absolute;
   bottom: 0;
@@ -17,6 +19,12 @@ const Footer = styled.footer`
   font-family: "PT Sans", sans-serif;
   font-weight: 400;
   color: rgba(87, 118, 148, 0.76);
+  @media (max-width: 920px) {
+    flex-direction: column;
+    height: 20%;
+    width: 100%;
+    background-color: rgba(198, 218, 237, 0.65);
+  }
 `;
 
 const Container = styled.div`
@@ -25,6 +33,15 @@ const Container = styled.div`
   width: 80%;
   font-weight: 400;
   margin: 0 auto;
+  @media (max-width: 920px) {
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    height: 30%;
+    align-content: center;
+  }
 `;
 
 const SerInfo = styled.p`
@@ -36,8 +53,16 @@ const SerInfo = styled.p`
   margin_: 0;
   padding: 0;
   height: 100%;
+  @media (max-width: 920px) {
+    margin-top : 40px;
+    height: 0px; 
+    width : 100%;
+    
+    background-color: skyblue;
 `;
 
+//반응형일시에 로고가 내려가고 깃내브가 올라와야한다
+//깃내브도 coloumn으로 바꿔줘서
 const GitNav = styled.div`
   position: absolute;
   top: 0px;
@@ -46,6 +71,15 @@ const GitNav = styled.div`
   width: 450px;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 920px) {
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 30px;
+    width : 100%;
+    ;
 `;
 
 const NameLogoContainer = styled.div`
@@ -56,6 +90,14 @@ const NameLogoContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  @media (max-width: 920px) {
+    flex-direction: row;
+    display: flex;
+    height: 20px;
+    align-content:left;
+    
+    align-content : center;
+    width : 50%;
 `;
 const IconContainer = styled.div`
   height: 100%;
@@ -71,15 +113,7 @@ const IconContainer = styled.div`
     width: 28px;
     stroke: #3085d3;
     fill: #3085d3;
-  }
 `;
-
-const GithubLogo = styled.div`
-svg {
-    height: 28px;
-    width: 28px;
-    stroke: #3085d3;
-    fill: #3085d3;`;
 
 const FooterComponent = ({}: {}) => {
   return (
