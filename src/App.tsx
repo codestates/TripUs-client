@@ -1,14 +1,45 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
 // components
 import Header from "./components/Header/Header";
+import LogIn from "./components/Auth/LogIn";
 
-import landingpage from "./images/landingpage.jpeg";
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    transition: display ease-in 1s;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  #root {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin] = useState(false);
 
   const openDropdown = () => {
     setDropdownOpen((prev) => !prev);
@@ -19,17 +50,15 @@ const App = () => {
   });
 
   return (
-    <Router>
+    <>
       <Header
         isLogin={isLogin}
         dropdownOpen={dropdownOpen}
         openDropdown={openDropdown}
       />
-      <img
-        src={landingpage}
-        style={{ display: "block", height: "100vh", width: "100vw" }}
-      />
-    </Router>
+      <GlobalStyle />
+      {/* <LogIn /> */}
+    </>
   );
 };
 
