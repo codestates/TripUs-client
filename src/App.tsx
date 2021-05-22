@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 // components
 import Header from "./components/Header/Header";
 
-import landingpage from "./images/landingpage.jpeg";
+import FooterComponent from "./components/Footer";
+
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,6 +21,10 @@ const App = () => {
 
   return (
     <Router>
+
+      <Header dropdownOpen={dropdownOpen} openDropdown={openDropdown} />
+      <FooterComponent />
+
       <Header
         isLogin={isLogin}
         dropdownOpen={dropdownOpen}
@@ -29,6 +34,7 @@ const App = () => {
         src={landingpage}
         style={{ display: "block", height: "100vh", width: "100vw" }}
       />
+
     </Router>
   );
 };
