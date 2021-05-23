@@ -27,16 +27,26 @@ const IconContainer = ({
   isLogin,
   dropdownOpen,
   handleClick,
+  openModal,
+  setIsRightActive,
 }: {
   isLogin: boolean;
   dropdownOpen: boolean;
   handleClick: (e: MouseEvent<HTMLDivElement>) => void;
+  openModal: () => void;
+  setIsRightActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <IconContainerWrapper onClick={handleClick}>
       <HamburgerIcon />
       <UserIcon />
-      {dropdownOpen ? <Dropdown isLogin={isLogin} /> : null}
+      {dropdownOpen ? (
+        <Dropdown
+          isLogin={isLogin}
+          openModal={openModal}
+          setIsRightActive={setIsRightActive}
+        />
+      ) : null}
     </IconContainerWrapper>
   );
 };

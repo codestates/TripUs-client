@@ -1,4 +1,4 @@
-import React, { ContextType, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,7 +11,7 @@ const LongDropdownList = styled.div`
   justify-content: space-evenly;
   width: 100%;
   padding-top: 8px;
-  height: 100%;
+
   @media (min-width: 811px) {
     display: none;
   }
@@ -19,9 +19,22 @@ const LongDropdownList = styled.div`
 
 const DropdownItem = styled(Link)`
   font-weight: 400;
-  padding-left: 16px;
+  padding: 16px;
   text-decoration: none;
   color: #000;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const DropdownButton = styled.div`
+  font-weight: 400;
+  padding: 16px;
+  text-decoration: none;
+  color: #000;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 `;
 
 const StyleBreak = styled.hr`
@@ -29,7 +42,24 @@ const StyleBreak = styled.hr`
   border-style: ridge;
 `;
 
-const LongDropdownMenu = ({ isLogin }: { isLogin: boolean }) => {
+const LongDropdownMenu = ({
+  isLogin,
+  openModal,
+  setIsRightActive,
+}: {
+  isLogin: boolean;
+  openModal: () => void;
+  setIsRightActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const openLogin = () => {
+    setIsRightActive(false);
+    openModal();
+  };
+  const openSignUp = () => {
+    setIsRightActive(true);
+    openModal();
+  };
+
   return (
     <LongDropdownList>
       <DropdownItem to="/profile">내 프로필</DropdownItem>
@@ -45,8 +75,8 @@ const LongDropdownMenu = ({ isLogin }: { isLogin: boolean }) => {
         <DropdownItem to="/signout">로그아웃</DropdownItem>
       ) : (
         <>
-          <DropdownItem to="/login">로그인</DropdownItem>
-          <DropdownItem to="/signup">회원가입</DropdownItem>
+          <DropdownButton onClick={openLogin}>로그인</DropdownButton>
+          <DropdownButton onClick={openSignUp}>회원가입</DropdownButton>
         </>
       )}
     </LongDropdownList>

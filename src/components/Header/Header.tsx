@@ -28,10 +28,15 @@ const HeaderComponent = ({
   isLogin,
   dropdownOpen,
   openDropdown,
+  openModal,
+  setIsRightActive,
 }: {
   isLogin: boolean;
   dropdownOpen: boolean;
   openDropdown: () => void;
+  openModal: () => void;
+
+  setIsRightActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -46,6 +51,8 @@ const HeaderComponent = ({
           isLogin={isLogin}
           dropdownOpen={dropdownOpen}
           handleClick={handleClick}
+          openModal={openModal}
+          setIsRightActive={setIsRightActive}
         />
       </HeaderWrapper>
     </Header>

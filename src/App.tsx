@@ -3,12 +3,11 @@ import { createGlobalStyle } from "styled-components";
 
 // components
 import Header from "./components/Header/Header";
-import LogIn from "./components/Auth/LogIn";
+import Auth from "./components/Auth/AuthPage";
 
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    transition: display ease-in 1s;
   }
 
   html {
@@ -39,7 +38,13 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isRightActive, setIsRightActive] = useState(true);
   const [isLogin] = useState(false);
+
+  const togglePanel = () => {
+    setIsRightActive((prev) => !prev);
+  };
 
   const openDropdown = () => {
     setDropdownOpen((prev) => !prev);
@@ -49,15 +54,30 @@ const App = () => {
     setDropdownOpen(false);
   });
 
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <Header
         isLogin={isLogin}
         dropdownOpen={dropdownOpen}
         openDropdown={openDropdown}
+        openModal={openModal}
+        setIsRightActive={setIsRightActive}
       />
       <GlobalStyle />
-      {/* <LogIn /> */}
+      <Auth
+        modalOpen={modalOpen}
+        closeModal={closeModal}
+        isRightActive={isRightActive}
+        togglePanel={togglePanel}
+      />
     </>
   );
 };

@@ -18,10 +18,14 @@ const NavBar = ({
   isLogin,
   dropdownOpen,
   handleClick,
+  openModal,
+  setIsRightActive,
 }: {
   isLogin: boolean;
   dropdownOpen: boolean;
   handleClick: (e: MouseEvent<HTMLDivElement>) => void;
+  openModal: () => void;
+  setIsRightActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <NavBarWrapper>
@@ -30,6 +34,8 @@ const NavBar = ({
         isLogin={isLogin}
         dropdownOpen={dropdownOpen}
         handleClick={handleClick}
+        openModal={openModal}
+        setIsRightActive={setIsRightActive}
       />
     </NavBarWrapper>
   );
