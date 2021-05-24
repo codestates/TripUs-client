@@ -1,7 +1,9 @@
 import React from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 // components
-import { Form, StyledButton } from "./Form";
+import { Form, StyledButton, MyTextInput } from "./Form";
 
 const SignUpForm = ({
   className,
@@ -12,61 +14,86 @@ const SignUpForm = ({
   togglePanel: () => void;
 }) => {
   return (
-    <Form className={className} {...rest}>
-      <h1>Sign Up</h1>
-      <div className="input-section">
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-envelope"></i>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+        name: "",
+        nickname: "",
+        phone: "",
+        age: "",
+      }}
+      validationSchema={Yup.object({
+        email: Yup.string().email("Invalid email address").required("Required"),
+        password: Yup.string()
+          .required("Required")
+          .matches(
+            /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,}$/,
+            "Must contain at least 8 characters, a number and one special case character"
+          ),
+      })}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+          resetForm();
+        }, 400);
+      }}
+    >
+      {(formik) => (
+        <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
+          <h1>Sign Up</h1>
+          <div className="input-section">
+            <MyTextInput
+              name="email"
+              label="Email"
+              type="email"
+              id="email"
+              placeholder="Enter your email."
+            />
+            <MyTextInput
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              placeholder="Enter your password."
+            />
+            <MyTextInput
+              name="name"
+              label="Name"
+              type="text"
+              id="name"
+              placeholder="Enter your name."
+            />
+            <MyTextInput
+              name="nickname"
+              label="Nickname"
+              type="text"
+              id="Nickname"
+              placeholder="Enter your nickname."
+            />
+            <MyTextInput
+              name="phone"
+              label="Phone number"
+              type="tel"
+              id="phone"
+              placeholder="Enter your phone number."
+            />
+            <MyTextInput
+              name="age"
+              label="Age"
+              type="number"
+              id="phone"
+              placeholder="Enter your age."
+            />
+            <StyledButton type="button">Sign Up</StyledButton>
           </div>
-          <input type="email" placeholder="email" />
-        </div>
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-lock"></i>
-          </div>
-          <input type="password" placeholder="password" />
-        </div>
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-id-badge"></i>
-          </div>
-          <input type="text" placeholder="name" />
-        </div>
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-user-tag"></i>
-          </div>
-          <input type="text" placeholder="nickname" />
-        </div>
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-mobile"></i>
-          </div>
-          <input type="tel" placeholder="phone number" />
-        </div>
-        <div className="input-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-sort-numeric-up"></i>
-          </div>
-          <input type="number" min="18" max="100" placeholder="age" />
-        </div>
-        <div className="input-wrapper gender-wrapper">
-          <div className="icon-wrapper">
-            <i className="fas fa-venus-mars"></i>
-          </div>
-          <select>
-            <option>Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
-        <StyledButton type="button">Sign Up</StyledButton>
-      </div>
-      <p className="redirect" onClick={togglePanel}>
-        Already have an account?
-      </p>
-    </Form>
+          <p className="redirect" onClick={togglePanel}>
+            Already have an account?
+          </p>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
