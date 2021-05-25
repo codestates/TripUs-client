@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
+  font-family: "Nanum Gothic", sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -11,7 +12,7 @@ export const Form = styled.form`
   .header-wrapper {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    font-size: 2vw;
+    font-size: 1.6vw;
     font-weight: 700;
     line-height: 120%;
     text-align: left;
@@ -19,7 +20,7 @@ export const Form = styled.form`
     align-item: center;
 
     @media (max-width: 901px) {
-      font-size: 3.5vw;
+      font-size: 3vw;
     }
   }
 
@@ -48,10 +49,15 @@ export const Form = styled.form`
   input {
     margin: 0.5rem 0 1rem;
     width: 100%;
-    height: 3rem;
+    height: 2.7rem;
     border-radius: 0.25rem;
     border: 2px solid #e0e0e0;
     font-size: 1vw;
+    padding-left: 1rem;
+
+    @media (min-width: 2000px) {
+      min-height: 3.7rem;
+    }
 
     @media (max-width: 1350px) {
       height: 2.5rem;
@@ -120,7 +126,7 @@ export const Form = styled.form`
     margin-top: 20px;
     margin-bottom: 16px;
     width: 100%;
-    height: 48px;
+    height: 3rem;
     border-radius: 28px;
     padding-top: 14px;
     color: #fff;
@@ -132,6 +138,10 @@ export const Form = styled.form`
     cursor: pointer;
     background: #000;
     transition: all 0.4s;
+
+    @media (min-width: 2000px) {
+      min-height: 4rem;
+    }
 
     &:hover {
       border-color: #292929;
@@ -146,7 +156,6 @@ export const Form = styled.form`
   .social-login {
     border: 1px solid #e0e0e0;
     background: #fff;
-    color: rgba(0, 0, 0, 0.7);
     position: relative;
     display: flex;
     align-items: center;
@@ -165,6 +174,7 @@ export const Form = styled.form`
 
   .social-btn-text {
     flex: 1 1 0%;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   .toggle {

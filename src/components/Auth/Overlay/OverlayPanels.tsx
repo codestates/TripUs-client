@@ -28,7 +28,7 @@ const OverlayPanel = styled.div`
       justify-content: center;
 
       @media (min-width: 2000px) {
-        font-size: 0.9vw;
+        font-size: 0.7vw;
       }
 
       &:hover {

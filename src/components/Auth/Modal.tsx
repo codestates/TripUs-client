@@ -31,15 +31,6 @@ export const Modal = styled.div`
   @media (min-width: 2000px) {
     min-height: 70%;
   }
-
-  @media (max-width: 1440px) {
-    min-height: 75%;
-  }
-
-  @media (max-width: 901px) {
-    min-height: 85%;
-    min-width: 80%;
-  }
 `;
 
 export const CloseButton = styled.p`
