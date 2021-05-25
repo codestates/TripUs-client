@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FaUserCircle } from "react-icons/fa";
 
 const UserIconWrapper = styled.div`
-  @media (max-width: 810px) {
+  @media (max-width: 901px) {
     display: none;
   }
 `;

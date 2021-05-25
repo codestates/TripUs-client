@@ -7,7 +7,7 @@ interface OtherProps {
 export const TextInput = (props: OtherProps & FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
   return (
-    <div className="input-wrapper">
+    <div>
       <label htmlFor={props.id || props.name}>
         {props.label}
         {meta.touched && meta.error ? (

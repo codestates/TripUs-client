@@ -9,7 +9,7 @@ const ButtonBarWrapper = styled.div`
   height: 100%;
   align-items: center;
 
-  @media (max-width: 810px) {
+  @media (max-width: 901px) {
     display: none;
   }
 `;

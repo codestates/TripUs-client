@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const OverlayPanel = styled.div`
-  @media (min-width: 810px) {
+  @media (min-width: 901px) {
     position: absolute;
     display: flex;
     align-items: center;
@@ -15,11 +15,11 @@ const OverlayPanel = styled.div`
     transition: all 0.6s ease-in-out;
 
     img {
-      width: 100%;
+      width: 70%;
     }
 
     .toggle {
-      font-size: 0.8rem;
+      font-size: 1rem;
       cursor: pointer;
 
       &:hover {
@@ -28,7 +28,7 @@ const OverlayPanel = styled.div`
     }
   }
 
-  @media (max-width: 811px) {
+  @media (max-width: 901px) {
     display: none;
   }
 `;

@@ -11,7 +11,7 @@ const Forms = styled.div<Props>`
   left: 0;
   background: #fff;
 
-  @media (max-width: 810px) {
+  @media (max-width: 901px) {
     width: 200%;
   }
 `;

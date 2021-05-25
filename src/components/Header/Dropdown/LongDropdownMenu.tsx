@@ -12,7 +12,7 @@ const LongDropdownList = styled.div`
   width: 100%;
   padding-top: 8px;
 
-  @media (min-width: 811px) {
+  @media (min-width: 900px) {
     display: none;
   }
 `;

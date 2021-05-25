@@ -7,6 +7,9 @@ export const Form = styled.form`
   height: 100%;
   overflow: scroll;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .header-wrapper {
     margin-top: 24px;
@@ -15,6 +18,21 @@ export const Form = styled.form`
     font-weight: 700;
     line-height: 120%;
     text-align: left;
+    display: flex;
+    align-item: center;
+  }
+
+  .form-wrapper {
+    min-height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   label {
@@ -121,20 +139,16 @@ export const Form = styled.form`
   }
 
   .toggle {
-    @media (max-width: 810px) {
-      font-size: 0.8rem;
+    @media (max-width: 901px) {
+      font-size: 1rem;
       cursor: pointer;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-
+      margin: auto;
       &:hover {
         text-decoration: underline;
       }
     }
 
-    @media (min-width: 811px) {
+    @media (min-width: 900px) {
       display: none;
     }
   }

@@ -5,7 +5,7 @@ interface Props {
 }
 
 const OverlayContainer = styled.div<Props>`
-  @media (min-width: 810px) {
+  @media (min-width: 901px) {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -23,7 +23,7 @@ const OverlayContainer = styled.div<Props>`
       `}
   }
 
-  @media (max-width: 811px) {
+  @media (max-width: 900px) {
     display: none;
   }
 `;

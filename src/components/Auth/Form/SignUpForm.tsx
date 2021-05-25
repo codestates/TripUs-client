@@ -65,41 +65,46 @@ const SignUpForm = ({
               id="password"
               placeholder="비밀번호"
             />
-            <div className="col-left">
-              <TextInput
-                name="name"
-                label="실명"
-                type="text"
-                id="name"
-                placeholder="실명"
-              />
+            <div>
+              <div className="col col-left">
+                <TextInput
+                  name="name"
+                  label="실명"
+                  type="text"
+                  id="name"
+                  placeholder="실명"
+                />
+              </div>
+              <div className="col col-right">
+                <TextInput
+                  name="nickname"
+                  label="닉네임"
+                  type="text"
+                  id="Nickname"
+                  placeholder="닉네임"
+                />
+              </div>
             </div>
-            <div className="col-right">
-              <TextInput
-                name="nickname"
-                label="닉네임"
-                type="text"
-                id="Nickname"
-                placeholder="닉네임"
-              />
-            </div>
-            <div className="col-left">
-              <TextInput
-                name="phone"
-                label="연락처"
-                type="tel"
-                id="phone"
-                placeholder="연락처"
-              />
-            </div>
-            <div className="col-right">
-              <TextInput
-                name="age"
-                label="나이"
-                type="number"
-                id="phone"
-                placeholder="나이"
-              />
+
+            <div className="col-wrapper">
+              <div className="col-left">
+                <TextInput
+                  name="phone"
+                  label="연락처"
+                  type="tel"
+                  id="phone"
+                  placeholder="연락처"
+                />
+              </div>
+              <div className="col-right">
+                <TextInput
+                  name="age"
+                  label="나이"
+                  type="number"
+                  id="phone"
+                  placeholder="나이"
+                />
+              </div>
             </div>
 
             <button type="button">회원가입</button>

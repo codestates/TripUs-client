@@ -13,7 +13,7 @@ const ShortDropdownList = styled.div`
   width: 100%;
   padding-top: 8px;
 
-  @media (max-width: 810px) {
+  @media (max-width: 901px) {
     display: none;
   }
 `;

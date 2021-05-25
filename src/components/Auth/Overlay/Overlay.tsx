@@ -5,11 +5,11 @@ interface Props {
 }
 
 const Overlay = styled.div<Props>`
-  @media (max-width: 811px) {
+  @media (max-width: 901px) {
     display: none;
   }
 
-  @media (min-width: 810px) {
+  @media (min-width: 900px) {
     position: relative;
     left: -100%;
     height: 100%;

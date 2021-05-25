@@ -59,36 +59,39 @@ const SignInForm = ({
       {(formik) => (
         <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
           <div className="header-wrapper">트립어스에 온 것을 환영합니다!</div>
+          <div className="form-wrapper">
+            <div className="input-section">
+              <TextInput
+                name="email"
+                label="이메일 주소"
+                type="email"
+                id="email"
+                placeholder="이메일"
+              />
 
-          <TextInput
-            name="email"
-            label="이메일 주소"
-            type="email"
-            id="email"
-            placeholder="이메일"
-          />
+              <TextInput
+                name="pw"
+                label="비밀번호"
+                type="password"
+                id="pw"
+                placeholder="비밀번호"
+              />
 
-          <TextInput
-            name="pw"
-            label="비밀번호"
-            type="password"
-            id="pw"
-            placeholder="비밀번호"
-          />
+              <button type="submit">로그인</button>
+              <div className="line-break">또는</div>
+              <button type="button" className="social-login">
+                <img
+                  src={naver_icon_green}
+                  alt="Naver log in"
+                  className="social-logo"
+                />
+                <div className="social-btn-text">네이버 아이디로 로그인</div>
+              </button>
 
-          <button type="submit">로그인</button>
-          <div className="line-break">또는</div>
-          <button type="button" className="social-login">
-            <img
-              src={naver_icon_green}
-              alt="Naver log in"
-              className="social-logo"
-            />
-            <div className="social-btn-text">네이버 아이디로 로그인</div>
-          </button>
-
-          <div className="toggle" onClick={togglePanel}>
-            아직 회원이 아니신가요?
+              <div className="toggle" onClick={togglePanel}>
+                아직 회원이 아니신가요?
+              </div>
+            </div>
           </div>
         </Form>
       )}
