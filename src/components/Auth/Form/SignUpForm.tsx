@@ -49,7 +49,7 @@ const SignUpForm = ({
     >
       {(formik) => (
         <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
-          <div className="header-wrapper">이렇게 안전한 동행은 처음이지?</div>
+          <div className="header-wrapper">반갑습니다!</div>
           <div className="input-section">
             <TextInput
               name="email"
@@ -110,7 +110,7 @@ const SignUpForm = ({
             <button type="button">회원가입</button>
           </div>
           <div className="toggle" onClick={togglePanel}>
-            이미 회원이세요?
+            이미 회원이신가요?
           </div>
         </Form>
       )}

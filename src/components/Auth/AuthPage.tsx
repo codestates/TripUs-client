@@ -47,7 +47,7 @@ const Auth = ({
             <LeftOverlayPanel rightActive={isRightActive}>
               <img src={travelers} alt="" />
               <div className="toggle" onClick={togglePanel}>
-                이미 회원이세요?
+                이미 회원이신가요?
               </div>
             </LeftOverlayPanel>
             <RightOverlayPanel rightActive={isRightActive}>

@@ -7,19 +7,20 @@ export const Form = styled.form`
   height: 100%;
   overflow: scroll;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   .header-wrapper {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    font-size: 28px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 2vw;
     font-weight: 700;
     line-height: 120%;
     text-align: left;
     display: flex;
     align-item: center;
+
+    @media (max-width: 901px) {
+      font-size: 3.5vw;
+    }
   }
 
   .form-wrapper {
@@ -36,34 +37,58 @@ export const Form = styled.form`
   }
 
   label {
-    font-size: 14px;
+    font-size: 1.1vw;
     text-align: left;
+
+    @media (max-width: 901px) {
+      font-size: 2vw;
+    }
   }
 
   input {
-    margin: 8px 0 16px;
+    margin: 0.5rem 0 1rem;
     width: 100%;
-    height: 48px;
-    border-radius: 4px;
+    height: 3rem;
+    border-radius: 0.25rem;
     border: 2px solid #e0e0e0;
+    font-size: 1vw;
+
+    @media (max-width: 1350px) {
+      height: 2.5rem;
+    }
+
+    @media (max-width: 901px) {
+      height: 2rem;
+      font-size: 2vw;
+    }
   }
 
   .col-right {
     float: right;
-    padding-right: 8px;
+    padding-right: 0.5rem;
     width: 50%;
+
+    @media (max-width: 901px) {
+      float: none;
+      width: 100%;
+    }
   }
 
   .col-left {
     float: left;
-    padding-right: 8px;
+    padding-right: 0.5rem;
     width: 50%;
+
+    @media (max-width: 901px) {
+      float: none;
+      width: 100%;
+    }
   }
 
   .line-break {
     width: 90%;
     display: flex;
-    margin: 16px auto;
+    margin: 1rem auto;
     font-size: 0.8rem;
     color: rgba(0, 0, 0, 0.25);
 
@@ -76,11 +101,11 @@ export const Form = styled.form`
     }
 
     :before {
-      margin-right: 15px;
+      margin-right: 1rem;
     }
 
     :after {
-      margin-left: 15px;
+      margin-left: 1rem;
     }
   }
 
@@ -102,7 +127,7 @@ export const Form = styled.form`
     padding: 8px 16px;
     font-weight: 700;
     border: 1px solid transparent;
-    font-size: 14px;
+    font-size: 1vw;
     text-align: center;
     cursor: pointer;
     background: #000;
@@ -111,6 +136,10 @@ export const Form = styled.form`
     &:hover {
       border-color: #292929;
       background-color: #292929;
+    }
+
+    @media (max-width: 901px) {
+      font-size: 2vw;
     }
   }
 
@@ -121,7 +150,7 @@ export const Form = styled.form`
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: 32px;
+    margin-top: 16px;
 
     &:hover {
       border-color: #292929;
@@ -140,9 +169,13 @@ export const Form = styled.form`
 
   .toggle {
     @media (max-width: 901px) {
-      font-size: 1rem;
+      font-size: 0.7rem;
       cursor: pointer;
-      margin: auto;
+      padding-top: 0.5rem;
+      color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+
       &:hover {
         text-decoration: underline;
       }

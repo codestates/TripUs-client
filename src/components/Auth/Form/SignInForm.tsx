@@ -58,7 +58,7 @@ const SignInForm = ({
     >
       {(formik) => (
         <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
-          <div className="header-wrapper">트립어스에 온 것을 환영합니다!</div>
+          <div className="header-wrapper">환영합니다!</div>
           <div className="form-wrapper">
             <div className="input-section">
               <TextInput

@@ -19,8 +19,17 @@ const OverlayPanel = styled.div`
     }
 
     .toggle {
-      font-size: 1rem;
+      font-size: 0.7rem;
       cursor: pointer;
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      @media (min-width: 2000px) {
+        font-size: 0.9vw;
+      }
 
       &:hover {
         text-decoration: underline;

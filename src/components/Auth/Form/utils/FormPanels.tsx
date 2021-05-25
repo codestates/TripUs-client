@@ -10,7 +10,7 @@ const FormPanel = styled.div`
   align-items: center;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
-  padding: 30px 50px;
+  padding: 30px 60px;
 `;
 
 interface Props {
