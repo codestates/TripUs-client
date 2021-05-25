@@ -17,6 +17,15 @@ const OverlayPanel = styled.div`
     img {
       width: 100%;
     }
+
+    .toggle {
+      font-size: 0.8rem;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   @media (max-width: 811px) {

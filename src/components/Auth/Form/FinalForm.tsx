@@ -1,9 +1,9 @@
 import React from "react";
 
 // components
-import FormContainer from "./FormContainerNew";
-import Forms from "./Forms";
-import { SignInPanel, SignUpPanel } from "./FormPanels";
+import FormContainer from "./utils/FormContainer"; // displays just the currently visible Form
+import Forms from "./utils/Forms"; // contains both form panels
+import { SignInPanel, SignUpPanel } from "./utils/FormPanels"; // panels to hold each form
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 

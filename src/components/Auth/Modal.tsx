@@ -16,8 +16,8 @@ export const ModalBackground = styled.div`
 
 export const Modal = styled.div`
   max-width: 768px;
-  min-width: 60%;
-  min-height: 90%;
+  min-width: 70%;
+  min-height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +27,11 @@ export const Modal = styled.div`
   position: relative;
   background: #fff;
   overflow: hidden;
+
+  @media (max-width: 811px) {
+    min-height: 85%;
+    min-width: 80%;
+  }
 `;
 
 export const CloseButton = styled.p`
@@ -34,7 +39,7 @@ export const CloseButton = styled.p`
   z-index: 999;
   top: 0;
   right: 0;
-  margin: 36px;
+  margin: 24px;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 `;

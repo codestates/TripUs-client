@@ -10,6 +10,7 @@ const FormPanel = styled.div`
   align-items: center;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+  padding: 30px 45px 30px 50px;
 `;
 
 interface Props {
@@ -58,19 +59,3 @@ export const SignUpPanel = styled(FormPanel)<Props>`
             transform: translateX(100%);
           `}
 `;
-
-/*
-  ${(props) =>
-    !props.rightActive &&
-    css`
-      right: 0;
-      transform: translateX(100%);
-    `}
-
-  ${(props) => props.rightActive && css``}
-
-  @media (max-width: 811px) {
-    ${(props) => props.rightActive && css``}
-    ${(props) => !props.rightActive && css``}
-  }
-*/

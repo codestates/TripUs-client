@@ -4,12 +4,13 @@ import * as Yup from "yup";
 import axios from "axios";
 
 // components
-import { Form, StyledButton, MyTextInput } from "./Form";
+import { TextInput } from "./TextInput";
+import { Form } from "./FormStyle";
 
 // images
-import naver_large from "../../../images/naver_large.png";
+import naver_icon_green from "../../../images/naver_icon_green.png";
 
-const URL = "http://ec2-13-125-115-208.ap-northeast-2.compute.amazonaws.com";
+const BASE_URL = "https://server.tripus.me";
 
 interface FormValues {
   email: string;
@@ -18,7 +19,7 @@ interface FormValues {
 
 const onSignUp = (values: FormValues) => {
   axios
-    .post(URL, {
+    .post(BASE_URL + "/login", {
       email: values.email,
       pw: values.pw,
     })
@@ -39,16 +40,17 @@ const SignInForm = ({
     <Formik
       initialValues={initialValues}
       validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
+        email: Yup.string()
+          .email("이메일 주소를 다시 확인해주세요.")
+          .required("필수 정보입니다."),
         pw: Yup.string()
-          .required("Required")
+          .required("필수 정보입니다.")
           .matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,}$/,
-            "Must contain at least 8 characters, a number and one special case character"
+            "8~16자 영문 소문자, 숫자, 특수문자를 사용하세요."
           ),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
         onSignUp(values);
         setSubmitting(false);
         resetForm();
@@ -56,31 +58,38 @@ const SignInForm = ({
     >
       {(formik) => (
         <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
-          <h1>Sign In</h1>
-          <div className="input-section">
-            <MyTextInput
-              name="email"
-              label="Email"
-              type="email"
-              id="email"
-              placeholder="Enter your email."
+          <div className="header-wrapper">트립어스에 온 것을 환영합니다!</div>
+
+          <TextInput
+            name="email"
+            label="이메일 주소"
+            type="email"
+            id="email"
+            placeholder="이메일"
+          />
+
+          <TextInput
+            name="pw"
+            label="비밀번호"
+            type="password"
+            id="pw"
+            placeholder="비밀번호"
+          />
+
+          <button type="submit">로그인</button>
+          <div className="line-break">또는</div>
+          <button type="button" className="social-login">
+            <img
+              src={naver_icon_green}
+              alt="Naver log in"
+              className="social-logo"
             />
-            <MyTextInput
-              name="pw"
-              label="Password"
-              type="password"
-              id="pw"
-              placeholder="Enter your password."
-            />
-            <StyledButton type="submit">Sign In</StyledButton>
+            <div className="social-btn-text">네이버 아이디로 로그인</div>
+          </button>
+
+          <div className="toggle" onClick={togglePanel}>
+            아직 회원이 아니신가요?
           </div>
-          <h5 className="line-break">or</h5>
-          <div className="social-login">
-            <img src={naver_large} alt="Naver login button" />
-          </div>
-          <p className="redirect" onClick={togglePanel}>
-            Don't have an account?
-          </p>
         </Form>
       )}
     </Formik>

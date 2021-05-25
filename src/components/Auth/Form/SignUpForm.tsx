@@ -3,7 +3,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 // components
-import { Form, StyledButton, MyTextInput } from "./Form";
+import { TextInput } from "./TextInput";
+import { Form } from "./FormStyle";
 
 const SignUpForm = ({
   className,
@@ -24,13 +25,19 @@ const SignUpForm = ({
         age: "",
       }}
       validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
+        email: Yup.string()
+          .email("이메일 주소를 다시 확인해주세요.")
+          .required("필수 정보입니다."),
         password: Yup.string()
-          .required("Required")
+          .required("필수 정보입니다.")
           .matches(
-            /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,}$/,
-            "Must contain at least 8 characters, a number and one special case character"
+            /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,15}$/,
+            "8~16자 영문 소문자, 숫자, 특수문자를 사용하세요."
           ),
+        name: Yup.string().required("필수 정보입니다."),
+        nickname: Yup.string().required("필수 정보입니다."),
+        phone: Yup.string().required("필수 정보입니다."),
+        age: Yup.string().required("필수 정보입니다."),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
@@ -42,55 +49,64 @@ const SignUpForm = ({
     >
       {(formik) => (
         <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
-          <h1>Sign Up</h1>
+          <div className="header-wrapper">이렇게 안전한 동행은 처음이지?</div>
           <div className="input-section">
-            <MyTextInput
+            <TextInput
               name="email"
-              label="Email"
+              label="이메일"
               type="email"
               id="email"
-              placeholder="Enter your email."
+              placeholder="이메일 주소"
             />
-            <MyTextInput
+            <TextInput
               name="password"
-              label="Password"
+              label="비밀번호"
               type="password"
               id="password"
-              placeholder="Enter your password."
+              placeholder="비밀번호"
             />
-            <MyTextInput
-              name="name"
-              label="Name"
-              type="text"
-              id="name"
-              placeholder="Enter your name."
-            />
-            <MyTextInput
-              name="nickname"
-              label="Nickname"
-              type="text"
-              id="Nickname"
-              placeholder="Enter your nickname."
-            />
-            <MyTextInput
-              name="phone"
-              label="Phone number"
-              type="tel"
-              id="phone"
-              placeholder="Enter your phone number."
-            />
-            <MyTextInput
-              name="age"
-              label="Age"
-              type="number"
-              id="phone"
-              placeholder="Enter your age."
-            />
-            <StyledButton type="button">Sign Up</StyledButton>
+            <div className="col-left">
+              <TextInput
+                name="name"
+                label="실명"
+                type="text"
+                id="name"
+                placeholder="실명"
+              />
+            </div>
+            <div className="col-right">
+              <TextInput
+                name="nickname"
+                label="닉네임"
+                type="text"
+                id="Nickname"
+                placeholder="닉네임"
+              />
+            </div>
+            <div className="col-left">
+              <TextInput
+                name="phone"
+                label="연락처"
+                type="tel"
+                id="phone"
+                placeholder="연락처"
+              />
+            </div>
+            <div className="col-right">
+              <TextInput
+                name="age"
+                label="나이"
+                type="number"
+                id="phone"
+                placeholder="나이"
+              />
+            </div>
+
+            <button type="button">회원가입</button>
           </div>
-          <p className="redirect" onClick={togglePanel}>
-            Already have an account?
-          </p>
+          <div className="toggle" onClick={togglePanel}>
+            이미 회원이세요?
+          </div>
         </Form>
       )}
     </Formik>

@@ -39,16 +39,22 @@ const Auth = ({
         }}
       >
         <CloseButton className="closeButton" onClick={closeModal}>
-          Close
+          닫기
         </CloseButton>
         <FinalForm rightActive={isRightActive} togglePanel={togglePanel} />
         <OverlayContainer rightActive={isRightActive}>
           <Overlay rightActive={isRightActive}>
             <LeftOverlayPanel rightActive={isRightActive}>
               <img src={travelers} alt="" />
+              <div className="toggle" onClick={togglePanel}>
+                이미 회원이세요?
+              </div>
             </LeftOverlayPanel>
             <RightOverlayPanel rightActive={isRightActive}>
               <img src={together} alt="" />
+              <p className="toggle" onClick={togglePanel}>
+                아직 회원이 아니신가요?
+              </p>
             </RightOverlayPanel>
           </Overlay>
         </OverlayContainer>
