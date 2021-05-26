@@ -11,13 +11,17 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 
 const BASE_URL = "https://server.tripus.me";
 
-const onSignIn = (values) => {
+const onSignIn = (values, setIsLogIn) => {
   axios
     .post(BASE_URL + "/login", {
       email: values.email,
       pw: values.pw,
     })
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res);
+      localStorage.setItem("accessToken", res.data.accessToken);
+      setIsLogIn(true);
+    })
     .catch((e) => console.log(e));
 };
 
@@ -25,12 +29,14 @@ const TextInput = (props) => {
   const [field, meta] = useField(props);
   return (
     <div>
-      <label htmlFor={props.id || props.name}>
-        {props.label}
-        {meta.touched && meta.error ? (
-          <span className="error">{meta.error}</span>
-        ) : null}
-      </label>
+      <div className="label-wrapper">
+        <label htmlFor={props.id || props.name}>
+          {props.label}
+          {meta.touched && meta.error ? (
+            <div className="error">{meta.error}</div>
+          ) : null}
+        </label>
+      </div>
       <input
         className="text-input"
         {...field}
@@ -42,7 +48,7 @@ const TextInput = (props) => {
   );
 };
 
-export const SignInForm = ({ className, togglePanel, ...rest }) => {
+export const SignInForm = ({ className, togglePanel, setIsLogIn }) => {
   const initialValues = { email: "", pw: "" };
   return (
     <Formik
@@ -59,13 +65,13 @@ export const SignInForm = ({ className, togglePanel, ...rest }) => {
           ),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        onSignIn(values);
+        onSignIn(values, setIsLogIn);
         setSubmitting(false);
         resetForm();
       }}
     >
       {(formik) => (
-        <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
+        <Form className={className} onSubmit={formik.handleSubmit}>
           <div className="header-wrapper">환영합니다!</div>
           <div className="form-wrapper">
             <div className="input-section">

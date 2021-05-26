@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const DropdownContainer = styled.div`
@@ -43,7 +44,7 @@ const LongDropdownList = styled(DropdownList)`
   }
 `;
 
-const DropdownItem = styled.a`
+const DropdownItem = styled(Link)`
   font-weight: 400;
   padding: 16px;
   text-decoration: none;
@@ -58,55 +59,66 @@ const StyleBreak = styled.hr`
   border-style: ridge;
 `;
 
-const LongDropdownMenu = (isLogin) => {
+const LongDropdownMenu = ({ isLogin, setLogin }) => {
   return (
     <LongDropdownList>
-      <DropdownItem href="/profile">내 프로필</DropdownItem>
-      <DropdownItem href="/account">내 계정</DropdownItem>
+      <DropdownItem to="/profile">내 프로필</DropdownItem>
+      <DropdownItem to="/account">내 계정</DropdownItem>
       <StyleBreak />
-      <DropdownItem href="/submit">모집글 작성</DropdownItem>
-      <DropdownItem href="/search">모집글 목록</DropdownItem>
+      <DropdownItem to="/submit">모집글 작성</DropdownItem>
+      <DropdownItem to="/search">모집글 목록</DropdownItem>
       <StyleBreak />
-      <DropdownItem href="/my-posts">내 작성목록</DropdownItem>
-      <DropdownItem href="/my-applications">내 신청목록</DropdownItem>
+      <DropdownItem to="/my-posts">내 작성목록</DropdownItem>
+      <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
       <StyleBreak />
       {isLogin ? (
-        <DropdownItem href="/">로그아웃</DropdownItem>
+        <DropdownItem to="/">
+          <p
+            onClick={() => {
+              setLogin(false);
+              localStorage.clear();
+            }}
+          >
+            로그아웃
+          </p>
+        </DropdownItem>
       ) : (
         <>
-          <DropdownItem href="/login">로그인</DropdownItem>
+          <DropdownItem to="/login">로그인</DropdownItem>
         </>
       )}
     </LongDropdownList>
   );
 };
 
-const ShortDropDownMenu = (isLogin) => {
+const ShortDropDownMenu = ({ isLogin, setLogin }) => {
   return (
     <ShortDropdownList>
-      <DropdownItem href="/profile">내 프로필</DropdownItem>
-      <DropdownItem href="/account">내 계정</DropdownItem>
+      <DropdownItem to="/profile">내 프로필</DropdownItem>
+      <DropdownItem to="/account">내 계정</DropdownItem>
       <StyleBreak />
-      <DropdownItem href="/my-posts">내 작성목록</DropdownItem>
-      <DropdownItem href="/my-applications">내 신청목록</DropdownItem>
+      <DropdownItem to="/my-posts">내 작성목록</DropdownItem>
+      <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
       <StyleBreak />
       {isLogin ? (
-        <DropdownItem href="/">로그아웃</DropdownItem>
+        <DropdownItem to="/" onClick={() => setLogin(false)}>
+          <p onClick={() => setLogin(false)}>로그아웃</p>
+        </DropdownItem>
       ) : (
         <>
-          <DropdownItem href="/login">로그인</DropdownItem>
+          <DropdownItem to="/login">로그인</DropdownItem>
         </>
       )}
     </ShortDropdownList>
   );
 };
 
-export const Dropdown = ({ isLogin }) => {
+export const Dropdown = ({ isLogin, setLogin }) => {
   return (
     <DropdownContainer>
       <DropdownListContainer>
-        <ShortDropDownMenu isLogin={isLogin} />
-        <LongDropdownMenu isLogin={isLogin} />
+        <ShortDropDownMenu isLogin={isLogin} setLogin={setLogin} />
+        <LongDropdownMenu isLogin={isLogin} setLogin={setLogin} />
       </DropdownListContainer>
     </DropdownContainer>
   );
