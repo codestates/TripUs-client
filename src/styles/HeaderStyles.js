@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
   max-width: 100%;
   width: 100vw;
-  height: 80px;
+  height: 15%;
   background: rgba(255, 255, 255, 0.9);
   z-index: 999;
 

@@ -25,8 +25,6 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 80px;
   }
 
   ::-webkit-scrollbar {

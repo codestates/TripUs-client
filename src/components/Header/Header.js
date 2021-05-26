@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -13,14 +13,14 @@ import { StyledHeader } from "../../styles/HeaderStyles";
 // image
 import logo from "../../images/logo.png";
 
-export const Header = ({ isLogin, dropdownOpen, openDropdown }) => {
+export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
   return (
     <StyledHeader>
       <div className="wrapper">
         <div className="logo">
-          <a to="/" style={{ outline: "none" }}>
+          <Link to="/" style={{ outline: "none" }}>
             <img src={logo} alt="TripUs" />
-          </a>
+          </Link>
         </div>
         <div className="navbar">
           <div className="links">
@@ -35,7 +35,9 @@ export const Header = ({ isLogin, dropdownOpen, openDropdown }) => {
             <div className="user-icon">
               <FaUserCircle />
             </div>
-            {dropdownOpen ? <Dropdown isLogin={isLogin} /> : null}
+            {dropdownOpen ? (
+              <Dropdown isLogin={isLogin} setLogin={setLogin} />
+            ) : null}
           </div>
         </div>
       </div>

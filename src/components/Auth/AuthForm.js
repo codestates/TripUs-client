@@ -9,12 +9,15 @@ import {
 } from "./FormUtils";
 import { SignInForm, SignUpForm } from "./Forms";
 
-const AuthForm = ({ rightActive, togglePanel }) => {
+const AuthForm = ({ rightActive, togglePanel, setIsLogIn }) => {
   return (
     <FormDisplayScreen>
       <FormsContainer>
         <SignInPanel rightActive={rightActive}>
-          <SignInForm togglePanel={togglePanel}></SignInForm>
+          <SignInForm
+            togglePanel={togglePanel}
+            setIsLogIn={setIsLogIn}
+          ></SignInForm>
         </SignInPanel>
         <SignUpPanel rightActive={rightActive}>
           <SignUpForm togglePanel={togglePanel}></SignUpForm>
