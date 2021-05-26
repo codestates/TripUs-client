@@ -4,7 +4,7 @@ import { Formik, useField } from "formik";
 import * as Yup from "yup";
 
 // style
-import { Form } from "../../styles/FormStyles";
+import { Form } from "../../styles/AuthFormStyles";
 
 // images
 import naver_icon_green from "../../images/naver_icon_green.png";

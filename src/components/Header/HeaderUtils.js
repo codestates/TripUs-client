@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const RegularButton = styled(Link)`
+export const RegularButton = styled.a`
   text-decoration: none;
   color: #519de3;
   margin: 0 4px;
