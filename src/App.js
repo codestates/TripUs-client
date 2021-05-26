@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+// styles
+import { GlobalStyle } from "./styles/GlobalStyles";
+
+//components
+import { AuthPage } from "./pages/Auth";
+
+const App = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isRightActive, setIsRightActive] = useState(false);
+  const [isLogin] = useState(false);
+
+  const togglePanel = () => {
+    setIsRightActive((prev) => !prev);
+  };
+
+  const openDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
+
+  window.addEventListener("click", () => {
+    setDropdownOpen(false);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <AuthPage isRightActive={isRightActive} togglePanel={togglePanel} />
+    </>
   );
-}
+};
 
 export default App;
