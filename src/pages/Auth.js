@@ -6,12 +6,11 @@ import { Overlay } from "../components/Auth/Overlay";
 
 const AuthWrapper = styled.div`
   position: absolute;
-  padding-top: 90px;
-  width: 80%;
-  height: 100%;
+  width: 70%;
+  height: 80%;
   display: flex;
-  align-items: center;
   z-index: 1;
+  margin-top: 30px;
   margin-bottom: 4rem;
 `;
 
