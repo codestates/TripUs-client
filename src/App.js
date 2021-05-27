@@ -6,9 +6,14 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 
 //components & pages
 import { Header } from "./components/Header/Header";
+
+import { AuthPage } from "./pages/Auth";
+import SearchBar from "./components/SearchBar/SearchBar";
+
 import AuthPage from "./pages/Auth";
 import LandingPage from "./pages/LandingPage";
 import FooterComponent from "./components/Footer";
+
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -51,6 +56,10 @@ const App = () => {
         openDropdown={openDropdown}
         setLogin={setLogin}
       />
+
+
+      <AuthPage isRightActive={isRightActive} togglePanel={togglePanel} />
+
       <Switch>
         <Route exact path="/login">
           <AuthPage
@@ -64,6 +73,7 @@ const App = () => {
         </Route>
       </Switch>
       <FooterComponent />
+
     </>
   );
 };
