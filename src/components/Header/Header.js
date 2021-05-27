@@ -17,27 +17,29 @@ export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
   return (
     <StyledHeader>
       <div className="wrapper">
-        <div className="logo">
-          <Link to="/" style={{ outline: "none" }}>
-            <img src={logo} alt="TripUs" />
-          </Link>
-        </div>
-        <div className="navbar">
-          <div className="links">
-            <CTAButton href="/submit">모집글 작성</CTAButton>
-            <RegularButton href="/list">모집글 목록</RegularButton>
-            <RegularButton href="/about">서비스 소개</RegularButton>
+        <div className="position-wrapper">
+          <div className="logo">
+            <Link to="/" style={{ outline: "none" }}>
+              <img src={logo} alt="TripUs" />
+            </Link>
           </div>
-          <div className="icon" onClick={openDropdown}>
-            <div className="hamburger-icon">
-              <GiHamburgerMenu />
+          <div className="navbar">
+            <div className="links">
+              <CTAButton href="/submit">모집글 작성</CTAButton>
+              <RegularButton href="/list">모집글 목록</RegularButton>
+              <RegularButton href="/about">서비스 소개</RegularButton>
             </div>
-            <div className="user-icon">
-              <FaUserCircle />
+            <div className="icon" onClick={openDropdown}>
+              <div className="hamburger-icon">
+                <GiHamburgerMenu />
+              </div>
+              <div className="user-icon">
+                <FaUserCircle />
+              </div>
+              {dropdownOpen ? (
+                <Dropdown isLogin={isLogin} setLogin={setLogin} />
+              ) : null}
             </div>
-            {dropdownOpen ? (
-              <Dropdown isLogin={isLogin} setLogin={setLogin} />
-            ) : null}
           </div>
         </div>
       </div>

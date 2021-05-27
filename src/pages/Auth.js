@@ -9,18 +9,18 @@ const AuthWrapper = styled.div`
   position: relative;
   width: 100%;
   min-width: 300px;
-  height: 100%;
+  height: 75%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  z-index: 1;
-  margin-top: 1vw;
-  margin-bottom: 3vw;
+  align-items: center;
+  border: none;
+  word-break: keep-all;
 
   .inner-wrapper {
     position: relative;
     width: 80%;
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 90%;
   }
 `;
 

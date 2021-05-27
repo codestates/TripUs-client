@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const DropdownContainer = styled.div`
+  z-index: 999;
   position: absolute;
   top: 75px;
   min-width: 150px;
@@ -26,9 +27,9 @@ const DropdownList = styled.div`
   padding: 0;
   list-style: none;
   width: 100%;
-  z-index: 999;
   padding-top: 8px;
   justify-content: space-evenly;
+  background: #fff;
 `;
 
 const ShortDropdownList = styled(DropdownList)`
