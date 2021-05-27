@@ -12,6 +12,7 @@ const CardComponent = styled.div`
 
   @media (max-width: 910px) {
     width: 100%;
+    max-height: 240px;
 
     & + & {
       margin-top: 16px;
@@ -24,6 +25,7 @@ const CardComponent = styled.div`
 
   @media (min-width: 910px) {
     margin-top: 0px;
+    min-height: 11rem;
 
     & + & {
       margin-left: 16px;
@@ -93,6 +95,7 @@ const LandingCardSection = styled.section`
   justify-content: center;
   flex-grow: 1;
   transition: width 0.3s ease;
+  margin-top: 3rem;
 
   @media (min-width: 911px) {
     max-height: 230px;
@@ -117,6 +120,10 @@ const LandingCardSection = styled.section`
     text-align: left;
     word-break: keep-all;
     font-size: calc(0.5rem + 1vw);
+
+    @media (max-width: 910px) {
+      font-size: calc(0.8rem + 2vw);
+    }
   }
 
   .cards {
@@ -129,7 +136,7 @@ const LandingCardSection = styled.section`
 
     @media (min-width: 911px) {
       flex-direction: row;
-      max-height: 256px;
+      max-height: 20rem;
     }
   }
 `;

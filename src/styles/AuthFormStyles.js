@@ -73,7 +73,7 @@ export const Form = styled.form`
     padding-right: 0.5rem;
     width: 50%;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 901px) {
       float: none;
       width: 100%;
     }

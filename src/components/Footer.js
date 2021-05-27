@@ -11,17 +11,21 @@ import { DiGithubBadge } from "react-icons/di";
 
 const Footer = styled.footer`
   max-width: 100%;
-  width: 100vw;
+  min-width: 100vw;
   height: 10%;
   border-top: none;
   background-color: rgba(198, 218, 237, 0.65);
   font-family: "PT Sans", sans-serif;
   font-weight: 400;
   color: rgba(87, 118, 148, 0.76);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-  @media (max-width: 920px) {
+  @media (max-width: 911px) {
     flex-direction: column;
-    height: 22%;
+    align-items: center;
+    height: 20%;
     background-color: rgba(198, 218, 237, 0.65);
   }
 `;
@@ -36,10 +40,16 @@ const Container = styled.div`
   font-weight: 400;
   height: 100%;
 
-  @media (max-width: 901px) {
+  @media (max-width: 911px) {
+    width: 65%;
     flex-direction: column-reverse;
     height: 100%;
     align-content: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 911px) {
+    width: 75%;
   }
 `;
 
@@ -47,14 +57,13 @@ const SerInfo = styled.p`
   height: 100%;
   margin: 0;
   padding: 0;
-  padding-left: 2rem;
-
+  font-weight: 700;
   display: flex;
   align-items: center;
 
-  @media (max-width: 901px) {
-    height: 40%;
-    padding-left: 0;
+  @media (max-width: 911px) {
+    height: 30%;
+    width: 100%;
   }
 `;
 
@@ -66,17 +75,14 @@ const GitNav = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 901px) {
+  @media (max-width: 911px) {
+    height: 40%;
     flex-direction: column;
-    height: 60%;
     width: 100%;
-
-    justify-content: center;
-    align-items: center;
   }
 `;
 
-const NameLogoContainer = styled.a`
+const NameLogoContainer = styled.div`
   margin: 0;
   padding: 0;
   width: 33%;
@@ -87,7 +93,12 @@ const NameLogoContainer = styled.a`
   text-decoration: none;
   color: inherit;
 
-  @media (max-width: 901px) {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (max-width: 911px) {
     height: 33%;
     align-content : center;
     width : 100%;
@@ -108,7 +119,7 @@ const IconContainer = styled.div`
     fill: #3085d3;
   }
 
-  @media (max-width: 901px) {
+  @media (max-width: 911px) {
     display: none;
   }
 `;
@@ -119,31 +130,31 @@ const FooterComponent = () => {
       <Container>
         <SerInfo>©2021 TripUS, Inc.</SerInfo>
         <GitNav>
-          <NameLogoContainer href="https://github.com/Hodukim" target="_blank">
+          <NameLogoContainer>
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <p>Kim Wonho</p>
+            <a href="https://github.com/Hodukim" target="_blank">
+              Kim Wonho
+            </a>
           </NameLogoContainer>
 
-          <NameLogoContainer
-            href="https://github.com/hyundonny"
-            target="_blank"
-          >
+          <NameLogoContainer>
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <p>Hyun Don Moon</p>
+            <a href="https://github.com/hyundonny" target="_blank">
+              Hyun Don Moon
+            </a>
           </NameLogoContainer>
 
-          <NameLogoContainer
-            href="https://github.com/dlrmsghk09"
-            target="_blank"
-          >
+          <NameLogoContainer>
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <p>Lee Guenhwa</p>
+            <a href="https://github.com/dlrmsghk09" target="_blank">
+              Lee Guenhwa
+            </a>
           </NameLogoContainer>
         </GitNav>
       </Container>
