@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import cardContents from "./LandingPageCardSectionUtils";
+import { cardContents } from "./LandingPageCardSectionUtils";
 
 const CardComponent = styled.div`
   padding: 0;
