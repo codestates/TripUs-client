@@ -1,22 +1,35 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
   max-width: 100%;
-  width: 100vw;
-  height: 80px;
+  min-width: 100vw;
+  height: 15%;
+  min-height: 100px;
   background: rgba(255, 255, 255, 0.9);
   z-index: 999;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
 
   .wrapper {
-    position: relative;
     height: 100%;
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 700;
     margin: 0 auto;
-    width: 75%;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 911px) {
+      width: 65%;
+    }
+
+    @media (min-width: 911px) {
+      width: 75%;
+    }
+
+    .position-wrapper {
+      position: relative;
+      width: 90%;
+      height: 100%;
+    }
   }
 
   .logo {

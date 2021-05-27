@@ -8,24 +8,20 @@ export const Form = styled.form`
   height: 100%;
   overflow: scroll;
   position: relative;
+  padding-top: 1.7rem;
 
   .header-wrapper {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    font-size: 1.6vw;
+    margin-bottom: 1.5rem;
+    font-size: calc(1rem + 1vw);
     font-weight: 700;
     line-height: 120%;
     text-align: left;
     display: flex;
     align-item: center;
-
-    @media (max-width: 901px) {
-      font-size: 3vw;
-    }
   }
 
   .form-wrapper {
-    min-height: 70%;
+    min-height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,12 +34,16 @@ export const Form = styled.form`
   }
 
   label {
-    font-size: 1.1vw;
+    font-size: calc(0.2rem + 1vw);
     text-align: left;
+    width: 100%;
+  }
 
-    @media (max-width: 901px) {
-      font-size: 2vw;
-    }
+  .label-wrapper {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   input {
@@ -52,7 +52,7 @@ export const Form = styled.form`
     height: 2.7rem;
     border-radius: 0.25rem;
     border: 2px solid #e0e0e0;
-    font-size: 1vw;
+    font-size: calc(0.2rem + 1vw);
     padding-left: 1rem;
 
     @media (min-width: 2000px) {
@@ -63,9 +63,8 @@ export const Form = styled.form`
       height: 2.5rem;
     }
 
-    @media (max-width: 901px) {
+    @media (max-width: 1000px) {
       height: 2rem;
-      font-size: 2vw;
     }
   }
 
@@ -117,9 +116,14 @@ export const Form = styled.form`
 
   .error {
     color: rgba(240, 52, 52, 1);
-    font-size: 0.8rem;
-    padding-left: 8px;
+    font-size: calc(0.17rem + 0.8vw);
     float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    padding-left: 8px;
   }
 
   button {
@@ -133,7 +137,7 @@ export const Form = styled.form`
     padding: 8px 16px;
     font-weight: 700;
     border: 1px solid transparent;
-    font-size: 1vw;
+    font-size: calc(0.5rem + 1vw;);
     text-align: center;
     cursor: pointer;
     background: #000;
@@ -146,10 +150,6 @@ export const Form = styled.form`
     &:hover {
       border-color: #292929;
       background-color: #292929;
-    }
-
-    @media (max-width: 901px) {
-      font-size: 2vw;
     }
   }
 
@@ -179,7 +179,7 @@ export const Form = styled.form`
 
   .toggle {
     @media (max-width: 901px) {
-      font-size: 0.7rem;
+      font-size: calc(0.4rem + 1vw);
       cursor: pointer;
       padding-top: 0.5rem;
       color: rgba(0, 0, 0, 0.5);
