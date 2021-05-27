@@ -6,6 +6,7 @@ import { GlobalStyle } from "./styles/GlobalStyles";
 //components & pages
 import { Header } from "./components/Header/Header";
 import { AuthPage } from "./pages/Auth";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -33,6 +34,7 @@ const App = () => {
         dropdownOpen={dropdownOpen}
         openDropdown={openDropdown}
       />
+
       <AuthPage isRightActive={isRightActive} togglePanel={togglePanel} />
     </>
   );
