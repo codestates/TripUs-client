@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 // utils
 import { RegularButton, CTAButton } from "./HeaderUtils";
-import { Dropdown } from "../Auth/DropdownUtils";
+import { Dropdown } from "./DropdownUtils";
 
 // styles
 import { StyledHeader } from "../../styles/HeaderStyles";

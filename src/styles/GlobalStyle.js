@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     height: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -23,8 +24,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+  }
+
+  .root-wrapper {
+    height: 100%;
   }
 
   ::-webkit-scrollbar {
