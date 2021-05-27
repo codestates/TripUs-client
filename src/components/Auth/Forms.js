@@ -11,16 +11,16 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 
 const BASE_URL = "https://server.tripus.me";
 
-const onSignIn = (values, setIsLogIn) => {
+const onSignIn = (values, setLogin, history) => {
   axios
     .post(BASE_URL + "/login", {
       email: values.email,
       pw: values.pw,
     })
     .then((res) => {
-      console.log(res);
+      setLogin(true);
       localStorage.setItem("accessToken", res.data.accessToken);
-      setIsLogIn(true);
+      history.push("/");
     })
     .catch((e) => console.log(e));
 };
@@ -48,7 +48,7 @@ const TextInput = (props) => {
   );
 };
 
-export const SignInForm = ({ className, togglePanel, setIsLogIn }) => {
+export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
   const initialValues = { email: "", pw: "" };
   return (
     <Formik
@@ -65,7 +65,7 @@ export const SignInForm = ({ className, togglePanel, setIsLogIn }) => {
           ),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        onSignIn(values, setIsLogIn);
+        onSignIn(values, setLogin, history);
         setSubmitting(false);
         resetForm();
       }}

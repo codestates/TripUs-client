@@ -75,8 +75,8 @@ const LongDropdownMenu = ({ isLogin, setLogin }) => {
         <DropdownItem to="/">
           <p
             onClick={() => {
+              localStorage.removeItem("accessToken");
               setLogin(false);
-              localStorage.clear();
             }}
           >
             로그아웃
@@ -101,8 +101,15 @@ const ShortDropDownMenu = ({ isLogin, setLogin }) => {
       <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
       <StyleBreak />
       {isLogin ? (
-        <DropdownItem to="/" onClick={() => setLogin(false)}>
-          <p onClick={() => setLogin(false)}>로그아웃</p>
+        <DropdownItem to="/">
+          <p
+            onClick={() => {
+              localStorage.removeItem("accessToken");
+              setLogin(false);
+            }}
+          >
+            로그아웃
+          </p>
         </DropdownItem>
       ) : (
         <>

@@ -4,8 +4,10 @@ export const StyledHeader = styled.header`
   max-width: 100%;
   width: 100vw;
   height: 15%;
+  min-height: 100px;
   background: rgba(255, 255, 255, 0.9);
   z-index: 999;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
 
   .wrapper {
     position: relative;
