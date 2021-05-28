@@ -6,14 +6,19 @@ import ko from "date-fns/locale/ko";
 
 registerLocale("ko", ko);
 
+const IMAGE_URL =
+  "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2h8ZW58MHwwfDB8Ymx1ZXw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60";
+
 export const SearchBarSection = styled.section`
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHRyYXZlbHxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-image: url(${IMAGE_URL});
   background-position: center;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-blend-mode: color;
 
   .wrapper {
     display: flex;
@@ -33,22 +38,73 @@ export const SearchBarSection = styled.section`
     height: 100%;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      color: #fff;
+      padding-left: 2rem;
+      font-size: calc(1rem + 2vw);
+      margin: 0;
+      margin-bottom: 1rem;
+      word-break: keep-all;
+    }
   }
 
   .searchBar-wrapper {
     width: 100%;
-    height: 40%;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 2rem 0.6rem;
+    background: rgba(0, 0, 0, 0.35);
+    height: 30%;
+    padding: 1.5rem 0.6rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     border-radius: 1rem;
 
     @media (max-width: 911px) {
-      flex-direction: column;
       height: 60%;
+    }
+  }
+
+  .searchBar {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 920px) {
+      flex-direction: column;
+      height: 80%;
+    }
+  }
+
+  .button-wrapper {
+    margin-top: 1.1rem;
+    width: 92%;
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 911px) {
+      margin-top: 0;
+    }
+
+    button {
+      width: 25%;
+      border: none;
+      background: #fff;
+      height: 3.5vh;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+      }
+
+      @media (max-width: 911px) {
+        width: 100%;
+      }
     }
   }
 `;
@@ -58,6 +114,12 @@ const ComponentWrapper = styled.div`
   flex-direction: column;
   height: 10vh;
   width: 23%;
+  label {
+    padding-left: 0.65rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
 
   label + * {
     height: 100%;
@@ -73,7 +135,8 @@ const ComponentWrapper = styled.div`
   }
 
   @media (max-width: 911px) {
-    width: 50%;
+    width: 100%;
+
     input {
       width: 100%;
     }
@@ -84,6 +147,27 @@ const ComponentWrapper = styled.div`
 
     & + & {
       margin-top: 1rem;
+    }
+  }
+`;
+
+const InputWrapper = styled(ComponentWrapper)`
+  input {
+    padding-left: 0.75rem;
+    outline: none;
+  }
+
+  @media (min-width: 911px) {
+    input {
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-right: 1px solid rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  @media (max-width: 911px) {
+    input {
+      border-radius: 0.5rem;
     }
   }
 `;
@@ -99,6 +183,16 @@ const DatePickerWrapper = styled(ComponentWrapper)`
 
     input {
       width: 100%;
+      padding-left: 0.75rem;
+      outline: none;
+
+      @media (min-width: 911px) {
+        border-right: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      @media (max-width: 911px) {
+        border-radius: 0.5rem;
+      }
     }
   }
 
@@ -107,11 +201,29 @@ const DatePickerWrapper = styled(ComponentWrapper)`
   }
 `;
 
-const SelectWrapper = styled(ComponentWrapper)``;
+const SelectWrapper = styled(ComponentWrapper)`
+  select {
+    padding-left: 0.75rem;
+    outline: none;
+  }
+
+  @media (min-width: 911px) {
+    select {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+
+  @media (max-width: 911px) {
+    select {
+      border-radius: 0.5rem;
+    }
+  }
+`;
 
 export const InputBox = ({ destination, setDestination }) => {
   return (
-    <ComponentWrapper>
+    <InputWrapper>
       <label htmlFor="inputBox">여행지</label>
       <input
         type="text"
@@ -119,7 +231,7 @@ export const InputBox = ({ destination, setDestination }) => {
         placeholder="여행지를 검색해보세요."
         onChange={(e) => setDestination(e.target.value)}
       />
-    </ComponentWrapper>
+    </InputWrapper>
   );
 };
 
@@ -157,9 +269,9 @@ export const SelectComponent = ({ travelType, setTravelType }) => {
     <SelectWrapper>
       <label htmlFor="travelType">동행 종류</label>
       <select id="travelType" value={travelType} onChange={handleClick}>
-        <option value="now">바로동행</option>
-        <option value="part">부분동행</option>
-        <option value="full">전체동행</option>
+        <option value="바로동행">바로동행</option>
+        <option value="부분동행">부분동행</option>
+        <option value="전체동행">전체동행</option>
       </select>
     </SelectWrapper>
   );

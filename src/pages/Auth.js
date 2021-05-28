@@ -9,7 +9,7 @@ const AuthWrapper = styled.div`
   position: relative;
   width: 100%;
   min-width: 300px;
-  height: 75%;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
