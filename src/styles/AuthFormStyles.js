@@ -6,7 +6,6 @@ export const Form = styled.form`
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: scroll;
   position: relative;
   padding-top: 1.7rem;
 
