@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import cardContents from "./LandingPageCardSectionUtils";
+import { cardContents } from "./LandingPageCardSectionUtils";
 
 const CardComponent = styled.div`
   padding: 0;
@@ -107,7 +107,7 @@ const LandingCardSection = styled.section`
     align-items: center;
 
     @media (max-width: 911px) {
-      width: 65%;
+      width: 90%;
     }
 
     @media (min-width: 911px) {

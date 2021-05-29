@@ -6,7 +6,6 @@ export const Form = styled.form`
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: scroll;
   position: relative;
   padding-top: 1.7rem;
 
@@ -33,17 +32,16 @@ export const Form = styled.form`
     justify-content: center;
   }
 
-  label {
-    font-size: calc(0.2rem + 1vw);
-    text-align: left;
-    width: 100%;
-  }
-
   .label-wrapper {
     height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    label {
+      font-size: 1rem;
+      padding-left: 0.35rem;
+    }
   }
 
   input {
@@ -52,8 +50,8 @@ export const Form = styled.form`
     height: 2.7rem;
     border-radius: 0.25rem;
     border: 2px solid #e0e0e0;
+    padding-left: 0.5rem;
     font-size: calc(0.2rem + 1vw);
-    padding-left: 1rem;
 
     @media (min-width: 2000px) {
       min-height: 3.7rem;
@@ -63,8 +61,9 @@ export const Form = styled.form`
       height: 2.5rem;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 911px) {
       height: 2rem;
+      font-size: calc(0.5rem + 1vw);
     }
   }
 

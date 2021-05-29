@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     font-family: 'Nanum Gothic', sans-serif;
+    outline: none;
   }
 
   html {
@@ -12,8 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     height: 100%;
-    min-height: 100vh;
-    min-width: 500px;
+    min-height: 100vh;  
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;

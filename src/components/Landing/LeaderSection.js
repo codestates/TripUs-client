@@ -2,27 +2,39 @@ import React from "react";
 import styled from "styled-components";
 
 const LeaderSectionComponent = styled.section`
+  width: 100%;
   margin-top: 3rem;
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHRvZ2V0aGVyfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: color;
 
   @media (max-width: 911px) {
-    width: 65%;
     height: 70vh;
   }
 
   @media (min-width: 911px) {
-    width: 75%;
-    height: 60vh;
+    height: 85vh;
+  }
+
+  .position-wrapper {
+    @media (max-width: 911px) {
+      width: 90%;
+    }
+
+    @media (min-width: 911px) {
+      width: 75%;
+    }
   }
 
   .image-wrapper {
     position: relative;
     width: 90%;
     height: 100%;
-    background-image: url("https://images.unsplash.com/photo-1499540633125-484965b60031?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZnJpZW5kc3xlbnwwfDB8MHxibGFja3w%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
-    background-size: cover;
-    background-position: center;
 
     .overlay {
       position: absolute;
@@ -30,7 +42,6 @@ const LeaderSectionComponent = styled.section`
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(0, 0, 0, 0.25);
       display: flex;
       align-items: center;
     }
@@ -52,7 +63,7 @@ const LeaderSectionComponent = styled.section`
       h3 {
         margin: 0;
         padding: 0;
-        font-size: 1.5rem;
+        font-size: calc(1.25rem + 1vw);
 
         @media (max-width: 910px) {
           margin-bottom: 1rem;
@@ -62,7 +73,7 @@ const LeaderSectionComponent = styled.section`
       p {
         margin: 0;
         padding: 0;
-        font-size: 1rem;
+        font-size: calc(1.25rem + 0.5vw);
 
         @media (max-width: 910px) {
           margin-bottom: 2rem;
@@ -71,13 +82,14 @@ const LeaderSectionComponent = styled.section`
 
       button {
         width: 40%;
-        min-height: 2rem;
+        padding: 0.5rem;
         border: 1px solid transparent;
         border-radius: 4px;
         color: rgba(255, 255, 255, 0.95);
         background: rgba(169, 169, 169, 0.8);
         cursor: pointer;
-
+        font-weight: 700;
+        font-size: calc(0.5rem + 0.75vw);
         &:hover {
           background: rgba(169, 169, 169, 0.9);
         }
@@ -93,12 +105,17 @@ const LeaderSectionComponent = styled.section`
 const LeaderSection = () => {
   return (
     <LeaderSectionComponent>
-      <div className="image-wrapper">
-        <div className="overlay">
-          <div className="text-wrapper">
-            <h3>리더가 되어 여행원을 모집해보세요!</h3>
-            <p>새로운 사람과 새로운 장소에서 특별한 추억을 만들어 보세요.</p>
-            <button>시작하기</button>
+      <div className="position-wrapper">
+        <div className="image-wrapper">
+          <div className="overlay">
+            <div className="text-wrapper">
+              <h3>리더가 되어 여행원을 모집해보세요!</h3>
+              <p>
+                새로운 사람과 새로운 장소에서 특별한 추억을 만들어 보시길
+                바랍니다.
+              </p>
+              <button>시작하기</button>
+            </div>
           </div>
         </div>
       </div>

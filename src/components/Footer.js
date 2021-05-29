@@ -41,7 +41,7 @@ const Container = styled.div`
   height: 100%;
 
   @media (max-width: 911px) {
-    width: 65%;
+    width: 90%;
     flex-direction: column-reverse;
     height: 100%;
     align-content: center;
@@ -134,7 +134,11 @@ const FooterComponent = () => {
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <a href="https://github.com/Hodukim" target="_blank">
+            <a
+              href="https://github.com/Hodukim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Kim Wonho
             </a>
           </NameLogoContainer>
@@ -143,7 +147,11 @@ const FooterComponent = () => {
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <a href="https://github.com/hyundonny" target="_blank">
+            <a
+              href="https://github.com/hyundonny"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Hyun Don Moon
             </a>
           </NameLogoContainer>
@@ -152,7 +160,11 @@ const FooterComponent = () => {
             <IconContainer>
               <DiGithubBadge />
             </IconContainer>
-            <a href="https://github.com/dlrmsghk09" target="_blank">
+            <a
+              href="https://github.com/dlrmsghk09"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Lee Guenhwa
             </a>
           </NameLogoContainer>

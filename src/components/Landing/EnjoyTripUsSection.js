@@ -6,43 +6,47 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 const EnjoyTripUsSectionComponent = styled.section`
   margin-top: 3rem;
-  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   height: 45vh;
   word-break: keep-all;
+  width: 100%;
+  background: #111921;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   @media (max-width: 911px) {
-    width: 65%;
     height: 60vh;
   }
 
-  @media (min-width: 911px) {
-    width: 75%;
-  }
-
   .section-wrapper {
-    width: 90%;
     height: 100%;
-    background: #111921;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 
     color: rgba(255, 255, 255, 0.9);
+
+    @media (max-width: 911px) {
+      width: 90%;
+    }
+
+    @media (min-width: 911px) {
+      width: 75%;
+    }
 
     h3 {
       display: flex;
       align-items: center;
+      justify-content: center;
       font-size: calc(1rem + 1vw);
-      margin-bottom: 0;
     }
 
     .methods-wrapper {
-      width: 100%;
+      width: 90%;
       height: 100%;
       display: flex;
+      justify-content: center;
       align-items: center;
 
       @media (max-width: 911px) {
@@ -60,6 +64,15 @@ const EnjoyTripUsSectionComponent = styled.section`
 
         @media (max-width: 911px) {
           width: 90%;
+        }
+
+        &:first-of-type {
+          @media (min-width: 911px) {
+            border-right: 1px solid #fff;
+          }
+          @media (max-width: 911px) {
+            border-bottom: 1px solid #fff;
+          }
         }
       }
 

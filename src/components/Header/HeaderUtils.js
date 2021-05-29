@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const RegularButton = styled.a`
+export const RegularButton = styled(Link)`
   text-decoration: none;
-  color: #519de3;
+  color: rgba(70, 70, 70, 0.95);
   margin: 0 4px;
   padding: 16px;
   border-radius: 4px;
@@ -10,16 +11,11 @@ export const RegularButton = styled.a`
   transition: all 0.3s ease;
   outline: none;
 
-  :hover {
-    border: 1px solid #519de3;
+  &:hover {
+    background: rgba(0, 0, 0, 0.15);
   }
 `;
 
 export const CTAButton = styled(RegularButton)`
-  color: #fff;
-  background: #519de3;
-
-  :hover {
-    background: #3698f2;
-  }
+  color: rgba(50, 50, 50, 0.95);
 `;
