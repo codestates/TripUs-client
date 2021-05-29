@@ -56,6 +56,9 @@ const App = () => {
             setLogin={setLogin}
           />
         </Route>
+        {/* <Route path="/search">
+          <Test />
+        </Route> */}
         <Route exact path="/">
           <LandingPage />
         </Route>

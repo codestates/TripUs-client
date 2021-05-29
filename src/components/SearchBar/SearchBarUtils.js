@@ -49,6 +49,10 @@ export const SearchBarSection = styled.section`
       margin-bottom: 1rem;
       word-break: keep-all;
     }
+
+    @media (max-width: 911px) {
+      width: 100%;
+    }
   }
 
   .searchBar-wrapper {
@@ -60,10 +64,11 @@ export const SearchBarSection = styled.section`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 
     @media (max-width: 911px) {
       height: 60%;
+      border-radius: 0;
     }
   }
 
@@ -73,9 +78,10 @@ export const SearchBarSection = styled.section`
     display: flex;
     justify-content: center;
 
-    @media (max-width: 920px) {
+    @media (max-width: 911px) {
       flex-direction: column;
       height: 80%;
+      width: 90%;
     }
   }
 
@@ -84,6 +90,7 @@ export const SearchBarSection = styled.section`
     width: 92%;
     display: flex;
     justify-content: flex-end;
+    height: 2.5rem;
 
     @media (max-width: 911px) {
       margin-top: 0;
@@ -93,9 +100,9 @@ export const SearchBarSection = styled.section`
       width: 25%;
       border: none;
       background: #fff;
-      height: 3.5vh;
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
       cursor: pointer;
+      height: 100%;
 
       &:hover {
         background: rgba(0, 0, 0, 0.5);
@@ -104,6 +111,7 @@ export const SearchBarSection = styled.section`
 
       @media (max-width: 911px) {
         width: 100%;
+        border-radius: 0;
       }
     }
   }
@@ -167,7 +175,7 @@ const InputWrapper = styled(ComponentWrapper)`
 
   @media (max-width: 911px) {
     input {
-      border-radius: 0.5rem;
+      border-radius: 0;
     }
   }
 `;
@@ -191,7 +199,8 @@ const DatePickerWrapper = styled(ComponentWrapper)`
       }
 
       @media (max-width: 911px) {
-        border-radius: 0.5rem;
+        border-radius: 0;
+        padding-left: 0.3rem;
       }
     }
   }
@@ -216,7 +225,8 @@ const SelectWrapper = styled(ComponentWrapper)`
 
   @media (max-width: 911px) {
     select {
-      border-radius: 0.5rem;
+      border-radius: 0;
+      padding-left: 0.3rem;
     }
   }
 `;

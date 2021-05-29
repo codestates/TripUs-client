@@ -8,8 +8,6 @@ import {
   SearchBarSection,
 } from "./SearchBarUtils";
 
-const BASE_URL = "https://server.tripus.me";
-
 const SearchBar = () => {
   const [destination, setDestination] = useState("");
   const [departureDate, setDepartureDate] = useState(null);
