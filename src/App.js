@@ -7,7 +7,6 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 //components & pages
 import { Header } from "./components/Header/Header";
 
-import SearchBar from "./components/SearchBar/SearchBar";
 import AuthPage from "./pages/Auth";
 import LandingPage from "./pages/LandingPage";
 import FooterComponent from "./components/Footer";
@@ -23,10 +22,6 @@ const App = () => {
       setIsLogIn(true);
     }
   }, []);
-
-  useEffect(() => {
-    console.log(isLogin);
-  }, [isLogin]);
 
   const setLogin = (bool) => {
     setIsLogIn(bool);
@@ -63,6 +58,9 @@ const App = () => {
             setLogin={setLogin}
           />
         </Route>
+        {/* <Route path="/search">
+          <Test />
+        </Route> */}
         <Route exact path="/">
           <LandingPage />
         </Route>

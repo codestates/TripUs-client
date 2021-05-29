@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const LeaderSectionComponent = styled.section`
   margin-top: 3rem;
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
 

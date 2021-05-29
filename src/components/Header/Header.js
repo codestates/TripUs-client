@@ -26,8 +26,8 @@ export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
           <div className="navbar">
             <div className="links">
               <CTAButton to="/submit">모집글 작성</CTAButton>
-              <RegularButton href="/list">모집글 목록</RegularButton>
-              <RegularButton href="/about">서비스 소개</RegularButton>
+              <RegularButton to="/list">모집글 목록</RegularButton>
+              <RegularButton to="/about">서비스 소개</RegularButton>
             </div>
             <div className="icon" onClick={openDropdown}>
               <div className="hamburger-icon">

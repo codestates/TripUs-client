@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const StyledHeader = styled.header`
   max-width: 100%;
   min-width: 100vw;
-  height: 15%;
+  height: 10%;
   min-height: 100px;
-  background: rgba(255, 255, 255, 0.9);
   z-index: 999;
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
+  background: rgba(255, 255, 255, 0.99);
 
   .wrapper {
     height: 100%;
@@ -43,7 +43,13 @@ export const StyledHeader = styled.header`
     height: 100%;
 
     img {
-      height: 2rem;
+      @media (max-width: 911px) {
+        height: 1.3rem;
+      }
+
+      @media (min-width: 911px) {
+        height: 2rem;
+      }
     }
   }
 

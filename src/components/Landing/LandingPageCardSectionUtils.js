@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const cardSectionImgs = {
   HANOI:
     "https://images.unsplash.com/photo-1555921015-5532091f6026?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -16,7 +18,7 @@ const cardSectionImgs = {
   FULL: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJpZW5kc3xlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 };
 
-const cardContents = {
+export const cardContents = {
   travelCategory: {
     title: "새 친구와 설레는 여행!",
     contents: [
@@ -36,4 +38,17 @@ const cardContents = {
   },
 };
 
-export default cardContents;
+export const LandingPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  @media (min-width: 911px) {
+    height: 120rem;
+  }
+
+  @media (max-width: 910px) {
+    height: 200rem;
+  }
+`;
