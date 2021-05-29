@@ -122,19 +122,20 @@ export const Re_DepartureDate = styled.p`
 `;
 
 export const SearchBtn = styled.button`
-display:flex;
+  display: flex;
   border-radius: 5%;
-  width:100px;
+  width: 100px;
   height: 70px;
-  margin-top:30px;
-  padding-top:17px;
-  padding-left:30px;
+  margin-top: 30px;
+  padding-top: 17px;
+  padding-left: 30px;
   border: none;
-  background-color: rgba(57,150,255,1);
+  background-color: rgba(57, 150, 255, 1);
   cursor: pointer;
   svg {
     height: 32px;
     width: 32px;
     stroke: white;
     fill: white;
+  }
 `;

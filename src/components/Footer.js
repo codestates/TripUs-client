@@ -100,9 +100,10 @@ const NameLogoContainer = styled.div`
 
   @media (max-width: 911px) {
     height: 33%;
-    align-content : center;
-    width : 100%;
+    align-content: center;
+    width: 100%;
     justify-content: flex-start;
+  }
 `;
 
 const IconContainer = styled.div`
