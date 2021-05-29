@@ -8,8 +8,7 @@ import { Overlay } from "../components/Auth/Overlay";
 const AuthWrapper = styled.div`
   position: relative;
   width: 100%;
-  min-width: 300px;
-  height: 85vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,8 +18,15 @@ const AuthWrapper = styled.div`
 
   .inner-wrapper {
     position: relative;
-    width: 80%;
-    height: 90%;
+    height: 100%;
+
+    @media (max-width: 911px) {
+      width: 90%;
+    }
+
+    @media (min-width: 911px) {
+      width: 75%;
+    }
   }
 `;
 

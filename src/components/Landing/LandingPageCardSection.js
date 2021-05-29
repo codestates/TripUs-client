@@ -107,7 +107,7 @@ const LandingCardSection = styled.section`
     align-items: center;
 
     @media (max-width: 911px) {
-      width: 65%;
+      width: 90%;
     }
 
     @media (min-width: 911px) {

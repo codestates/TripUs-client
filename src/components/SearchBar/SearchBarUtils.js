@@ -25,7 +25,7 @@ export const SearchBarSection = styled.section`
     justify-content: center;
     height: 100%;
     @media (max-width: 911px) {
-      width: 65%;
+      width: 90%;
     }
 
     @media (min-width: 911px) {
@@ -67,7 +67,8 @@ export const SearchBarSection = styled.section`
     border-radius: 0.5rem;
 
     @media (max-width: 911px) {
-      height: 60%;
+      height: 70%;
+      padding: 2rem 0.6rem;
       border-radius: 0;
     }
   }
@@ -120,7 +121,7 @@ export const SearchBarSection = styled.section`
 const ComponentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 10vh;
+  height: 100%;
   width: 23%;
   label {
     padding-left: 0.65rem;
@@ -193,6 +194,7 @@ const DatePickerWrapper = styled(ComponentWrapper)`
       width: 100%;
       padding-left: 0.75rem;
       outline: none;
+      padding-left: 0.75rem;
 
       @media (min-width: 911px) {
         border-right: 1px solid rgba(0, 0, 0, 0.25);
@@ -200,7 +202,6 @@ const DatePickerWrapper = styled(ComponentWrapper)`
 
       @media (max-width: 911px) {
         border-radius: 0;
-        padding-left: 0.3rem;
       }
     }
   }
@@ -226,7 +227,6 @@ const SelectWrapper = styled(ComponentWrapper)`
   @media (max-width: 911px) {
     select {
       border-radius: 0;
-      padding-left: 0.3rem;
     }
   }
 `;
