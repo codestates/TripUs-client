@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   height: 10%;
   min-height: 100px;
   z-index: 999;
-  box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.99);
 
   .wrapper {
@@ -18,7 +18,7 @@ export const StyledHeader = styled.header`
     justify-content: center;
 
     @media (max-width: 911px) {
-      width: 65%;
+      width: 90%;
     }
 
     @media (min-width: 911px) {

@@ -28,7 +28,7 @@ const EnjoyTripUsSectionComponent = styled.section`
     color: rgba(255, 255, 255, 0.9);
 
     @media (max-width: 911px) {
-      width: 65%;
+      width: 90%;
     }
 
     @media (min-width: 911px) {
