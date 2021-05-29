@@ -9,6 +9,8 @@ import { Header } from "./components/Header/Header";
 import AuthPage from "./pages/Auth";
 import LandingPage from "./pages/LandingPage";
 import FooterComponent from "./components/Footer";
+import SearchListPage from "./pages/SearchListPage";
+import SearchList from "./components/SearchList/SearchList";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -56,9 +58,9 @@ const App = () => {
             setLogin={setLogin}
           />
         </Route>
-        {/* <Route path="/search">
-          <Test />
-        </Route> */}
+        <Route path="/search">
+          <SearchListPage />
+        </Route>
         <Route exact path="/">
           <LandingPage />
         </Route>

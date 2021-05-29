@@ -58,7 +58,7 @@ export const SearchBarSection = styled.section`
   .searchBar-wrapper {
     width: 100%;
     background: rgba(0, 0, 0, 0.35);
-    height: 30%;
+    height: 33%;
     padding: 1.5rem 0.6rem;
     display: flex;
     flex-direction: column;
@@ -75,7 +75,7 @@ export const SearchBarSection = styled.section`
 
   .searchBar {
     width: 100%;
-    height: 65%;
+    height: 75%;
     display: flex;
     justify-content: center;
 

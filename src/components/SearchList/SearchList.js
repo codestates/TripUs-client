@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
+import Card from "./Card";
+
 const SearchList = () => {
   const [searchResults, setSearchResults] = useState([]);
-  console.log(searchResults);
 
   const query = new URLSearchParams(useLocation().search);
 
@@ -31,16 +32,23 @@ const SearchList = () => {
     }
   }, []);
 
-  const results = searchResults.map((result) => {
-    return (
-      <div key={result.nickname}>
-        <h1>{result.destination.toUpperCase()}</h1>
-        <p>{result.departure_date}</p>
-      </div>
-    );
-  });
+  if (searchResults.length > 0) {
+    const cards = searchResults.map((data) => {
+      return (
+        <Card
+          title={data.title}
+          departure_date={data.departure_date}
+          return_date={data.return_date}
+          people_num={data.people_num}
+          key={data.nickname}
+        />
+      );
+    });
 
-  return <div>{results}</div>;
+    return <>{cards}</>;
+  }
+
+  return <div>No results... try again!</div>;
 };
 
 export default SearchList;
