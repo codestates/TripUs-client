@@ -6,9 +6,17 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 
 //components & pages
 import { Header } from "./components/Header/Header";
+
+
+import SearchBar from "./components/SearchBar/SearchBar";
+
+
+=======
 import AuthPage from "./pages/Auth";
 import LandingPage from "./pages/LandingPage";
 import FooterComponent from "./components/Footer";
+import About from "./components/About/About";
+
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -56,9 +64,11 @@ const App = () => {
             setLogin={setLogin}
           />
         </Route>
-        {/* <Route path="/search">
-          <Test />
-        </Route> */}
+
+        <Route exact path="/about">
+          <About />
+        </Route>
+
         <Route exact path="/">
           <LandingPage />
         </Route>
