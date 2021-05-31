@@ -37,7 +37,7 @@ const AuthWrapper = styled.div`
     }
 
     @media (min-width: 911px) {
-      width: 75%;
+      width: 80%;
     }
   }
 `;

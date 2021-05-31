@@ -2,48 +2,36 @@ import styled from "styled-components";
 
 export const SearchPageWrapper = styled.div`
   display: flex;
-  column-gap: 5%;
+  margin-top: 1rem;
 
-  @media (max-width: 911px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const ResultsSection = styled.div`
-  display: grid;
-  justify-content: space-between;
-  width: 75%;
+  flex: 0 0 70%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  min-width: 100%;
 
   @media (max-width: 911px) {
-    width: 100%;
-  }
-
-  @media (max-width: 700px) {
-    grid-template-columns: 100%;
-  }
-
-  @media (min-width: 700px) {
-    grid-template-columns: repeat(2, 47%);
-  }
-
-  @media (min-width: 1400px) {
-    grid-template-columns: repeat(3, 32%);
-  }
-
-  @media (min-width: 1800px) {
-    grid-template-columns: repeat(4, 24%);
+    margin-top: 1rem;
+    padding: 0;
   }
 `;
 
 export const SideBarSection = styled.div`
-  background: pink;
-  padding: 1rem;
+  padding: 2rem;
+  min-width: 100%;
 
   @media (max-width: 911px) {
-    width: 100%;
+    padding: 0;
   }
+`;
 
-  @media (min-width: 911px) {
-    width: 20%;
-  }
+export const SideBarWrapper = styled.div``;
+
+export const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

@@ -12,6 +12,7 @@ import { DiGithubBadge } from "react-icons/di";
 const Footer = styled.footer`
   max-width: 100%;
   min-width: 100vw;
+  height: 10%;
   border-top: none;
   background-color: rgba(198, 218, 237, 0.65);
   font-family: "PT Sans", sans-serif;

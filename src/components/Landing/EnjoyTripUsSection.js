@@ -32,7 +32,7 @@ const EnjoyTripUsSectionComponent = styled.section`
     }
 
     @media (min-width: 911px) {
-      width: 75%;
+      width: 80%;
     }
 
     h3 {
