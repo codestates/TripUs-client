@@ -11,7 +11,7 @@ import AuthPage from "./pages/Auth";
 import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
-import About from "./components/About/About";
+import AboutPage from "./pages/About";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -60,7 +60,7 @@ const App = () => {
           />
         </Route>
         <Route exact path="/about">
-          <About />
+          <AboutPage />
         </Route>
         <Route path="/search">
           <SearchListPage />

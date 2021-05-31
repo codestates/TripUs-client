@@ -60,6 +60,7 @@ const RecommendationSectionWrapper = styled.div`
     margin-bottom: 2rem;
     font-size: calc(1.25rem + 1vw);
     word-break: keep-all;
+    color: #333;
   }
 
   .cards {

@@ -218,8 +218,6 @@ const SearchBar = ({ fontColor, role }) => {
   const [formattedReturnDate, setFormattedReturnDate] = useState("");
   const history = useHistory();
 
-  console.log(role);
-
   const handleSubmit = (
     formattedDepartureDate,
     formattedReturnDate,
