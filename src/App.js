@@ -7,13 +7,10 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 //components & pages
 import { Header } from "./components/Header/Header";
 
-
-import SearchBar from "./components/SearchBar/SearchBar";
 import AuthPage from "./pages/Auth";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
-import SearchList from "./components/SearchList/SearchList";
 import About from "./components/About/About";
 
 const App = () => {
