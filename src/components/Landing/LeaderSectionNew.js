@@ -30,6 +30,7 @@ const LeaderSectionWrapper = styled.div`
   .text {
     font-size: calc(1rem + 0.75vw);
     width: 40%;
+    line-height: 1.5;
 
     @media (max-width: 911px) {
       width: 70%;
@@ -70,7 +71,7 @@ const LeaderSectionWrapper = styled.div`
 
 const LeaderSection = () => {
   return (
-    <Page background={IMG_URL} height={80} position={"bottom"} overlay={true}>
+    <Page background={IMG_URL} height={80} position={"bottom"} overlay={0.4}>
       <OuterWrapper>
         <InnerWrapper>
           <LeaderSectionWrapper>

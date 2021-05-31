@@ -7,7 +7,7 @@ export const Page = styled.div`
   overflow: auto;
   background: ${(props) =>
     props.background && props.overlay
-      ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props.background})`
+      ? `linear-gradient(to bottom, rgba(0, 0, 0, ${props.overlay}), rgba(0, 0, 0, ${props.overlay})), url(${props.background})`
       : props.background
       ? `url(${props.background})`
       : props.color};

@@ -177,7 +177,11 @@ const Card = (props) => {
         <div className="card-info">
           <div className="author-info">
             <div>
-              <i class="far fa-user-circle"></i>
+              {props.verified ? (
+                <i class="fas fa-check-circle"></i>
+              ) : (
+                <i class="fas fa-exclamation"></i>
+              )}
             </div>
             <p className="username">{props.nickname}</p>
           </div>

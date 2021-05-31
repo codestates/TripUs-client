@@ -16,7 +16,7 @@ const GuideSectionWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: #f5f5f5;
   word-break: keep-all;
@@ -24,7 +24,6 @@ const GuideSectionWrapper = styled.div`
   .section-title {
     font-size: calc(1rem + 1.5vw);
     font-weight: 700;
-    margin-bottom: 4rem;
   }
 
   .content-area {
@@ -41,9 +40,9 @@ const GuideSectionWrapper = styled.div`
 
 // guide style
 const StyledGuide = styled(Link)`
-  width: calc(50% - 2rem);
+  width: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   color: #f5f5f5;
   text-decoration: none;

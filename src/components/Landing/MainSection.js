@@ -9,7 +9,7 @@ import {
 
 import SearchBar from "../Common/SearchBar";
 
-const IMAGE_URL =
+const IMG_URL =
   "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2h8ZW58MHwwfDB8Ymx1ZXw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60";
 
 // section style
@@ -36,7 +36,7 @@ const MainSectionWrapper = styled.div`
 // section
 const MainSection = () => {
   return (
-    <Page background={IMAGE_URL} height={90}>
+    <Page background={IMG_URL} height={90}>
       <OuterWrapper>
         <InnerWrapper>
           <MainSectionWrapper>
