@@ -27,6 +27,7 @@ const SearchList = () => {
           },
         })
         .then((res) => {
+          console.log(res);
           setSearchResults(res.data.data);
           setLoading(false);
         })
@@ -39,7 +40,7 @@ const SearchList = () => {
       return (
         <Card
           title={data.title}
-          type={data.type}
+          type={data.travel_type}
           destination={data.destination}
           departure_date={data.departure_date}
           return_date={data.return_date}

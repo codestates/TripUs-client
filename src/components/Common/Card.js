@@ -19,9 +19,10 @@ const searchCardStyles = css`
     width: calc(100% - 20px);
   }
 `;
+
 const myListsCardStyles = css`
   @media (min-width: 991px) {
-    width: calc(49% - 20px);
+    width: calc(40% - 20px);
   }
 
   @media (max-width: 991px) {
@@ -37,6 +38,8 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0.6rem 2rem 0.6rem;
+  max-height: 30rem;
+  overflow: scroll;
 
   box-shadow: 0 0 1rem 1px rgba(0, 0, 0, 0.25);
   border-bottom-left-radius: 6px;
@@ -199,9 +202,9 @@ const Card = (props) => {
           <div className="author-info">
             <div>
               {props.verified ? (
-                <i class="fas fa-check-circle"></i>
+                <i className="fas fa-check-circle"></i>
               ) : (
-                <i class="fas fa-exclamation"></i>
+                <i className="fas fa-exclamation"></i>
               )}
             </div>
             <p className="username">{props.nickname}</p>
@@ -213,7 +216,7 @@ const Card = (props) => {
           <div className="trip-destination">{props.destination}</div>
           <div className="trip-type">{props.type}</div>
         </div>
-        <h3 className="card-title">{props.title}</h3>
+        <h3 className="card-title">{`${props.title.slice(0, 20)}...`}</h3>
         <p className="card-trip-duration">
           {props.departure_date}~{props.return_date}
         </p>

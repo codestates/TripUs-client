@@ -1,9 +1,9 @@
 import React from "react";
 
-import Structural_Layout from "../components/Recruitment/Structural_layout";
+import Recruit from "../components/Recruitment/Recruit";
 
-const Recruitment = () => {
-  return <Structural_Layout />;
+const RecruitmentPage = () => {
+  return <Recruit />;
 };
 
-export default Recruitment;
+export default RecruitmentPage;

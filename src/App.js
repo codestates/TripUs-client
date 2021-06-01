@@ -12,7 +12,7 @@ import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
-import Recruitment from "./pages/Recruitment";
+import RecruitmentPage from "./pages/Recruitment";
 import MyPostsPage from "./pages/MyPosts";
 import MyApplicationsPage from "./pages/MyApplications";
 
@@ -69,7 +69,7 @@ const App = () => {
           <SearchListPage />
         </Route>
         <Route exact path="/submit">
-          <Recruitment />
+          <RecruitmentPage />
         </Route>
         <Route path="/my-posts">
           <MyPostsPage />

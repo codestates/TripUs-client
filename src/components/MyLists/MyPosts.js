@@ -9,6 +9,7 @@ const BASE_URL = "https://server.tripus.me";
 const MyPostsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  min-width: 100%;
 `;
 
 const MyPosts = ({ token, role }) => {
@@ -16,16 +17,21 @@ const MyPosts = ({ token, role }) => {
   const [loading, setLoading] = useState(false);
 
   const path = {
-    posts: "/my-posts",
+    posts: "/myposts",
     applications: "/my-applications",
+  };
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
   };
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get(BASE_URL + path[role])
+      .get(BASE_URL + path[role], config)
       .then((res) => {
         console.log(res);
+        setSearchResults(res.data.data);
         setLoading(false);
       })
       .catch((e) => {
@@ -47,7 +53,7 @@ const MyPosts = ({ token, role }) => {
       return (
         <Card
           title={data.title}
-          type={data.type}
+          type={data.travel_type}
           destination={data.destination}
           departure_date={data.departure_date}
           return_date={data.return_date}
