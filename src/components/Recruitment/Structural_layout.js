@@ -22,6 +22,7 @@ const Structural_Layout = () => {
   const refDislike = useRef(null);
   const refDetails = useRef(null);
 
+  //! date 값 변경
   useEffect(() => {
     const dDate = new Date(departureDate);
     setFormattedDepartureDate(
@@ -40,6 +41,7 @@ const Structural_Layout = () => {
     );
   }, [returnDate]);
 
+  //! textarea 자동 사이즈 변환
   const reSizeLike = useCallback(() => {
     if (refLike === null || refLike.current === null) {
       return;
@@ -64,6 +66,7 @@ const Structural_Layout = () => {
     refDetails.current.style.height = refDetails.current.scrollHeight + "px";
   }, []);
 
+  //! 새 글 작성
   const handleCLick = (values) => {
     if (accessToken === "" || accessToken === null) {
       history.push("/");
@@ -100,6 +103,7 @@ const Structural_Layout = () => {
     }
   };
 
+  //! 취소버튼
   const handleCancel = () => {
     history.push("/");
   };
@@ -132,6 +136,7 @@ const Structural_Layout = () => {
                 <div className="title-container">
                   <h1 className="title">모집글 작성</h1>
                 </div>
+
                 <div className="departure-and-moim-container">
                   <div className="label-and-input">
                     <div className="main-label">제목</div>
@@ -153,7 +158,6 @@ const Structural_Layout = () => {
                     ></input>
                   </div>
                 </div>
-
                 <div className="departure-and-moim-container">
                   <div className="label-and-input">
                     <div className="main-label">연락처</div>
