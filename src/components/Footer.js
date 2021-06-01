@@ -21,6 +21,7 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-size: calc(0.5rem + 0.75vw);
 
   @media (max-width: 911px) {
     flex-direction: column;
@@ -36,7 +37,6 @@ const Container = styled.div`
   align-items: center;
   padding-left: 32px;
   padding-right: 32px;
-  width: 100%;
   font-weight: 400;
   height: 100%;
 
@@ -71,7 +71,7 @@ const SerInfo = styled.p`
 //깃내브도 coloumn으로 바꿔줘서
 const GitNav = styled.div`
   height: 100%;
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: center;
 
@@ -129,7 +129,7 @@ const FooterComponent = () => {
   return (
     <Footer>
       <Container>
-        <SerInfo>©2021 TripUS, Inc.</SerInfo>
+        <SerInfo>©2021 TripUs, Inc.</SerInfo>
         <GitNav>
           <NameLogoContainer>
             <IconContainer>

@@ -1,9 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-    font-family: 'Nanum Gothic', sans-serif;
     outline: none;
   }
 
@@ -12,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-family: 'Nanum Gothic', sans-serif;
     height: 100%;
     min-height: 100vh;  
     margin: 0;
