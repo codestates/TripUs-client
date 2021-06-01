@@ -25,10 +25,11 @@ const MainSectionWrapper = styled.div`
     padding-left: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
-    font-size: calc(2rem + 1vw);
+    font-size: calc(1.5rem + 1vw);
 
     @media (max-width: 911px) {
       font-size: calc(1rem + 1vw);
+      margin-top: 2rem;
     }
   }
 `;

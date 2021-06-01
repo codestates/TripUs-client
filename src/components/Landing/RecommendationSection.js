@@ -58,7 +58,7 @@ const RecommendationSectionWrapper = styled.div`
   .title {
     font-weight: 700;
     margin-bottom: 2rem;
-    font-size: calc(1.25rem + 1vw);
+    font-size: calc(1rem + 1vw);
     word-break: keep-all;
     color: #333;
   }

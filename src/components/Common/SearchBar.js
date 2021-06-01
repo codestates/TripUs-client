@@ -186,7 +186,7 @@ const Button = ({ handleSubmit, role }) => {
   return (
     <ButtonWrapper role={role}>
       <button type="button" onClick={handleSubmit}>
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
       </button>
     </ButtonWrapper>
   );

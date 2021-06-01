@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Nanum Gothic', sans-serif;
     height: 100%;
-    min-height: 100vh;  
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -27,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100%;
+    min-height: 100%;
   }
 
   .root-wrapper {
