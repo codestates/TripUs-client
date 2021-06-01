@@ -27,6 +27,7 @@ const Footer = styled.footer`
     flex-direction: column;
     align-items: center;
     height: 20%;
+    font-size: calc(0.75rem + 0.75vw);
     background-color: rgba(198, 218, 237, 0.65);
   }
 `;

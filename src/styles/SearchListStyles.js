@@ -29,8 +29,6 @@ export const SideBarSection = styled.div`
   }
 `;
 
-export const SideBarWrapper = styled.div``;
-
 export const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;

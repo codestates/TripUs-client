@@ -22,8 +22,8 @@ const TestimonialWrapper = styled.div`
 
 const TestimonialCardWrapper = styled.div`
   position: relative;
-  min-width: 300px;
   overflow: hidden;
+  min-width: 250px;
   box-shadow: 0px 2px 8px 0px #b0bec5;
   background-color: white;
   text-align: center;
@@ -33,6 +33,7 @@ const TestimonialCardWrapper = styled.div`
 
   @media (max-width: 911px) {
     margin-top: 1rem;
+    min-width: 300px;
   }
 
   .banner {
@@ -102,7 +103,7 @@ const Testimonials = [
       "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHBlb3BsZXxlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     userName: "최개발",
     testimonial:
-      "저랑 여행 스타일 맞는 사람 구하기 너무 좋은 트립어스! 앞으로도 번창하세요 :)",
+      "저랑 여행 스타일 맞는 사람 구하기 너무 좋은 트립어스! 앞으로도 자주 사용할게요! :)",
   },
 ];
 
