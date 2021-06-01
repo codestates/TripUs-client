@@ -9,7 +9,7 @@ import { Form } from "../../styles/AuthFormStyles";
 // images
 import naver_icon_green from "../../images/naver_icon_green.png";
 
-const BASE_URL = "https://server.tripus.me";
+const BASE_URL = "http://localhost:80";
 
 const NAVER_API_URL =
   "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=http://localhost:80/callback&state=OWEFIJ30WEIFJ23";

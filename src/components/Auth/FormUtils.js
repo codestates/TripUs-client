@@ -69,10 +69,11 @@ export const SignUpPanel = styled(FormPanel)`
         transform: translateX(0%);
       `}
 
-        ${(props) =>
-          !props.rightActive &&
-          css`
-            left: 0;
-            transform: translateX(100%);
-          `}
+    ${(props) =>
+      !props.rightActive &&
+      css`
+        left: 0;
+        transform: translateX(100%);
+      `}
+  }
 `;

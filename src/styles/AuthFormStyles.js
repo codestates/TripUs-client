@@ -15,7 +15,7 @@ export const Form = styled.form`
     line-height: 120%;
     text-align: left;
     display: flex;
-    align-item: center;
+    align-items: center;
   }
 
   .form-wrapper {
@@ -135,7 +135,7 @@ export const Form = styled.form`
     padding: 8px 16px;
     font-weight: 700;
     border: 1px solid transparent;
-    font-size: calc(0.5rem + 1vw;);
+    font-size: calc(0.5rem + 1vw);
     text-align: center;
     cursor: pointer;
     background: #000;

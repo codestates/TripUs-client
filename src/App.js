@@ -12,6 +12,7 @@ import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
+import Recruitment from "./pages/Recruitment";
 import MyPostsPage from "./pages/MyPosts";
 
 const App = () => {
@@ -65,6 +66,9 @@ const App = () => {
         </Route>
         <Route path="/search">
           <SearchListPage />
+        </Route>
+        <Route exact path="/submit">
+          <Recruitment />
         </Route>
         <Route path="/my-posts">
           <MyPostsPage />
