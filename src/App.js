@@ -14,6 +14,7 @@ import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
 import Recruitment from "./pages/Recruitment";
 import MyPostsPage from "./pages/MyPosts";
+import MyApplicationsPage from "./pages/MyApplications";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -72,6 +73,9 @@ const App = () => {
         </Route>
         <Route path="/my-posts">
           <MyPostsPage />
+        </Route>
+        <Route path="/my-applications">
+          <MyApplicationsPage />
         </Route>
         <Route path="/">
           <LandingPage />

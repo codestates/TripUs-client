@@ -12,7 +12,7 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 const BASE_URL = "http://localhost:80";
 
 const NAVER_API_URL =
-  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=http://localhost:80/callback&state=OWEFIJ30WEIFJ23";
+  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=https://server.tripus.me/callback";
 
 const onSignIn = (values, setLogin, history) => {
   axios
@@ -39,6 +39,7 @@ const onSignUp = (values, history) => {
       age: values.age,
     })
     .then((res) => {
+      console.log(res);
       history.push("/");
     });
 };
@@ -111,20 +112,19 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
 
               <button type="submit">로그인</button>
               <div className="line-break">또는</div>
-              <button type="button" className="social-login">
+              <button
+                type="button"
+                className="social-login"
+                onClick={() => {
+                  window.location.assign(NAVER_API_URL);
+                }}
+              >
                 <img
                   src={naver_icon_green}
                   alt="Naver log in"
                   className="social-logo"
                 />
-                <div
-                  className="social-btn-text"
-                  onClick={() => {
-                    window.location.assign(NAVER_API_URL);
-                  }}
-                >
-                  네이버 아이디로 로그인
-                </div>
+                <div className="social-btn-text">네이버 아이디로 로그인</div>
               </button>
 
               <div className="toggle" onClick={togglePanel}>
@@ -230,7 +230,7 @@ export const SignUpForm = ({ className, togglePanel, history }) => {
               </div>
             </div>
 
-            <button type="button">회원가입</button>
+            <button type="submit">회원가입</button>
           </div>
           <div className="toggle" onClick={togglePanel}>
             이미 회원이신가요?
