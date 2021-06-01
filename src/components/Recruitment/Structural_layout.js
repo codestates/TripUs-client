@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Formik } from "formik";
 import {
@@ -11,12 +12,33 @@ import { DatePickerComponent } from "./RecruitmetUtils";
 const Structural_Layout = () => {
   const [departureDate, setDepartureDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
+  const [formattedDepartureDate, setFormattedDepartureDate] = useState("");
+  const [formattedReturnDate, setFormattedReturnDate] = useState("");
+  const history = useHistory();
 
   const accessToken = localStorage.getItem("accessToken");
 
   const refLike = useRef(null);
   const refDislike = useRef(null);
   const refDetails = useRef(null);
+
+  useEffect(() => {
+    const dDate = new Date(departureDate);
+    setFormattedDepartureDate(
+      `${dDate.getFullYear().toString().slice(2)}년 ${
+        dDate.getMonth() + 1
+      }월 ${dDate.getDate()}일`
+    );
+  }, [departureDate]);
+
+  useEffect(() => {
+    const dDate = new Date(returnDate);
+    setFormattedReturnDate(
+      `${dDate.getFullYear().toString().slice(2)}년 ${
+        dDate.getMonth() + 1
+      }월 ${dDate.getDate()}일`
+    );
+  }, [returnDate]);
 
   const reSizeLike = useCallback(() => {
     if (refLike === null || refLike.current === null) {
@@ -43,34 +65,43 @@ const Structural_Layout = () => {
   }, []);
 
   const handleCLick = (values) => {
-    axios
-      .post(
-        "http://localhost:80/trip",
-        {
-          dantalk: values.dantalk,
-          moim: values.moim,
-          details: values.details,
-          destination: values.destination,
-          departure_date: departureDate,
-          return_date: returnDate,
-          travel_type: values.travel_type,
-          transportation: values.transportation,
-          people_num: values.people_num,
-          like: values.like,
-          dislike: values.dislike,
-          title: values.title,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
+    if (accessToken === "" || accessToken === null) {
+      history.push("/");
+    } else {
+      axios
+        .post(
+          "http://localhost:80/trip",
+          {
+            dantalk: values.dantalk,
+            moim: values.moim,
+            details: values.details,
+            destination: values.destination,
+            departure_date: formattedDepartureDate,
+            return_date: formattedReturnDate,
+            travel_type: values.travel_type,
+            transportation: values.transportation,
+            people_num: values.people_num,
+            like: values.like,
+            dislike: values.dislike,
+            title: values.title,
           },
-          // withCredentials: true,
-        }
-      )
-      .then(() => {
-        console.log("포스팅 완료!");
-      });
+          {
+            headers: {
+              authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
+            // withCredentials: true,
+          }
+        )
+        .then(() => {
+          history.push("/my-posts");
+          console.log("포스팅 완료!");
+        });
+    }
+  };
+
+  const handleCancel = () => {
+    history.push("/");
   };
 
   return (
@@ -259,14 +290,10 @@ const Structural_Layout = () => {
                 </div>
 
                 <div className="button">
-                  <button className="cancel-btn">취소</button>
-                  <button
-                    className="success-btn"
-                    type="button"
-                    disabled={formik.isSubmitting}
-                  >
-                    완료
+                  <button className="cancel-btn" onClick={handleCancel}>
+                    취소
                   </button>
+                  <button className="success-btn">완료</button>
                 </div>
               </MainContainer>
 

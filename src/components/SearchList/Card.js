@@ -43,41 +43,45 @@ const CardImageContainer = styled.div`
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
   min-height: 220px;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06)), url(${DEFAULT_IMG});
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.06)
+    ),
+    url(${DEFAULT_IMG});
 
   .card-info {
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.5)
-      );
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 30%;
-      padding: 15px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    );
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    padding: 15px;
 
-      .author-info {
-        display: flex;
-        left: 15px;
-        bottom: 15px;
-        height: 100%;
-        align-items: center;
+    .author-info {
+      display: flex;
+      left: 15px;
+      bottom: 15px;
+      height: 100%;
+      align-items: center;
 
-        i {
-          color: white;
-          font-size: 1.7rem;
-        }
+      i {
+        color: white;
+        font-size: 1.7rem;
+      }
 
-        .username {
-          margin-left: 1rem;
-          font-size: 2rem;
-          font-weight: bold;
-          word-break: break-all;
-          color: #fcfcfc;
-          font-size: 1rem;
-        }
+      .username {
+        margin-left: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        word-break: break-all;
+        color: #fcfcfc;
+        font-size: 1rem;
       }
     }
   }

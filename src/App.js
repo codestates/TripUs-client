@@ -12,6 +12,7 @@ import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
+import Recruitment from "./pages/Recruitment";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -65,11 +66,11 @@ const App = () => {
         <Route path="/search">
           <SearchListPage />
         </Route>
-        <Route path="/">
-          <LandingPage />
-        </Route>
         <Route exact path="/submit">
           <Recruitment />
+        </Route>
+        <Route path="/">
+          <LandingPage />
         </Route>
       </Switch>
       <FooterComponent />
