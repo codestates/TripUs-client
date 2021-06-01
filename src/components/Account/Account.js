@@ -31,88 +31,75 @@ import * as Yup from "yup";
 // 정보가 저장된 밸류 함수를 만듬
 //
 
-//지금 안되는것
-//get 요청
-// formik submit
-//accessToken 전달
-const EditLoadInfo = (props) => {
-  const [email, setEmail] = useState("email");
-  const [pw, setPw] = useState("pw");
-  const [nickname, setNickname] = useState("nickname");
-  const [name, setName] = useState("name");
-  const [phone, setPhone] = useState("phone");
-  const [age, setAge] = useState("age");
+//어카운트 전체
+const Account = () => {
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [age, setAge] = useState("");
+  const [isEdited, setIsEdited] = useState(false);
 
   const BASE_URL = "https://server.tripus.me/account-info";
+  const getInfo = localStorage.getItem("accessToken");
 
   useEffect(() => {
     axios
       .get(BASE_URL, {
         headers: {
-          Authorization: accessToken,
+          authorization: `Bearer ${getInfo}`,
           "Content-Type": "application/json",
-          withCredentials: true,
+          //   withCredentials: true,
         },
-      }) //로컬스토리지에 담아와서  그걸 가지고오면 쓰면된다
-      //로컬스토리지에 엑세스토큰이없으면 login으로 리다이렉트
+      })
       .then((res) => {
-        console.log(res.data);
-        setEmail(res.email);
-        setPw(res.Pw);
-        setNickname(res.nickname);
-        setName(res.name);
-        setPhone(res.phone);
-        setAge(res.age);
+        console.log(res.data); //정보 받아와짐
+        setEmail(res.data.email);
+        setPw(res.data.pw);
+        setNickname(res.data.nickname);
+        setName(res.data.name);
+        setMobile(res.data.mobile);
+        setAge(res.data.age);
       })
       .catch((err) => console.error(err));
   }, []);
-};
 
-const initialValues = {
-  email: "",
-  password: "",
-  name: "",
-  age: "",
-  nickname: "",
-  mobile: "",
-};
-
-const savedValues = {
-  email: "",
-  password: 1234567,
-  name: "kim coding",
-  nickname: "hihi",
-};
-
-const TextInput = (props) => {
-  const [field, meta] = useField(props);
-  return (
-    <div>
-      <div className="label-wrapper">
-        <label htmlFor={props.id || props.name}>
-          {props.label}
-          {meta.touched && meta.error ? (
-            <div className="error">{meta.error}</div>
-          ) : null}
-        </label>
+  const TextInput = (props) => {
+    const [field, meta] = useField(props);
+    return (
+      <div>
+        <div className="label-wrapper">
+          <label htmlFor={props.id || props.name}>
+            {props.label}
+            {meta.touched && meta.error ? (
+              <div className="error">{meta.error}</div>
+            ) : null}
+          </label>
+        </div>
+        <input
+          className="text-input"
+          {...field}
+          type={props.type}
+          id={props.id || props.name}
+          placeholder={props.placeholder}
+        />
       </div>
-      <input
-        className="text-input"
-        {...field}
-        type={props.type}
-        id={props.id || props.name}
-        placeholder={props.placeholder}
-      />
-    </div>
-  );
-};
-//formik으로 post
-const Account = ({ className, props, ...rest }) => {
-  const [formValues, setFormValues] = useState(null);
+    );
+  };
+
+  const initialValues = {
+    email: "",
+    password: "",
+    name: "",
+    age: "",
+    nickname: "",
+    mobile: "",
+  };
+
   return (
     <Formik
-      initialValues={formValues || initialValues}
-      enableReinitialize
+      initialValues={initialValues}
       validationSchema={Yup.object({
         email: Yup.string()
           .email("이메일 주소를 다시 확인해주세요.")
@@ -130,19 +117,13 @@ const Account = ({ className, props, ...rest }) => {
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
           resetForm();
-          console.log("Form data", values);
         });
       }}
     >
       {(formik) => (
-        <FormStyle
-          className={className}
-          {...rest}
-          onSubmit={formik.handleSubmit}
-        >
+        <FormStyle onSubmit={formik.handleSubmit}>
           <div className="second-wrapper">
             <div className="head-wrapper">
               <div className="title-wrapper">
@@ -156,8 +137,6 @@ const Account = ({ className, props, ...rest }) => {
                     type="email"
                     id="email"
                     placeholder="이메일 주소"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
                   />
                   <TextInput
                     name="password"
@@ -165,8 +144,6 @@ const Account = ({ className, props, ...rest }) => {
                     type="password"
                     id="password"
                     placeholder="비밀번호"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
                   />
 
                   <TextInput
@@ -175,8 +152,6 @@ const Account = ({ className, props, ...rest }) => {
                     type="text"
                     id="name"
                     placeholder="실명"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
                   />
 
                   <TextInput
@@ -185,8 +160,6 @@ const Account = ({ className, props, ...rest }) => {
                     type="text"
                     id="Nickname"
                     placeholder="닉네임"
-                    onChange={formik.handleChange}
-                    value={formik.values.Nickname}
                   />
 
                   <TextInput
@@ -195,8 +168,6 @@ const Account = ({ className, props, ...rest }) => {
                     type="tel"
                     id="phone"
                     placeholder="연락처"
-                    onChange={formik.handleChange}
-                    value={formik.values.phone}
                   />
 
                   <TextInput
@@ -205,22 +176,9 @@ const Account = ({ className, props, ...rest }) => {
                     type="number"
                     id="age"
                     placeholder="나이"
-                    onChange={formik.handleChange}
-                    value={formik.values.age}
                   />
                 </div>
-
-                <div className="btn-wrapper">
-                  <button className="deleteBtn">계정삭제</button>
-                  <button className="patchBtn">수정</button>
-                  <button
-                    type="submit"
-                    className="confirmBtn"
-                    // onClick={() => setFormValues(savedValues)}
-                  >
-                    확인
-                  </button>
-                </div>
+                <AccountUtils setIsEdited={setIsEdited} />
               </div>
             </div>
           </div>
@@ -229,7 +187,6 @@ const Account = ({ className, props, ...rest }) => {
     </Formik>
   );
 };
-
 export default Account;
 //name 과 id가 있으면 onChange가 필요없다
 //   return (

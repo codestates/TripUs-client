@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 //회원 탈퇴버튼 이랑 수정확인 버튼
 
 //
 
-export const FormStyle = styled.section`
+export const FormStyle = styled.form`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -160,6 +160,7 @@ export const AccountBtns = styled.div`
     height: 100%;
     flex: 0 1 1;
     display: flex;
+    align-content: space-around;
   }
   button {
     margin-top: 20px;
@@ -178,10 +179,10 @@ export const AccountBtns = styled.div`
     background: #000;
     transition: all 0.4s;
   }
-  /* .deleteBtn {
+  .deleteBtn {
     margin-top: 20px;
     margin-bottom: 16px;
-    width: 30%;
+    width: 15%;
     height: 3rem;
     border-radius: 28px;
     padding-top: 14px;
@@ -199,7 +200,7 @@ export const AccountBtns = styled.div`
   .patchBtn {
     margin-top: 20px;
     margin-bottom: 16px;
-    width: 20%;
+    width: 15%;
     height: 3rem;
     border-radius: 28px;
     padding-top: 14px;
@@ -230,15 +231,21 @@ export const AccountBtns = styled.div`
     cursor: pointer;
     background: #000;
     transition: all 0.4s;
-  } */
+  }
 `;
 
-const AccountUtils = () => {
+const AccountUtils = ({ setIsEdited }) => {
+  const handleInputClick = () => {
+    setIsEdited((prev) => !prev); //이전상태
+  };
+
   return (
     <AccountBtns>
       <div className="btn-wrapper">
         <button className="deleteBtn">계정삭제</button>
-        <button className="patchBtn">수정</button>
+        <button className="patchBtn" onClick={handleInputClick}>
+          수정
+        </button>
         <button type="submit" className="confirmBtn">
           확인
         </button>
@@ -248,15 +255,15 @@ const AccountUtils = () => {
 };
 export default AccountUtils;
 
-{
-  /* <div className="btn-wrapper">
-<button className="deleteBtn">계정삭제</button>
-<button className="patchBtn">수정</button>
-<button type="button" className="confirmBtn">
-  확인
-</button>
-</div> */
-}
+// {
+//   /* <div className="btn-wrapper">
+// <button className="deleteBtn">계정삭제</button>
+// <button className="patchBtn">수정</button>
+// <button type="button" className="confirmBtn">
+//   확인
+// </button>
+// </div> */
+// }
 // export const InputBox = ({ destination, setDestination }) => {
 //     return (
 //       <InputWrapper>
