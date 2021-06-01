@@ -37,7 +37,6 @@ const Container = styled.div`
   align-items: center;
   padding-left: 32px;
   padding-right: 32px;
-  width: 100%;
   font-weight: 400;
   height: 100%;
 
