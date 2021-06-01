@@ -11,15 +11,21 @@ const MyPostsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const MyPosts = (token) => {
+const MyPosts = ({ token, role }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const path = {
+    posts: "/my-posts",
+    applications: "/my-applications",
+  };
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get(BASE_URL + "/myposts")
+      .get(BASE_URL + path[role])
       .then((res) => {
+        console.log(res);
         setLoading(false);
       })
       .catch((e) => {

@@ -12,7 +12,7 @@ import SearchBar from "../components/Common/SearchBar";
 
 const SearchListPage = () => {
   return (
-    <Page color={"rgba(211,211,211,0.15)"} height={80}>
+    <Page color={"rgba(211,211,211,0.15)"} minHeight>
       <OuterWrapper>
         <InnerWrapper>
           <SearchPageWrapper>

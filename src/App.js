@@ -13,6 +13,7 @@ import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
 import MyPostsPage from "./pages/MyPosts";
+import MyApplicationsPage from "./pages/MyApplications";
 
 const App = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -68,6 +69,9 @@ const App = () => {
         </Route>
         <Route path="/my-posts">
           <MyPostsPage />
+        </Route>
+        <Route path="/my-applications">
+          <MyApplicationsPage />
         </Route>
         <Route path="/">
           <LandingPage />
