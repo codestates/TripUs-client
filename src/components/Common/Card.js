@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import axios from "axios";
 
 const DEFAULT_IMG =
   "https://images.unsplash.com/photo-1596786314237-367dcf7ab268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMzQ2ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjIyOTQzMjk&ixlib=rb-1.2.1&q=80&w=1080";
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-
-  box-shadow: 0 0 1rem 1px rgba(0, 0, 0, 0.25);
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: translateY(-3%);
-  }
-
+const searchCardStyles = css`
   @media (min-width: 991px) {
     width: calc(33% - 20px);
   }
@@ -32,6 +19,36 @@ const CardContainer = styled.div`
     width: calc(100% - 20px);
   }
 `;
+const myListsCardStyles = css`
+  @media (min-width: 991px) {
+    width: calc(49% - 20px);
+  }
+
+  @media (max-width: 991px) {
+    width: calc(99% - 20px);
+  }
+
+  @media (max-width: 712px) {
+    width: calc(100% - 20px);
+  }
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.6rem 2rem 0.6rem;
+
+  box-shadow: 0 0 1rem 1px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-3%);
+  }
+
+  ${(props) => (props.role === "search" ? searchCardStyles : myListsCardStyles)}
+`;
 
 const CardImageContainer = styled.div`
   flex: 1 1 auto;
@@ -43,7 +60,9 @@ const CardImageContainer = styled.div`
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
   min-height: 220px;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06)), url(${DEFAULT_IMG});
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06)), url(${(
+    props
+  ) => (props.background ? props.background : DEFAULT_IMG)});
 
   .card-info {
       background: linear-gradient(
@@ -172,8 +191,8 @@ const Card = (props) => {
   // }, [props.destination]);
 
   return (
-    <CardContainer>
-      <CardImageContainer>
+    <CardContainer role={props.role}>
+      <CardImageContainer background={image}>
         <div className="card-info">
           <div className="author-info">
             <div>

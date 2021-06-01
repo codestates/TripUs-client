@@ -18,11 +18,9 @@ export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
     <StyledHeader>
       <div className="wrapper">
         <div className="position-wrapper">
-          <div className="logo">
-            <Link to="/" style={{ outline: "none" }}>
-              <img src={logo} alt="TripUs" />
-            </Link>
-          </div>
+          <Link to="/" className="logo" style={{ outline: "none" }}>
+            <img src={logo} alt="TripUs" />
+          </Link>
           <div className="navbar">
             <div className="links">
               <CTAButton to="/submit">모집글 작성</CTAButton>

@@ -12,10 +12,12 @@ export const Page = styled.div`
       ? `url(${props.background})`
       : props.color};
   height: ${(props) => (props.height ? `${props.height}%` : "auto")};
+  min-height: ${(props) => (props.minHeight ? "100%" : 0)};
   background-size: cover;
   background-position: ${(props) =>
     props.position ? `${props.position}` : "center"};
   background-repeat: no-repeat;
+  z-index: ${(props) => (props.zIndex ? `${props.zIndex}` : 0)};
 `;
 
 export const OuterWrapper = styled.div`

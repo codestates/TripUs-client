@@ -11,6 +11,9 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 
 const BASE_URL = "https://server.tripus.me";
 
+const NAVER_API_URL =
+  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=http://localhost:80/callback&state=OWEFIJ30WEIFJ23";
+
 const onSignIn = (values, setLogin, history) => {
   axios
     .post(BASE_URL + "/login", {
@@ -23,6 +26,21 @@ const onSignIn = (values, setLogin, history) => {
       history.push("/");
     })
     .catch((e) => console.log(e));
+};
+
+const onSignUp = (values, history) => {
+  axios
+    .post(BASE_URL + "/signup", {
+      email: values.email,
+      pw: values.pw,
+      name: values.name,
+      nickname: values.nickname,
+      mobile: values.phone,
+      age: values.age,
+    })
+    .then((res) => {
+      history.push("/");
+    });
 };
 
 const TextInput = (props) => {
@@ -99,7 +117,14 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
                   alt="Naver log in"
                   className="social-logo"
                 />
-                <div className="social-btn-text">네이버 아이디로 로그인</div>
+                <div
+                  className="social-btn-text"
+                  onClick={() => {
+                    window.location.assign(NAVER_API_URL);
+                  }}
+                >
+                  네이버 아이디로 로그인
+                </div>
               </button>
 
               <div className="toggle" onClick={togglePanel}>
@@ -113,12 +138,12 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
   );
 };
 
-export const SignUpForm = ({ className, togglePanel, ...rest }) => {
+export const SignUpForm = ({ className, togglePanel, history }) => {
   return (
     <Formik
       initialValues={{
         email: "",
-        password: "",
+        pw: "",
         name: "",
         nickname: "",
         phone: "",
@@ -128,7 +153,7 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
         email: Yup.string()
           .email("이메일 주소를 다시 확인해주세요.")
           .required("필수 정보입니다."),
-        password: Yup.string()
+        pw: Yup.string()
           .required("필수 정보입니다.")
           .matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,15}$/,
@@ -140,15 +165,13 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
         age: Yup.string().required("필수 정보입니다."),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-          resetForm();
-        }, 400);
+        onSignUp(values, history);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {(formik) => (
-        <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
+        <Form className={className} onSubmit={formik.handleSubmit}>
           <div className="header-wrapper">반갑습니다!</div>
           <div className="input-section">
             <TextInput
@@ -159,10 +182,10 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
               placeholder="이메일 주소"
             />
             <TextInput
-              name="password"
+              name="pw"
               label="비밀번호"
               type="password"
-              id="password"
+              id="pw"
               placeholder="비밀번호"
             />
             <div>

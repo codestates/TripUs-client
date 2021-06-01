@@ -21,7 +21,7 @@ const AuthForm = ({ rightActive, togglePanel, setLogin, history }) => {
           ></SignInForm>
         </SignInPanel>
         <SignUpPanel rightActive={rightActive}>
-          <SignUpForm togglePanel={togglePanel}></SignUpForm>
+          <SignUpForm togglePanel={togglePanel} history={history}></SignUpForm>
         </SignUpPanel>
       </FormsContainer>
     </FormDisplayScreen>

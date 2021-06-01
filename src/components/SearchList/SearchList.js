@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-import Card from "./Card";
+import Card from "../Common/Card";
 
 const SearchList = () => {
   const [searchResults, setSearchResults] = useState([
@@ -108,6 +108,7 @@ const SearchList = () => {
           people_num={data.people_num}
           nickname={data.nickname}
           key={data.nickname}
+          role="search"
         />
       );
     });
@@ -115,7 +116,7 @@ const SearchList = () => {
     return <>{cards}</>;
   }
 
-  return <div>No results... try again!</div>;
+  return <div>검색 결과가 없습니다.</div>;
 };
 
 export default SearchList;
