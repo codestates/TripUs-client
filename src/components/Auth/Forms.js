@@ -9,7 +9,7 @@ import { Form } from "../../styles/AuthFormStyles";
 // images
 import naver_icon_green from "../../images/naver_icon_green.png";
 
-const BASE_URL = "https://server.tripus.me";
+const BASE_URL = "http://localhost:80";
 
 const onSignIn = (values, setLogin, history) => {
   axios

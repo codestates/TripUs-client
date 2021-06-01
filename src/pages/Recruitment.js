@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import Structural_Layout from "../components/Recruitment/Structural_layout";
 
