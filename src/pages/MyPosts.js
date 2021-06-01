@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { Page, OuterWrapper, InnerWrapper } from "../styles/DefaultPageSetUp";
@@ -13,15 +13,11 @@ import MyPosts from "../components/MyLists/MyPosts";
 
 const MyPostsPage = () => {
   const history = useHistory();
-  let token;
+  let token = localStorage.getItem("accessToken");
 
-  useEffect(() => {
-    token = localStorage.getItem("accessToken");
-
-    if (!token) {
-      history.push("/login");
-    }
-  }, []);
+  if (!token) {
+    history.push("/login");
+  }
 
   return (
     <Page color={"rgba(211,211,211,0.15)"} minHeight>
