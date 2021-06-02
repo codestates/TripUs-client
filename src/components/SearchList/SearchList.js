@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Card from "../Common/Card";
+import Loader from "../Common/Loader";
 
 const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -53,7 +54,7 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader style={{ marginTop: "3rem" }} />;
   }
 
   if (searchResults.length === 0 && !loading) {

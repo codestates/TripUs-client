@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import {
@@ -8,20 +8,36 @@ import {
   SignUpPanel,
 } from "./FormUtils";
 import { SignInForm, SignUpForm } from "./Forms";
+import Loader from "../Common/Loader";
 
 const AuthForm = ({ rightActive, togglePanel, setLogin, history }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <FormDisplayScreen>
       <FormsContainer>
         <SignInPanel rightActive={rightActive}>
-          <SignInForm
-            togglePanel={togglePanel}
-            setLogin={setLogin}
-            history={history}
-          ></SignInForm>
+          {loading ? (
+            <Loader />
+          ) : (
+            <SignInForm
+              togglePanel={togglePanel}
+              setLogin={setLogin}
+              history={history}
+              setLoading={setLoading}
+            ></SignInForm>
+          )}
         </SignInPanel>
         <SignUpPanel rightActive={rightActive}>
-          <SignUpForm togglePanel={togglePanel} history={history}></SignUpForm>
+          {loading ? (
+            <Loader />
+          ) : (
+            <SignUpForm
+              togglePanel={togglePanel}
+              history={history}
+              setLoading={setLoading}
+            ></SignUpForm>
+          )}
         </SignUpPanel>
       </FormsContainer>
     </FormDisplayScreen>

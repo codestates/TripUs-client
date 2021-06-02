@@ -14,7 +14,8 @@ const BASE_URL = "https://server.tripus.me";
 const NAVER_API_URL =
   "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=https://server.tripus.me/callback";
 
-const onSignIn = (values, setLogin, history) => {
+const onSignIn = (values, setLogin, history, setLoading) => {
+  setLoading(true);
   axios
     .post(BASE_URL + "/login", {
       email: values.email,
@@ -24,11 +25,13 @@ const onSignIn = (values, setLogin, history) => {
       setLogin(true);
       localStorage.setItem("accessToken", res.data.accessToken);
       history.push("/");
+      setLoading(false);
     })
-    .catch((e) => console.log(e));
+    .catch((e) => setLoading(false));
 };
 
-const onSignUp = (values, history) => {
+const onSignUp = (values, history, setLoading) => {
+  setLoading(true);
   axios
     .post(BASE_URL + "/signup", {
       email: values.email,
@@ -39,9 +42,10 @@ const onSignUp = (values, history) => {
       age: values.age,
     })
     .then((res) => {
-      console.log(res);
+      setLoading(false);
       history.push("/");
-    });
+    })
+    .catch((e) => setLoading(false));
 };
 
 const TextInput = (props) => {
@@ -67,7 +71,13 @@ const TextInput = (props) => {
   );
 };
 
-export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
+export const SignInForm = ({
+  className,
+  togglePanel,
+  setLogin,
+  history,
+  setLoading,
+}) => {
   const initialValues = { email: "", pw: "" };
   return (
     <Formik
@@ -84,7 +94,7 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
           ),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        onSignIn(values, setLogin, history);
+        onSignIn(values, setLogin, history, setLoading);
         setSubmitting(false);
         resetForm();
       }}
@@ -138,7 +148,7 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
   );
 };
 
-export const SignUpForm = ({ className, togglePanel, history }) => {
+export const SignUpForm = ({ className, togglePanel, history, setLoading }) => {
   return (
     <Formik
       initialValues={{
@@ -165,7 +175,7 @@ export const SignUpForm = ({ className, togglePanel, history }) => {
         age: Yup.string().required("필수 정보입니다."),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        onSignUp(values, history);
+        onSignUp(values, history, setLoading);
         setSubmitting(false);
         resetForm();
       }}

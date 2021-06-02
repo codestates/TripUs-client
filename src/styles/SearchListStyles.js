@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const SearchPageWrapper = styled.div`
   display: flex;
   margin-top: 1rem;
-
   flex-direction: column;
 `;
 
@@ -13,6 +12,7 @@ export const ResultsSection = styled.div`
   padding-left: 15px;
 
   min-width: 100%;
+  min-height: 30rem;
 
   @media (max-width: 911px) {
     margin-top: 1rem;
