@@ -27,6 +27,7 @@ const Footer = styled.footer`
     flex-direction: column;
     align-items: center;
     height: 20%;
+    font-size: calc(0.75rem + 0.75vw);
     background-color: rgba(198, 218, 237, 0.65);
   }
 `;
@@ -100,9 +101,10 @@ const NameLogoContainer = styled.div`
 
   @media (max-width: 911px) {
     height: 33%;
-    align-content : center;
-    width : 100%;
+    align-content: center;
+    width: 100%;
     justify-content: flex-start;
+  }
 `;
 
 const IconContainer = styled.div`

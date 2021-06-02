@@ -58,9 +58,13 @@ const RecommendationSectionWrapper = styled.div`
   .title {
     font-weight: 700;
     margin-bottom: 2rem;
-    font-size: calc(1.25rem + 1vw);
+    font-size: calc(1rem + 1vw);
     word-break: keep-all;
     color: #333;
+
+    @media (max-width: 911px) {
+      text-align: center;
+    }
   }
 
   .cards {
@@ -70,13 +74,15 @@ const RecommendationSectionWrapper = styled.div`
 
     @media (max-width: 911px) {
       flex-direction: column;
+      align-items: center;
     }
   }
 `;
 
 // card component style
 const CardContainer = styled.div`
-  min-height: 17rem;
+  min-height: 14rem;
+  max-height: 250px;
   position: relative;
   background-image: ${(props) =>
     props.background
@@ -113,7 +119,7 @@ const CardContainer = styled.div`
     left: 0;
     color: #f5f5f5;
     margin: 0;
-    padding: 1.5rem;
+    padding: 1.7rem;
 
     @media (max-width: 911px) {
       font-size: calc(1.25rem + 1vw);

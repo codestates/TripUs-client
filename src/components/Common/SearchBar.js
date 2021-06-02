@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { useHistory } from "react-router-dom";
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -186,7 +186,7 @@ const Button = ({ handleSubmit, role }) => {
   return (
     <ButtonWrapper role={role}>
       <button type="button" onClick={handleSubmit}>
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
       </button>
     </ButtonWrapper>
   );
@@ -209,78 +209,63 @@ const Select = ({ travelType, setTravelType }) => {
   );
 };
 
-const SearchBar = ({ fontColor, role }) => {
-  const [destination, setDestination] = useState("");
-  const [departureDate, setDepartureDate] = useState(null);
-  const [returnDate, setReturnDate] = useState(null);
-  const [travelType, setTravelType] = useState("now");
-  const [formattedDepartureDate, setFormattedDepartureDate] = useState("");
-  const [formattedReturnDate, setFormattedReturnDate] = useState("");
+const SearchBar = ({
+  fontColor,
+  role,
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
   const history = useHistory();
 
+  // values that might(!) be assigned as search terms
+  const [tempDestination, setTempDestination] = useState("");
+  const [tempDepDate, setTempDepDate] = useState(null);
+  const [tempRetDate, setTempRetDate] = useState(null);
+  const [tempType, setTempType] = useState("now");
+
   const handleSubmit = (
-    formattedDepartureDate,
-    formattedReturnDate,
-    travelType,
-    destination
+    tempDepDate,
+    tempRetDate,
+    tempDestination,
+    tempType
   ) => {
-    if (
-      formattedDepartureDate &&
-      formattedReturnDate &&
-      travelType &&
-      destination
-    ) {
-      history.push(
-        `/search?dep=${formattedDepartureDate}&ret=${formattedReturnDate}&type=${travelType}&destination=${destination}`
-      );
+    if (tempDepDate && tempRetDate && tempType && tempDestination) {
+      setDestination(tempDestination);
+      setDepartureDate(Date.parse(tempDepDate));
+      setReturnDate(Date.parse(tempRetDate));
+      setTravelType(tempType);
+
+      history.push(`/search`);
     }
   };
-
-  useEffect(() => {
-    const dDate = new Date(departureDate);
-    setFormattedDepartureDate(
-      `${dDate.getFullYear().toString().slice(2)}년 ${
-        dDate.getMonth() + 1
-      }월 ${dDate.getDate()}일`
-    );
-  }, [departureDate]);
-
-  useEffect(() => {
-    const dDate = new Date(returnDate);
-    setFormattedReturnDate(
-      `${dDate.getFullYear().toString().slice(2)}년 ${
-        dDate.getMonth() + 1
-      }월 ${dDate.getDate()}일`
-    );
-  }, [returnDate]);
 
   return (
     <SearchBarWrapper fontColor={fontColor} role={role}>
       <InputArea>
-        <Input destination={destination} setDestination={setDestination} />
+        <Input
+          destination={tempDestination}
+          setDestination={setTempDestination}
+        />
         <Calendar
           type="departure"
-          departureDate={departureDate}
-          returnDate={returnDate}
-          dateFunc={setDepartureDate}
+          departureDate={tempDepDate}
+          returnDate={tempRetDate}
+          dateFunc={setTempDepDate}
         />
         <Calendar
           type="return"
-          departureDate={departureDate}
-          returnDate={returnDate}
-          dateFunc={setReturnDate}
+          departureDate={tempDepDate}
+          returnDate={tempRetDate}
+          dateFunc={setTempRetDate}
         />
-        <Select travelType={travelType} setTravelType={setTravelType} />
+        <Select travelType={tempType} setTravelType={setTempType} />
       </InputArea>
       <Button
         role={role}
         handleSubmit={() => {
-          handleSubmit(
-            formattedDepartureDate,
-            formattedReturnDate,
-            travelType,
-            destination
-          );
+          handleSubmit(tempDepDate, tempRetDate, tempDestination, tempType);
         }}
       />
     </SearchBarWrapper>

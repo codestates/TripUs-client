@@ -11,7 +11,11 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 
 const BASE_URL = "https://server.tripus.me";
 
-const onSignIn = (values, setLogin, history) => {
+const NAVER_API_URL =
+  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=https://server.tripus.me/callback";
+
+const onSignIn = (values, setLogin, history, setLoading) => {
+  setLoading(true);
   axios
     .post(BASE_URL + "/login", {
       email: values.email,
@@ -21,8 +25,27 @@ const onSignIn = (values, setLogin, history) => {
       setLogin(true);
       localStorage.setItem("accessToken", res.data.accessToken);
       history.push("/");
+      setLoading(false);
     })
-    .catch((e) => console.log(e));
+    .catch((e) => setLoading(false));
+};
+
+const onSignUp = (values, history, setLoading) => {
+  setLoading(true);
+  axios
+    .post(BASE_URL + "/signup", {
+      email: values.email,
+      pw: values.pw,
+      name: values.name,
+      nickname: values.nickname,
+      mobile: values.phone,
+      age: values.age,
+    })
+    .then((res) => {
+      setLoading(false);
+      history.push("/");
+    })
+    .catch((e) => setLoading(false));
 };
 
 const TextInput = (props) => {
@@ -48,7 +71,13 @@ const TextInput = (props) => {
   );
 };
 
-export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
+export const SignInForm = ({
+  className,
+  togglePanel,
+  setLogin,
+  history,
+  setLoading,
+}) => {
   const initialValues = { email: "", pw: "" };
   return (
     <Formik
@@ -65,7 +94,7 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
           ),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        onSignIn(values, setLogin, history);
+        onSignIn(values, setLogin, history, setLoading);
         setSubmitting(false);
         resetForm();
       }}
@@ -93,7 +122,13 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
 
               <button type="submit">로그인</button>
               <div className="line-break">또는</div>
-              <button type="button" className="social-login">
+              <button
+                type="button"
+                className="social-login"
+                onClick={() => {
+                  window.location.assign(NAVER_API_URL);
+                }}
+              >
                 <img
                   src={naver_icon_green}
                   alt="Naver log in"
@@ -113,12 +148,12 @@ export const SignInForm = ({ className, togglePanel, setLogin, history }) => {
   );
 };
 
-export const SignUpForm = ({ className, togglePanel, ...rest }) => {
+export const SignUpForm = ({ className, togglePanel, history, setLoading }) => {
   return (
     <Formik
       initialValues={{
         email: "",
-        password: "",
+        pw: "",
         name: "",
         nickname: "",
         phone: "",
@@ -128,7 +163,7 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
         email: Yup.string()
           .email("이메일 주소를 다시 확인해주세요.")
           .required("필수 정보입니다."),
-        password: Yup.string()
+        pw: Yup.string()
           .required("필수 정보입니다.")
           .matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*?]).{8,15}$/,
@@ -140,15 +175,13 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
         age: Yup.string().required("필수 정보입니다."),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-          resetForm();
-        }, 400);
+        onSignUp(values, history, setLoading);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {(formik) => (
-        <Form className={className} {...rest} onSubmit={formik.handleSubmit}>
+        <Form className={className} onSubmit={formik.handleSubmit}>
           <div className="header-wrapper">반갑습니다!</div>
           <div className="input-section">
             <TextInput
@@ -159,10 +192,10 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
               placeholder="이메일 주소"
             />
             <TextInput
-              name="password"
+              name="pw"
               label="비밀번호"
               type="password"
-              id="password"
+              id="pw"
               placeholder="비밀번호"
             />
             <div>
@@ -207,7 +240,7 @@ export const SignUpForm = ({ className, togglePanel, ...rest }) => {
               </div>
             </div>
 
-            <button type="button">회원가입</button>
+            <button type="submit">회원가입</button>
           </div>
           <div className="toggle" onClick={togglePanel}>
             이미 회원이신가요?

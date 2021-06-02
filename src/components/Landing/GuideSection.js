@@ -40,7 +40,7 @@ const GuideSectionWrapper = styled.div`
 
 // guide style
 const StyledGuide = styled(Link)`
-  width: 40%;
+  width: 35%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -107,9 +107,9 @@ const GuideContents = {
 };
 
 // guide component
-const Guide = ({ type }) => {
+const Guide = ({ type, to }) => {
   return (
-    <StyledGuide>
+    <StyledGuide to={to}>
       <div className="icon-wrapper">{GuideContents[type].icon}</div>
       <div className="text-wrapper">
         <h3 className="guide-title">{GuideContents[type].title}</h3>
@@ -127,8 +127,8 @@ const GuideSection = () => {
           <GuideSectionWrapper>
             <div className="section-title">TripUs를 완벽히 즐기는 방법!</div>
             <div className="content-area">
-              <Guide type="find" />
-              <Guide type="recruit" />
+              <Guide type="find" to="/search" />
+              <Guide type="recruit" to="/submit" />
             </div>
           </GuideSectionWrapper>
         </InnerWrapper>

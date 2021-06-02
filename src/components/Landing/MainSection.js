@@ -25,23 +25,36 @@ const MainSectionWrapper = styled.div`
     padding-left: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
-    font-size: calc(2rem + 1vw);
+    font-size: calc(1.5rem + 1vw);
 
     @media (max-width: 911px) {
       font-size: calc(1rem + 1vw);
+      margin-top: 2rem;
     }
   }
 `;
 
 // section
-const MainSection = () => {
+const MainSection = ({
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
   return (
-    <Page background={IMG_URL} height={90}>
+    <Page background={IMG_URL} height={90} conditionalMinHeight minHeight={40}>
       <OuterWrapper>
         <InnerWrapper>
           <MainSectionWrapper>
             <div className="title">우리 같이 여행 갈까요?</div>
-            <SearchBar fontColor={"#fff"} role="landing" />
+            <SearchBar
+              fontColor={"#fff"}
+              role="landing"
+              setDestination={setDestination}
+              setDepartureDate={setDepartureDate}
+              setReturnDate={setReturnDate}
+              setTravelType={setTravelType}
+            />
           </MainSectionWrapper>
         </InnerWrapper>
       </OuterWrapper>

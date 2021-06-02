@@ -23,7 +23,7 @@ const LeaderSectionWrapper = styled.div`
 
   .title {
     font-weight: 700;
-    font-size: calc(2rem + 0.75vw);
+    font-size: calc(1.5rem + 0.75vw);
     margin-bottom: 2rem;
   }
 
@@ -71,7 +71,7 @@ const LeaderSectionWrapper = styled.div`
 
 const LeaderSection = () => {
   return (
-    <Page background={IMG_URL} height={80} position={"bottom"} overlay={0.4}>
+    <Page background={IMG_URL} height={100} position={"bottom"} overlay={0.4}>
       <OuterWrapper>
         <InnerWrapper>
           <LeaderSectionWrapper>
@@ -81,7 +81,7 @@ const LeaderSection = () => {
               바랍니다.
             </div>
             <button type="button">
-              <Link>시작하기</Link>
+              <Link to="/submit">시작하기</Link>
             </button>
           </LeaderSectionWrapper>
         </InnerWrapper>

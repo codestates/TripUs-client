@@ -5,26 +5,43 @@ import {
   SearchPageWrapper,
   ResultsSection,
   SideBarSection,
-  SideBarWrapper,
   Cards,
 } from "../styles/SearchListStyles";
 import SearchList from "../components/SearchList/SearchList";
 import SearchBar from "../components/Common/SearchBar";
 
-const SearchListPage = () => {
+const SearchListPage = ({
+  destination,
+  departureDate,
+  returnDate,
+  travelType,
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
   return (
-    <Page style={{ background: "rgba(211,211,211,0.15)" }}>
+    <Page color={"rgba(211,211,211,0.15)"} height={80}>
       <OuterWrapper>
         <InnerWrapper>
           <SearchPageWrapper>
             <SideBarSection>
-              <SideBarWrapper>
-                <SearchBar role="search" />
-              </SideBarWrapper>
+              <SearchBar
+                role="search"
+                setDestination={setDestination}
+                setDepartureDate={setDepartureDate}
+                setReturnDate={setReturnDate}
+                setTravelType={setTravelType}
+              />
             </SideBarSection>
             <ResultsSection>
               <Cards>
-                <SearchList />
+                <SearchList
+                  destination={destination}
+                  departureDate={departureDate}
+                  returnDate={returnDate}
+                  travelType={travelType}
+                />
               </Cards>
             </ResultsSection>
           </SearchPageWrapper>

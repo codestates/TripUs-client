@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const RegularButton = styled(Link)`
   text-decoration: none;
-  color: rgba(70, 70, 70, 0.95);
+  color: rgb(24, 51, 79);
   margin: 0 4px;
   padding: 16px;
   border-radius: 4px;
@@ -12,7 +12,8 @@ export const RegularButton = styled(Link)`
   outline: none;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.15);
+    color: #f5f5f5;
+    background: rgb(24, 51, 79);
   }
 `;
 
