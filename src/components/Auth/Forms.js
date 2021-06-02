@@ -24,8 +24,8 @@ const onSignIn = (values, setLogin, history, setLoading) => {
     .then((res) => {
       setLogin(true);
       localStorage.setItem("accessToken", res.data.accessToken);
-      history.push("/");
       setLoading(false);
+      history.push("/");
     })
     .catch((e) => setLoading(false));
 };

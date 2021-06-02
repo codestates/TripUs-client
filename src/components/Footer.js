@@ -4,11 +4,6 @@ import styled from "styled-components";
 //img
 import { DiGithubBadge } from "react-icons/di";
 
-//footer,serInfo ,nameLogoContainer, Name, githubLogo
-//반응형 순서
-//1. 전체 컴포에 media query
-//2. flex-direction container랑 깃네브에 두번준다
-
 const Footer = styled.footer`
   max-width: 100%;
   min-width: 100vw;

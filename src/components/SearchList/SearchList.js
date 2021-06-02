@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import axios from "axios";
 
 import Card from "../Common/Card";
 import Loader from "../Common/Loader";
+
+// const LoaderWrapper = styled.div`
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -21,7 +30,6 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
         },
       })
       .then((res) => {
-        console.log(res);
         setSearchResults(res.data.data);
         setLoading(false);
       })

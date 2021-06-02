@@ -20,7 +20,7 @@ const MyApplicationsPage = () => {
   }
 
   return (
-    <Page color={"rgba(211,211,211,0.15)"}>
+    <Page color={"rgba(211,211,211,0.15)"} height={80}>
       <OuterWrapper>
         <InnerWrapper>
           <MyListsWrapper>

@@ -7,9 +7,11 @@ export const SearchPageWrapper = styled.div`
 `;
 
 export const ResultsSection = styled.div`
-  flex: 0 0 70%;
   padding-right: 15px;
   padding-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   min-width: 100%;
   min-height: 30rem;
@@ -32,5 +34,7 @@ export const SideBarSection = styled.div`
 export const Cards = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
   flex-wrap: wrap;
 `;
