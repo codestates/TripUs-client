@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const conditionalMinHeight = css`
+  @media (max-width: 911px) {
+    min-height: ${(props) => props.minHeight};
+  }
+`;
 
 export const Page = styled.div`
   width: 100%;
@@ -12,12 +18,14 @@ export const Page = styled.div`
       ? `url(${props.background})`
       : props.color};
   height: ${(props) => (props.height ? `${props.height}%` : "auto")};
-  min-height: ${(props) => (props.minHeight ? "100%" : 0)};
+  min-height: ${(props) => (props.minHeight ? `${props.minHeight}rem` : 0)};
   background-size: cover;
   background-position: ${(props) =>
     props.position ? `${props.position}` : "center"};
   background-repeat: no-repeat;
   z-index: ${(props) => (props.zIndex ? `${props.zIndex}` : 0)};
+
+  ${(props) => (props.conditionalMinHeight ? conditionalMinHeight : null)}
 `;
 
 export const OuterWrapper = styled.div`

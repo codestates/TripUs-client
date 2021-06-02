@@ -15,6 +15,7 @@ const MyPostsWrapper = styled.div`
 const MyPosts = ({ token, role }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cards, setCards] = useState([]);
 
   const path = {
     posts: "/myposts",
@@ -38,7 +39,31 @@ const MyPosts = ({ token, role }) => {
         setLoading(false);
         console.log(e);
       });
+
+    return () => {
+      setLoading(true);
+    };
   }, []);
+
+  useEffect(() => {
+    setCards(
+      searchResults.map((data) => {
+        return (
+          <Card
+            title={data.title}
+            type={data.travel_type}
+            destination={data.destination}
+            departure_date={data.departure_date}
+            return_date={data.return_date}
+            people_num={data.people_num}
+            nickname={data.nickname}
+            key={data.nickname}
+            role="myLists"
+          />
+        );
+      })
+    );
+  }, [searchResults]);
 
   if (searchResults.length === 0 && !loading) {
     return <div>검색 결과가 없습니다.</div>;
@@ -49,22 +74,6 @@ const MyPosts = ({ token, role }) => {
   }
 
   if (searchResults.length > 0 && !loading) {
-    const cards = searchResults.map((data) => {
-      return (
-        <Card
-          title={data.title}
-          type={data.travel_type}
-          destination={data.destination}
-          departure_date={data.departure_date}
-          return_date={data.return_date}
-          people_num={data.people_num}
-          nickname={data.nickname}
-          key={data.nickname}
-          role="myLists"
-        />
-      );
-    });
-
     return <MyPostsWrapper>{cards}</MyPostsWrapper>;
   }
 };
