@@ -12,9 +12,13 @@ import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
+
+import Account from "./components/Account/Account";
+
 import RecruitmentPage from "./pages/Recruitment";
 import MyPostsPage from "./pages/MyPosts";
 import MyApplicationsPage from "./pages/MyApplications";
+
 
 const App = () => {
   // login
@@ -94,6 +98,9 @@ const App = () => {
         </Route>
         <Route path="/my-applications">
           <MyApplicationsPage />
+        </Route>
+        <Route exact path="/account">
+          <Account />
         </Route>
         <Route path="/">
           <LandingPage

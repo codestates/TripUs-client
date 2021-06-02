@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 const DropdownContainer = styled.div`
   z-index: 999;
@@ -93,10 +94,50 @@ const LongDropdownMenu = ({ isLogin, setLogin }) => {
 };
 
 const ShortDropDownMenu = ({ isLogin, setLogin }) => {
+  // const [email, setEmail] = useState("");
+  // const [pw, setPw] = useState("");
+  // const [nickname, setNickname] = useState("");
+  // const [name, setName] = useState("");
+  // const [mobile, setMobile] = useState("");
+  // const [age, setAge] = useState("");
+
+  // const BASE_URL = "http://server.tripus.me/account-info";
+  // const getToken = localStorage.getItem("accessToken");
+  // const getInfo = () => {
+  //   axios
+  //     .get(BASE_URL, {
+  //       headers: {
+  //         authorization: `Bearer ${getToken}`,
+  //         "Content-Type": "application/json",
+  //         //   withCredentials: true,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setEmail(res.email);
+  //       setPw(res.pw);
+  //       setNickname(res.nickname);
+  //       setMobile(res.mobile);
+  //       setAge(res.age);
+  //       setName(res.name);
+  //     })
+
+  //     .catch((err) => console.error(err));
+  // };
   return (
     <ShortDropdownList>
       <DropdownItem to="/profile">내 프로필</DropdownItem>
-      <DropdownItem to="/account">내 계정</DropdownItem>
+      <DropdownItem
+        to="/account"
+        // onClick={getInfo}
+        // loadEmail={email}
+        // loadPw={pw}
+        // loadNickname={nickname}
+        // loadMobile={mobile}
+        // loadName={name}
+        // loadAge={age}
+      >
+        내 계정
+      </DropdownItem>
       <StyleBreak />
       <DropdownItem to="/my-posts">내 작성목록</DropdownItem>
       <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
