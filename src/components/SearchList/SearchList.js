@@ -18,20 +18,32 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
 
+  console.log(searchResults);
+
+  const returnParams = (destination, departureDate, returnDate, travelType) => {
+    const params = {};
+    if (destination) params.destination = destination;
+    if (departureDate) params.dep = departureDate;
+    if (returnDate) params.ret = returnDate;
+    if (travelType) params.type = travelType;
+
+    return params;
+  };
+
   useEffect(() => {
     setLoading(true);
     axios
       .get("https://server.tripus.me/search", {
-        params: {
-          dep: departureDate,
-          ret: returnDate,
-          type: travelType,
-          destination: destination,
-        },
+        params: returnParams(
+          destination,
+          departureDate,
+          returnDate,
+          travelType
+        ),
       })
       .then((res) => {
-        setSearchResults(res.data.data);
         setLoading(false);
+        setSearchResults(res.data.data);
       })
       .catch((e) => console.log(e));
   }, [destination, departureDate, returnDate, travelType]);

@@ -231,14 +231,17 @@ const SearchBar = ({
     tempDestination,
     tempType
   ) => {
-    if (tempDepDate && tempRetDate && tempType && tempDestination) {
-      setDestination(tempDestination);
-      setDepartureDate(Date.parse(tempDepDate));
-      setReturnDate(Date.parse(tempRetDate));
-      setTravelType(tempType);
+    setDestination(tempDestination);
+    setDepartureDate(Date.parse(tempDepDate));
+    setReturnDate(Date.parse(tempRetDate));
+    setTravelType(tempType);
 
-      history.push(`/search`);
-    }
+    setTempDestination("");
+    setTempDepDate(null);
+    setTempRetDate(null);
+    setTempType("now");
+
+    history.push(`/search`);
   };
 
   return (
