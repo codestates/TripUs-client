@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import {
   Page,
@@ -37,10 +38,10 @@ const cardContents = {
   recommendation: {
     title: "트립어스 사용자가 사랑하는 여행지",
     contents: [
-      { tag: "하노이", img_src: cardSectionImgs.HANOI },
-      { tag: "뉴욕", img_src: cardSectionImgs.NY },
-      { tag: "런던", img_src: cardSectionImgs.LONDON },
-      { tag: "제주도", img_src: cardSectionImgs.JEJU },
+      { tag: "일본", img_src: cardSectionImgs.HANOI },
+      { tag: "스페인", img_src: cardSectionImgs.NY },
+      { tag: "프랑스", img_src: cardSectionImgs.LONDON },
+      { tag: "태국", img_src: cardSectionImgs.JEJU },
     ],
   },
 };
@@ -132,16 +133,45 @@ const CardContainer = styled.div`
 `;
 
 // card component
-const Card = ({ tag, background, size }) => {
+const Card = ({ tag, background, size, handleClick }) => {
+  const history = useHistory();
+
   return (
-    <CardContainer background={background} size={size}>
+    <CardContainer
+      background={background}
+      size={size}
+      onClick={() => {
+        handleClick(tag);
+        history.push("/search");
+      }}
+    >
       <h2 className="title">{tag}</h2>
     </CardContainer>
   );
 };
 
 // section
-const RecommendationSection = ({ type, size }) => {
+const RecommendationSection = ({
+  type,
+  size,
+  setDestination,
+  setReturnDate,
+  setDepartureDate,
+  setTravelType,
+}) => {
+  const handleClick = (tag) => {
+    if (type === "travelCategory") {
+      setTravelType(tag);
+      setReturnDate(null);
+      setDepartureDate(null);
+      setDestination("");
+    } else {
+      setTravelType("부분동행");
+      setReturnDate(null);
+      setDepartureDate(null);
+      setDestination(tag);
+    }
+  };
   const cards = cardContents[type].contents.map((content) => {
     return (
       <Card
@@ -149,6 +179,7 @@ const RecommendationSection = ({ type, size }) => {
         tag={content.tag}
         background={content.img_src}
         size={size}
+        handleClick={handleClick}
       />
     );
   });

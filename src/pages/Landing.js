@@ -19,9 +19,23 @@ const LandingPage = ({
         setReturnDate={setReturnDate}
         setTravelType={setTravelType}
       />
-      <RecommendationSection type="recommendation" size="4" />
+      <RecommendationSection
+        type="recommendation"
+        size="4"
+        setDestination={setDestination}
+        setDepartureDate={setDepartureDate}
+        setReturnDate={setReturnDate}
+        setTravelType={setTravelType}
+      />
       <LeaderSection />
-      <RecommendationSection type="travelCategory" size="3" />
+      <RecommendationSection
+        type="travelCategory"
+        size="3"
+        setDestination={setDestination}
+        setDepartureDate={setDepartureDate}
+        setReturnDate={setReturnDate}
+        setTravelType={setTravelType}
+      />
       <GuideSection />
     </>
   );

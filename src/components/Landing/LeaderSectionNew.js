@@ -75,7 +75,7 @@ const LeaderSection = () => {
       <OuterWrapper>
         <InnerWrapper>
           <LeaderSectionWrapper>
-            <div className="title">리더가 되어 여행원을 모집해보세요!</div>
+            <div className="title">여행원을 모집해보세요!</div>
             <div className="text">
               새로운 사람과 새로운 장소에서 특별한 추억을 만들어 보시길
               바랍니다.
