@@ -49,7 +49,7 @@
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff01bb96-42ea-474b-9244-6559a78241fd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210602%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210602T063238Z&X-Amz-Expires=86400&X-Amz-Signature=5f2ff76dcadc777bd3fb7783ecf419e9261ade330c3d883a3d9e0579a4a0f37a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 # More Detail 
-👉 WIKI!!
+[👉 WIKI!!](https://github.com/codestates/TripUs-client/wiki)
 
-### And Go to Backend
-Backend 리다이렉트 링크
+[### And Go to Backend](https://github.com/codestates/TripUs-server)
+
