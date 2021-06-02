@@ -31,5 +31,6 @@ export const SideBarSection = styled.div`
 
 export const Cards = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 `;

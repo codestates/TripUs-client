@@ -21,16 +21,20 @@ const searchCardStyles = css`
 `;
 
 const myListsCardStyles = css`
-  @media (min-width: 991px) {
-    width: calc(40% - 20px);
+  @media (min-width: 712px) {
+    width: calc(100% - 20px);
   }
 
-  @media (max-width: 991px) {
+  @media (min-width: 991px) {
     width: calc(99% - 20px);
   }
 
-  @media (max-width: 712px) {
-    width: calc(100% - 20px);
+  @media (min-width: 991px) {
+    width: calc(47% - 20px);
+  }
+
+  @media (min-width: 1800px) {
+    width: 33%;
   }
 `;
 
@@ -92,11 +96,12 @@ const CardImageContainer = styled.div`
 
       i {
         color: white;
-        font-size: 1.7rem;
+        font-size: 1.1rem;
+        margin-left: 0.3rem;
       }
 
       .username {
-        margin-left: 1rem;
+        margin-left: 0.3rem;
         font-size: 2rem;
         font-weight: bold;
         word-break: break-all;
@@ -177,6 +182,28 @@ const CLIENT_ID = "3R-WZJq3nUxiCeL7ygi_qNZLe7vaMk1Wpd0EYMlogMQ";
 
 const Card = (props) => {
   const [image, setImage] = useState("");
+  const [formattedDepDate, setFormattedDepDate] = useState("");
+  const [formattedRetDate, setFormattedRetDate] = useState("");
+
+  useEffect(() => {
+    const dDate = new Date(props.departure_date);
+    setFormattedDepDate(
+      `${dDate.getFullYear().toString().slice(2)}년 ${
+        dDate.getMonth() + 1
+      }월 ${dDate.getDate()}일`
+    );
+  }, [props.departure_date]);
+
+  useEffect(() => {
+    const rDate = new Date(props.return_date);
+    setFormattedRetDate(
+      `${rDate.getFullYear().toString().slice(2)}년 ${
+        rDate.getMonth() + 1
+      }월 ${rDate.getDate()}일`
+    );
+  }, [props.return_date]);
+
+  console.log(new Date(props.departure_date));
 
   // useEffect(() => {
   //   axios
@@ -200,14 +227,12 @@ const Card = (props) => {
       <CardImageContainer background={image}>
         <div className="card-info">
           <div className="author-info">
-            <div>
-              {props.verified ? (
-                <i className="fas fa-check-circle"></i>
-              ) : (
-                <i className="fas fa-exclamation"></i>
-              )}
-            </div>
             <p className="username">{props.nickname}</p>
+            <div>
+              {props.identification ? (
+                <i className="fas fa-check-circle"></i>
+              ) : null}
+            </div>
           </div>
         </div>
       </CardImageContainer>
@@ -218,7 +243,7 @@ const Card = (props) => {
         </div>
         <h3 className="card-title">{`${props.title.slice(0, 20)}...`}</h3>
         <p className="card-trip-duration">
-          {props.departure_date}~{props.return_date}
+          {formattedDepDate}~{formattedRetDate}
         </p>
         <p className="card-text">총인원: {props.people_num}</p>
 

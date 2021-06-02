@@ -17,9 +17,18 @@ import MyPostsPage from "./pages/MyPosts";
 import MyApplicationsPage from "./pages/MyApplications";
 
 const App = () => {
+  // login
+  const [isLogin, setIsLogIn] = useState(false);
+
+  // header
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isRightActive, setIsRightActive] = useState(false);
-  const [isLogin, setIsLogIn] = useState(false);
+
+  // search
+  const [destination, setDestination] = useState("");
+  const [departureDate, setDepartureDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
+  const [travelType, setTravelType] = useState("now");
 
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -66,7 +75,16 @@ const App = () => {
           <AboutPage />
         </Route>
         <Route path="/search">
-          <SearchListPage />
+          <SearchListPage
+            destination={destination}
+            departureDate={departureDate}
+            returnDate={returnDate}
+            travelType={travelType}
+            setDestination={setDestination}
+            setDepartureDate={setDepartureDate}
+            setReturnDate={setReturnDate}
+            setTravelType={setTravelType}
+          />
         </Route>
         <Route exact path="/submit">
           <RecruitmentPage />
@@ -78,7 +96,12 @@ const App = () => {
           <MyApplicationsPage />
         </Route>
         <Route path="/">
-          <LandingPage />
+          <LandingPage
+            setDestination={setDestination}
+            setDepartureDate={setDepartureDate}
+            setReturnDate={setReturnDate}
+            setTravelType={setTravelType}
+          />
         </Route>
       </Switch>
       <FooterComponent />

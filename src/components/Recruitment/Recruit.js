@@ -20,8 +20,7 @@ import { TextInput, SelectBox, Calendar, TextArea } from "./Utils";
 const Recruit = () => {
   const [departureDate, setDepartureDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
-  const [formattedDepartureDate, setFormattedDepartureDate] = useState("");
-  const [formattedReturnDate, setFormattedReturnDate] = useState("");
+
   const history = useHistory();
 
   const accessToken = localStorage.getItem("accessToken");
@@ -29,25 +28,6 @@ const Recruit = () => {
   const refLike = useRef(null);
   const refDislike = useRef(null);
   const refDetails = useRef(null);
-
-  //! date 값 변경
-  useEffect(() => {
-    const dDate = new Date(departureDate);
-    setFormattedDepartureDate(
-      `${dDate.getFullYear().toString().slice(2)}년 ${
-        dDate.getMonth() + 1
-      }월 ${dDate.getDate()}일`
-    );
-  }, [departureDate]);
-
-  useEffect(() => {
-    const dDate = new Date(returnDate);
-    setFormattedReturnDate(
-      `${dDate.getFullYear().toString().slice(2)}년 ${
-        dDate.getMonth() + 1
-      }월 ${dDate.getDate()}일`
-    );
-  }, [returnDate]);
 
   //! textarea 자동 사이즈 변환
   const reSizeLike = useCallback(() => {
@@ -75,7 +55,7 @@ const Recruit = () => {
   }, []);
 
   //! 새 글 작성
-  const handleCLick = (values) => {
+  const handleClick = (values) => {
     if (accessToken === "" || accessToken === null) {
       history.push("/");
     } else {
@@ -87,8 +67,8 @@ const Recruit = () => {
             moim: values.moim,
             details: values.details,
             destination: values.destination,
-            departure_date: formattedDepartureDate,
-            return_date: formattedReturnDate,
+            departure_date: Date.parse(departureDate),
+            return_date: Date.parse(returnDate),
             travel_type: values.travel_type,
             transportation: values.transportation,
             people_num: values.people_num,
@@ -131,7 +111,7 @@ const Recruit = () => {
         title: "",
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
+        handleClick(values);
         setSubmitting(false);
         resetForm();
       }}
@@ -256,7 +236,9 @@ const Recruit = () => {
                   />
 
                   <div className="buttonWrapper">
-                    <button className="btn success">완료</button>
+                    <button type="submit" className="btn success">
+                      완료
+                    </button>
 
                     <button className="btn cancel" onClick={handleCancel}>
                       취소

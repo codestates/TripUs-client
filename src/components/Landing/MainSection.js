@@ -35,14 +35,26 @@ const MainSectionWrapper = styled.div`
 `;
 
 // section
-const MainSection = () => {
+const MainSection = ({
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
   return (
-    <Page background={IMG_URL} height={90}>
+    <Page background={IMG_URL} height={90} conditionalMinHeight minHeight={40}>
       <OuterWrapper>
         <InnerWrapper>
           <MainSectionWrapper>
             <div className="title">우리 같이 여행 갈까요?</div>
-            <SearchBar fontColor={"#fff"} role="landing" />
+            <SearchBar
+              fontColor={"#fff"}
+              role="landing"
+              setDestination={setDestination}
+              setDepartureDate={setDepartureDate}
+              setReturnDate={setReturnDate}
+              setTravelType={setTravelType}
+            />
           </MainSectionWrapper>
         </InnerWrapper>
       </OuterWrapper>
