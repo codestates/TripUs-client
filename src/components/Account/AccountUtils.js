@@ -1,58 +1,31 @@
 import React from "react";
-import { useField } from "formik";
-
-import { InputWrapper } from "../../styles/RecruitmentStyles";
+import { InputWrapper } from "../../styles/AccountStyle";
 
 export const TextInput = (props) => {
-  const [field, meta] = useField(props);
-  const {
-    width,
-    handleConfirmClick,
-    isEdited,
-    LoadInfo,
-    getUserInfo,
-    email,
-  } = props;
+  const { width, isEdited, getUserInfo } = props;
+
+  const handleChangeValue = (e) => {
+    props.func(e.target.value);
+  };
 
   return (
     <InputWrapper
       width={width}
-      handleConfirmClick={handleConfirmClick}
-      isEdited={isEdited}
-      LoadInfo={LoadInfo}
       getUserInfo={getUserInfo}
+      display={props.display}
     >
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
-        {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
-        ) : null}
       </label>
       <input
         className="main-input"
-        {...field}
         type={props.type}
         id={props.id || props.name}
         placeholder={props.placeholder}
         disabled={!isEdited}
-        value=""
+        value={props.value}
+        onChange={handleChangeValue}
       ></input>
-    </InputWrapper>
-  );
-};
-
-export const SelectBox = (props) => {
-  const [field, meta] = useField(props);
-  const { width } = props;
-
-  return (
-    <InputWrapper width={width}>
-      <label htmlFor={props.id || props.name} className="main-label">
-        {props.label}
-        {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
-        ) : null}
-      </label>
     </InputWrapper>
   );
 };
