@@ -20,7 +20,7 @@ const MyPostsPage = () => {
   }
 
   return (
-    <Page color={"rgba(211,211,211,0.15)"} minHeight>
+    <Page color={"rgba(211,211,211,0.15)"}>
       <OuterWrapper>
         <InnerWrapper>
           <MyListsWrapper>
