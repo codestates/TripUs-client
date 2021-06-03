@@ -1,13 +1,14 @@
 import styled, { css } from "styled-components";
 
 export const OverlayDisplayScreen = styled.div`
+  height: 100%;
+
   @media (min-width: 901px) {
     overflow: hidden;
     position: absolute;
     top: 0;
     left: 50%;
     width: 50%;
-    height: 100%;
     z-index: 5;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
@@ -25,6 +26,8 @@ export const OverlayDisplayScreen = styled.div`
 `;
 
 export const OverlayContainer = styled.div`
+  height: 100%;
+
   @media (max-width: 901px) {
     display: none;
   }
@@ -32,7 +35,6 @@ export const OverlayContainer = styled.div`
   @media (min-width: 900px) {
     position: relative;
     left: -100%;
-    height: 100%;
     width: 200%;
     transition: transform 0.6s ease-in-out;
     background: #fff;
@@ -46,6 +48,8 @@ export const OverlayContainer = styled.div`
 `;
 
 const OverlayPanel = styled.div`
+  height: 100%;
+
   @media (min-width: 901px) {
     position: absolute;
     display: flex;
@@ -54,7 +58,6 @@ const OverlayPanel = styled.div`
     flex-direction: column;
     text-align: center;
     top: 0;
-    height: 100%;
     width: 50%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;

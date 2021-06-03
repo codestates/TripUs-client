@@ -6,20 +6,15 @@ export const Form = styled.form`
   padding: 0;
   width: 100%;
   position: relative;
-  padding-top: 1.7rem;
 
   .header-wrapper {
     margin-bottom: 1.5rem;
     font-size: calc(1rem + 1vw);
     font-weight: 700;
-    line-height: 120%;
     text-align: left;
-    display: flex;
-    align-items: center;
   }
 
   .form-wrapper {
-    min-height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +27,6 @@ export const Form = styled.form`
   }
 
   .label-wrapper {
-    height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,12 +119,12 @@ export const Form = styled.form`
   }
 
   button {
-    margin-top: 20px;
-    margin-bottom: 16px;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
     width: 100%;
     height: 3rem;
-    border-radius: 28px;
-    padding-top: 14px;
+    border-radius: 1.75rem;
+    padding-top: 0.9rem;
     color: #fff;
     padding: 8px 16px;
     font-weight: 700;
@@ -177,7 +171,7 @@ export const Form = styled.form`
 
   .toggle {
     @media (max-width: 901px) {
-      font-size: calc(0.4rem + 1vw);
+      font-size: calc(0.5rem + 1vw);
       cursor: pointer;
       padding-top: 0.5rem;
       color: rgba(0, 0, 0, 0.5);

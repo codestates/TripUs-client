@@ -34,8 +34,6 @@ const App = () => {
   const [returnDate, setReturnDate] = useState(null);
   const [travelType, setTravelType] = useState("full");
 
-  console.log(destination, departureDate, returnDate, travelType);
-
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
       setIsLogIn(true);

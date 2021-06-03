@@ -1,10 +1,4 @@
-import styled, { css } from "styled-components";
-
-const conditionalMinHeight = css`
-  @media (max-width: 911px) {
-    min-height: ${(props) => props.minHeight};
-  }
-`;
+import styled from "styled-components";
 
 export const Page = styled.div`
   width: 100%;
@@ -24,8 +18,6 @@ export const Page = styled.div`
     props.position ? `${props.position}` : "center"};
   background-repeat: no-repeat;
   z-index: ${(props) => (props.zIndex ? `${props.zIndex}` : 0)};
-
-  ${(props) => (props.conditionalMinHeight ? conditionalMinHeight : null)}
 `;
 
 export const OuterWrapper = styled.div`

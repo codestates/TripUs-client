@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import { Page, OuterWrapper, InnerWrapper } from "../styles/DefaultPageSetUp";
 import {
@@ -9,6 +10,12 @@ import {
 } from "../styles/SearchListStyles";
 import SearchList from "../components/SearchList/SearchList";
 import SearchBar from "../components/Common/SearchBar";
+
+const SearchListPageWrapper = styled(Page)`
+  @media (max-width: 911px) {
+    min-height: ${(props) => props.minHeight};
+  }
+`;
 
 const SearchListPage = ({
   destination,

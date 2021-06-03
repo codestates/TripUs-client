@@ -10,7 +10,16 @@ import { Overlay } from "../components/Auth/Overlay";
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-center;
   position: relative;
+`;
+
+const Auth = styled(Page)`
+  min-height: 80%;
+  display: flex;
+  align-items: center;
 `;
 
 const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
@@ -21,7 +30,7 @@ const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
   }, []);
 
   return (
-    <Page height={100}>
+    <Auth>
       <OuterWrapper>
         <InnerWrapper>
           <Wrapper>
@@ -38,7 +47,7 @@ const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
           </Wrapper>
         </InnerWrapper>
       </OuterWrapper>
-    </Page>
+    </Auth>
   );
 };
 

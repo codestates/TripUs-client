@@ -33,7 +33,7 @@ const Account = () => {
 
   const accessToken = localStorage.getItem("accessToken");
   const history = useHistory();
-  const BASE_URL = "http://localhost:80/account-info";
+  const BASE_URL = "https://server.tripus.me/account-info";
 
   useEffect(() => {
     axios
@@ -41,7 +41,6 @@ const Account = () => {
         headers: {
           authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
-          //   withCredentials: true,
         },
       })
       .then((res) => {
@@ -62,7 +61,7 @@ const Account = () => {
     } else {
       axios
         .patch(
-          "http://localhost:80/account-info",
+          "https://server.tripus.me/account-info",
           {
             headers: {
               authorization: `Bearer ${accessToken}`,
@@ -77,10 +76,9 @@ const Account = () => {
             mobile: mobile,
             age: age,
           }
-          // withCredentials: true,
         )
         .then(() => {
-          console.log("수정  완료!");
+          console.log("수정 완료!");
         });
     }
   };
@@ -88,7 +86,7 @@ const Account = () => {
   //! 휴대폰인증 요청
   const handleRequestMobileCode = () => {
     axios.post(
-      "http://localhost:80/send-sms",
+      "https://server.tripus.me/send-sms",
       { phone_number: "+821051652420" },
       {
         headers: {
@@ -102,7 +100,7 @@ const Account = () => {
   const handleMobileCode = () => {
     axios
       .post(
-        "http://localhost:80/send-sms",
+        "https://server.tripus.me/send-sms",
         { authentication_number: mobileCode },
         {
           headers: {
@@ -125,7 +123,7 @@ const Account = () => {
   //! 이메일 인증 요청
   const handleRequestEmailCode = () => {
     axios.post(
-      "http://localhost:80/send-email",
+      "https://server.tripus.me/send-email",
       { email: "rnjswjadhr09@gmail.com" },
       {
         headers: {
@@ -139,7 +137,7 @@ const Account = () => {
   const handleEmailCode = () => {
     axios
       .post(
-        "http://localhost:80/send-email",
+        "https://server.tripus.me/send-email",
         { authentication_code: emailCode },
         {
           headers: {
@@ -154,7 +152,6 @@ const Account = () => {
             headers: {
               authorization: `Bearer ${accessToken}`,
               "Content-Type": "application/json",
-              //   withCredentials: true,
             },
           })
           .then((res) => {
