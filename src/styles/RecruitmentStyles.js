@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const PageWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  min-height: 92rem;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 
   .title {
     text-align: center;
@@ -16,6 +16,14 @@ export const PageWrapper = styled.div`
     display: flex;
     width: 90%;
     justify-content: space-between;
+
+    @media (max-width: 911px) {
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+      }
+    }
   }
 `;
 

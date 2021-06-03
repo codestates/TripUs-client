@@ -1,44 +1,48 @@
 import styled from "styled-components";
 
-export const MyListsWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+import { Page, InnerWrapper } from "./DefaultPageSetUp";
+
+export const StyledPage = styled(Page)`
+  min-height: 80%;
+`;
+
+export const StyledInnerWrapper = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 
   .title {
     color: rgba(50, 50, 50, 0.95);
-    font-size: 1.5rem;
+    font-size: calc(1.5rem + 0.5vw);
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     font-weight: 700;
+    text-align: center;
   }
 `;
 
 export const ContentArea = styled.div`
-  display: flex;
-`;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
 
-export const SearchResultsWrapper = styled.div`
-  width: 75%;
-  display: flex;
-  flex-wrap: wrap;
-
-  @media (max-width: 911px) {
-    width: 100%;
+  @media (min-width: 1920px) {
+    grid-template-columns: repeat(4, 24%);
   }
-`;
 
-export const AdWrapper = styled.div`
-  width: 25%;
+  @media (max-width: 1920px) {
+    grid-template-columns: repeat(3, 32%);
+  }
 
-  img {
-    width: 100%;
-    min-height: 40rem;
-    max-height: 50rem;
+  @media (max-width: 1439px) {
+    grid-template-columns: repeat(2, 45%);
   }
 
   @media (max-width: 911px) {
-    display: none;
+    grid-template-columns: 95%;
   }
 `;

@@ -63,7 +63,7 @@ const OverlayPanel = styled.div`
     transition: all 0.6s ease-in-out;
 
     img {
-      width: 70%;
+      height: 70%;
     }
 
     .toggle {

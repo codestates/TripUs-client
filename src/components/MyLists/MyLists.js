@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 
 import Card from "../Common/Card";
+import Loader from "../Common/Loader";
+import { ContentArea } from "../../styles/MyListsStyles";
 
 const BASE_URL = "https://server.tripus.me";
 
-const MyPostsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 100%;
-`;
-
-const MyPosts = ({ token, role }) => {
+const MyLists = ({ token, role }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState([]);
+
+  console.log(searchResults);
 
   const path = {
     posts: "/myposts",
@@ -31,7 +28,6 @@ const MyPosts = ({ token, role }) => {
     axios
       .get(BASE_URL + path[role], config)
       .then((res) => {
-        console.log(res);
         setSearchResults(res.data.data);
         setLoading(false);
       })
@@ -57,7 +53,7 @@ const MyPosts = ({ token, role }) => {
             return_date={data.return_date}
             people_num={data.people_num}
             nickname={data.nickname}
-            key={data.nickname}
+            key={data.id}
             role="myLists"
           />
         );
@@ -66,16 +62,24 @@ const MyPosts = ({ token, role }) => {
   }, [searchResults]);
 
   if (searchResults.length === 0 && !loading) {
-    return <div>검색 결과가 없습니다.</div>;
+    return (
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        검색 결과가 없습니다.
+      </div>
+    );
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <Loader />
+      </div>
+    );
   }
 
   if (searchResults.length > 0 && !loading) {
-    return <MyPostsWrapper>{cards}</MyPostsWrapper>;
+    return <ContentArea>{cards}</ContentArea>;
   }
 };
 
-export default MyPosts;
+export default MyLists;

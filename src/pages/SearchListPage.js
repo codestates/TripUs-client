@@ -1,21 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 
-import { Page, OuterWrapper, InnerWrapper } from "../styles/DefaultPageSetUp";
+import { OuterWrapper } from "../styles/DefaultPageSetUp";
 import {
-  SearchPageWrapper,
+  StyledPage,
+  StyledInnerWrapper,
   ResultsSection,
   SideBarSection,
-  Cards,
 } from "../styles/SearchListStyles";
 import SearchList from "../components/SearchList/SearchList";
 import SearchBar from "../components/Common/SearchBar";
-
-const SearchListPageWrapper = styled(Page)`
-  @media (max-width: 911px) {
-    min-height: ${(props) => props.minHeight};
-  }
-`;
 
 const SearchListPage = ({
   destination,
@@ -28,33 +21,29 @@ const SearchListPage = ({
   setTravelType,
 }) => {
   return (
-    <Page color={"rgba(211,211,211,0.15)"} height={80}>
+    <StyledPage color={"rgba(211,211,211,0.15)"}>
       <OuterWrapper>
-        <InnerWrapper>
-          <SearchPageWrapper>
-            <SideBarSection>
-              <SearchBar
-                role="search"
-                setDestination={setDestination}
-                setDepartureDate={setDepartureDate}
-                setReturnDate={setReturnDate}
-                setTravelType={setTravelType}
-              />
-            </SideBarSection>
-            <ResultsSection>
-              <Cards>
-                <SearchList
-                  destination={destination}
-                  departureDate={departureDate}
-                  returnDate={returnDate}
-                  travelType={travelType}
-                />
-              </Cards>
-            </ResultsSection>
-          </SearchPageWrapper>
-        </InnerWrapper>
+        <StyledInnerWrapper>
+          <SideBarSection>
+            <SearchBar
+              role="search"
+              setDestination={setDestination}
+              setDepartureDate={setDepartureDate}
+              setReturnDate={setReturnDate}
+              setTravelType={setTravelType}
+            />
+          </SideBarSection>
+          <ResultsSection>
+            <SearchList
+              destination={destination}
+              departureDate={departureDate}
+              returnDate={returnDate}
+              travelType={travelType}
+            />
+          </ResultsSection>
+        </StyledInnerWrapper>
       </OuterWrapper>
-    </Page>
+    </StyledPage>
   );
 };
 
