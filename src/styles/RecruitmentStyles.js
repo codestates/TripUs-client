@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { InnerWrapper } from "./DefaultPageSetUp";
 
-export const PageWrapper = styled.div`
+export const StyledInnerWrapper = styled(InnerWrapper)`
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;

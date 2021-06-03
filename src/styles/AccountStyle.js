@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { Page, InnerWrapper } from "./DefaultPageSetUp";
 
-export const PageWrapper = styled.div`
+export const StyledPage = styled(Page)`
+  min-height: 80%;
+`;
+
+export const StyledInnerWrapper = styled(InnerWrapper)`
   display: flex;
   justify-content: space-between;
-  min-height: 92rem;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 
   .title {
     text-align: center;
@@ -16,6 +21,14 @@ export const PageWrapper = styled.div`
     display: flex;
     width: 90%;
     justify-content: space-between;
+
+    @media (max-width: 911px) {
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+      }
+    }
   }
 `;
 
@@ -40,7 +53,7 @@ export const MainContainer = styled.div`
     margin-top: 2rem;
 
     .btn {
-      font-size: 1rem;
+      font-size: calc(0.5rem + 0.5vw);
       font-weight: bold;
       width: 120px;
       padding: 8px;
@@ -49,6 +62,7 @@ export const MainContainer = styled.div`
       cursor: pointer;
       border: none;
       transition: all 0.3s ease-in-out;
+      margin-left: 1rem;
 
       &:hover,
       &:focus,
@@ -60,13 +74,32 @@ export const MainContainer = styled.div`
     .success {
       background: #1e90ff;
       color: #fff;
-      margin-right: 1rem;
     }
 
     .cancel {
       background: white;
       color: gray;
       border: 1px solid gray;
+    }
+
+    .email {
+      background: rgb(245, 66, 215);
+      color: #fff;
+    }
+
+    .toggle {
+      background: #1e90ff;
+      color: #fff;
+    }
+
+    .mobile {
+      background: rgb(245, 194, 66);
+      color: #fff;
+    }
+
+    .confirm {
+      background: rgb(123, 66, 245);
+      color: #fff;
     }
   }
 `;
