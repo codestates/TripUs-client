@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
@@ -13,7 +13,13 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const AuthPage = ({ isRightActive, togglePanel, setLogin, history }) => {
+const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
+  useEffect(() => {
+    return () => {
+      setIsRightActive(false);
+    };
+  }, []);
+
   return (
     <Page height={100}>
       <OuterWrapper>
@@ -21,11 +27,14 @@ const AuthPage = ({ isRightActive, togglePanel, setLogin, history }) => {
           <Wrapper>
             <AuthForm
               rightActive={isRightActive}
-              togglePanel={togglePanel}
+              setIsRightActive={setIsRightActive}
               setLogin={setLogin}
               history={history}
             />
-            <Overlay isRightActive={isRightActive} togglePanel={togglePanel} />
+            <Overlay
+              isRightActive={isRightActive}
+              setIsRightActive={setIsRightActive}
+            />
           </Wrapper>
         </InnerWrapper>
       </OuterWrapper>

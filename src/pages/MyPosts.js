@@ -30,7 +30,10 @@ const MyPostsPage = () => {
                 <MyPosts token={token} role="posts" />
               </SearchResultsWrapper>
               <AdWrapper>
-                <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRyYXZlbHxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
+                <img
+                  src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRyYXZlbHxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                  alt="ad banner"
+                />
               </AdWrapper>
             </ContentArea>
           </MyListsWrapper>

@@ -32,7 +32,21 @@ const InviteWrapper = styled.div`
   }
 `;
 
-const Invite = () => {
+const Invite = ({
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
+  const searchTrips = () => {
+    const RightNow = Date.now();
+    const AYearLater = RightNow + 60 * 60 * 24 * 365 * 1000;
+    setDestination("");
+    setDepartureDate(RightNow);
+    setReturnDate(AYearLater);
+    setTravelType("");
+  };
+
   return (
     <Page background={IMG_URL} height={50} overlay={0.4}>
       <OuterWrapper>
@@ -41,7 +55,7 @@ const Invite = () => {
             <div className="title">
               6720개의 모임이 당신을 기다리고 있습니다.
             </div>
-            <Link to="/login" className="button">
+            <Link to="/search" className="button" onClick={searchTrips}>
               시작하기
             </Link>
           </InviteWrapper>

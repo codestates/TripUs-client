@@ -73,12 +73,17 @@ const TextInput = (props) => {
 
 export const SignInForm = ({
   className,
-  togglePanel,
+  setIsRightActive,
   setLogin,
   history,
   setLoading,
 }) => {
   const initialValues = { email: "", pw: "" };
+
+  const togglePanel = () => {
+    setIsRightActive((prev) => !prev);
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -148,7 +153,16 @@ export const SignInForm = ({
   );
 };
 
-export const SignUpForm = ({ className, togglePanel, history, setLoading }) => {
+export const SignUpForm = ({
+  className,
+  setIsRightActive,
+  history,
+  setLoading,
+}) => {
+  const togglePanel = () => {
+    setIsRightActive((prev) => !prev);
+  };
+
   return (
     <Formik
       initialValues={{

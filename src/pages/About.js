@@ -5,14 +5,24 @@ import Testimonial from "../components/About/Testimonial";
 import Invite from "../components/About/Invite";
 import Story from "../components/About/Story";
 
-const AboutPage = () => {
+const AboutPage = ({
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
   return (
     <>
       <Slogan />
       <Story type="first" />
       <Story type="second" />
       <Testimonial />
-      <Invite />
+      <Invite
+        setDestination={setDestination}
+        setDepartureDate={setDepartureDate}
+        setReturnDate={setReturnDate}
+        setTravelType={setTravelType}
+      />
     </>
   );
 };

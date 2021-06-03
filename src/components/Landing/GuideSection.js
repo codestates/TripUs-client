@@ -107,9 +107,9 @@ const GuideContents = {
 };
 
 // guide component
-const Guide = ({ type, to }) => {
+const Guide = ({ type, to, handleClick }) => {
   return (
-    <StyledGuide to={to}>
+    <StyledGuide to={to} onClick={handleClick}>
       <div className="icon-wrapper">{GuideContents[type].icon}</div>
       <div className="text-wrapper">
         <h3 className="guide-title">{GuideContents[type].title}</h3>
@@ -119,7 +119,21 @@ const Guide = ({ type, to }) => {
 };
 
 // section
-const GuideSection = () => {
+const GuideSection = ({
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
+  const searchTrips = () => {
+    const RightNow = Date.now();
+    const AYearLater = RightNow + 60 * 60 * 24 * 365 * 1000;
+    setDestination("");
+    setDepartureDate(RightNow);
+    setReturnDate(AYearLater);
+    setTravelType("");
+  };
+
   return (
     <Page height={40} color={"#1c334f"}>
       <OuterWrapper>
@@ -127,7 +141,7 @@ const GuideSection = () => {
           <GuideSectionWrapper>
             <div className="section-title">TripUs를 완벽히 즐기는 방법!</div>
             <div className="content-area">
-              <Guide type="find" to="/search" />
+              <Guide type="find" to="/search" handleClick={searchTrips} />
               <Guide type="recruit" to="/submit" />
             </div>
           </GuideSectionWrapper>
