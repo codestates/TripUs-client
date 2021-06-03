@@ -2,7 +2,7 @@ import React from "react";
 import { InputWrapper } from "../../styles/AccountStyle";
 
 export const TextInput = (props) => {
-  const { width, isEdited, getUserInfo } = props;
+  const { width, isEditable, getUserInfo } = props;
 
   const handleChangeValue = (e) => {
     props.func(e.target.value);
@@ -22,7 +22,7 @@ export const TextInput = (props) => {
         type={props.type}
         id={props.id || props.name}
         placeholder={props.placeholder}
-        disabled={!isEdited}
+        disabled={!isEditable}
         value={props.value}
         onChange={handleChangeValue}
       ></input>
