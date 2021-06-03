@@ -11,7 +11,11 @@ import {
 import together from "../../images/together.png";
 import travelers from "../../images/travelers.png";
 
-export const Overlay = ({ isRightActive, togglePanel }) => {
+export const Overlay = ({ isRightActive, setIsRightActive }) => {
+  const togglePanel = () => {
+    setIsRightActive((prev) => !prev);
+  };
+
   return (
     <OverlayDisplayScreen rightActive={isRightActive}>
       <OverlayContainer rightActive={isRightActive}>

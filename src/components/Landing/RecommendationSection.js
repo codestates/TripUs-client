@@ -166,7 +166,7 @@ const RecommendationSection = ({
       setDepartureDate(null);
       setDestination("");
     } else {
-      setTravelType("부분동행");
+      setTravelType("");
       setReturnDate(null);
       setDepartureDate(null);
       setDestination(tag);

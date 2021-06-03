@@ -10,7 +10,7 @@ import {
 import { SignInForm, SignUpForm } from "./Forms";
 import Loader from "../Common/Loader";
 
-const AuthForm = ({ rightActive, togglePanel, setLogin, history }) => {
+const AuthForm = ({ rightActive, setIsRightActive, setLogin, history }) => {
   const [loading, setLoading] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ const AuthForm = ({ rightActive, togglePanel, setLogin, history }) => {
             <Loader />
           ) : (
             <SignInForm
-              togglePanel={togglePanel}
+              setIsRightActive={setIsRightActive}
               setLogin={setLogin}
               history={history}
               setLoading={setLoading}
@@ -33,7 +33,7 @@ const AuthForm = ({ rightActive, togglePanel, setLogin, history }) => {
             <Loader />
           ) : (
             <SignUpForm
-              togglePanel={togglePanel}
+              setIsRightActive={setIsRightActive}
               history={history}
               setLoading={setLoading}
             ></SignUpForm>

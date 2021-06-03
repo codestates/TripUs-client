@@ -201,6 +201,7 @@ const Select = ({ travelType, setTravelType }) => {
     <Wrapper>
       <label htmlFor="travelType">동행 종류</label>
       <select id="travelType" value={travelType} onChange={handleClick}>
+        <option value="">동행 종류 선택</option>
         <option value="바로동행">바로동행</option>
         <option value="부분동행">부분동행</option>
         <option value="전체동행">전체동행</option>
@@ -223,7 +224,7 @@ const SearchBar = ({
   const [tempDestination, setTempDestination] = useState("");
   const [tempDepDate, setTempDepDate] = useState(null);
   const [tempRetDate, setTempRetDate] = useState(null);
-  const [tempType, setTempType] = useState("now");
+  const [tempType, setTempType] = useState("");
 
   const handleSubmit = (
     tempDepDate,

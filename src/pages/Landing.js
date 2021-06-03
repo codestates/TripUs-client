@@ -36,7 +36,12 @@ const LandingPage = ({
         setReturnDate={setReturnDate}
         setTravelType={setTravelType}
       />
-      <GuideSection />
+      <GuideSection
+        setDestination={setDestination}
+        setDepartureDate={setDepartureDate}
+        setReturnDate={setReturnDate}
+        setTravelType={setTravelType}
+      />
     </>
   );
 };
