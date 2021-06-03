@@ -32,7 +32,9 @@ const App = () => {
   const [destination, setDestination] = useState("");
   const [departureDate, setDepartureDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
-  const [travelType, setTravelType] = useState("now");
+  const [travelType, setTravelType] = useState("full");
+
+  console.log(destination, departureDate, returnDate, travelType);
 
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -42,10 +44,6 @@ const App = () => {
 
   const setLogin = (bool) => {
     setIsLogIn(bool);
-  };
-
-  const togglePanel = () => {
-    setIsRightActive((prev) => !prev);
   };
 
   const openDropdown = (e) => {
@@ -65,18 +63,27 @@ const App = () => {
         dropdownOpen={dropdownOpen}
         openDropdown={openDropdown}
         setLogin={setLogin}
+        setDestination={setDestination}
+        setDepartureDate={setDepartureDate}
+        setReturnDate={setReturnDate}
+        setTravelType={setTravelType}
       />
 
       <Switch>
         <Route exact path="/login">
           <AuthPage
             isRightActive={isRightActive}
-            togglePanel={togglePanel}
+            setIsRightActive={setIsRightActive}
             setLogin={setLogin}
           />
         </Route>
         <Route exact path="/about">
-          <AboutPage />
+          <AboutPage
+            setDestination={setDestination}
+            setDepartureDate={setDepartureDate}
+            setReturnDate={setReturnDate}
+            setTravelType={setTravelType}
+          />
         </Route>
         <Route path="/search">
           <SearchListPage

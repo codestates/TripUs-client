@@ -13,7 +13,25 @@ import { StyledHeader } from "../../styles/HeaderStyles";
 // image
 import logo from "../../images/logo.png";
 
-export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
+export const Header = ({
+  isLogin,
+  dropdownOpen,
+  openDropdown,
+  setLogin,
+  setDestination,
+  setDepartureDate,
+  setReturnDate,
+  setTravelType,
+}) => {
+  const searchTrips = () => {
+    const RightNow = Date.now();
+    const AYearLater = RightNow + 60 * 60 * 24 * 365 * 1000;
+    setDestination("");
+    setDepartureDate(RightNow);
+    setReturnDate(AYearLater);
+    setTravelType("");
+  };
+
   return (
     <StyledHeader>
       <div className="wrapper">
@@ -24,7 +42,9 @@ export const Header = ({ isLogin, dropdownOpen, openDropdown, setLogin }) => {
           <div className="navbar">
             <div className="links">
               <CTAButton to="/submit">모집글 작성</CTAButton>
-              <RegularButton to="/list">모집글 목록</RegularButton>
+              <RegularButton to="/search" onClick={searchTrips}>
+                모집글 목록
+              </RegularButton>
               <RegularButton to="/about">서비스 소개</RegularButton>
             </div>
             <div className="icon" onClick={openDropdown}>

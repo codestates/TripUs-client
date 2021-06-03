@@ -203,8 +203,6 @@ const Card = (props) => {
     );
   }, [props.return_date]);
 
-  console.log(new Date(props.departure_date));
-
   // useEffect(() => {
   //   axios
   //     .get(AXIOS_URL, {

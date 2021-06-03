@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 
 import Card from "../Common/Card";
 import Loader from "../Common/Loader";
 
-// const LoaderWrapper = styled.div`
-//   height: 100%;
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
 const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
-
-  console.log(searchResults);
 
   const returnParams = (destination, departureDate, returnDate, travelType) => {
     const params = {};
@@ -60,7 +49,7 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
             return_date={data.return_date}
             people_num={data.people_num}
             nickname={data.nickname}
-            key={data.nickname}
+            key={data.post_id}
             identification={data.identification}
             role="myLists"
           />
