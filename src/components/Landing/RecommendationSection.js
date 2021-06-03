@@ -9,15 +9,17 @@ import {
 } from "../../styles/DefaultPageSetUp";
 
 const cardSectionImgs = {
-  HANOI:
-    "https://images.unsplash.com/photo-1555921015-5532091f6026?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  JAPAN:
+    "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFwYW58ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 
-  NY: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
+  SPAIN:
+    "https://images.unsplash.com/photo-1587789202069-f57c846b85db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJhcmNlbG9uYXxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 
-  LONDON:
-    "https://images.unsplash.com/photo-1454537468202-b7ff71d51c2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80",
+  FRANCE:
+    "https://images.unsplash.com/photo-1584266337361-679ae80c8519?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhcmlzfGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 
-  JEJU: "https://images.unsplash.com/photo-1581398644564-c46e97d9418a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amVqdXxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+  THAILAND:
+    "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 
   NOW: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
 
@@ -38,10 +40,10 @@ const cardContents = {
   recommendation: {
     title: "트립어스 사용자가 사랑하는 여행지",
     contents: [
-      { tag: "일본", img_src: cardSectionImgs.HANOI },
-      { tag: "스페인", img_src: cardSectionImgs.NY },
-      { tag: "프랑스", img_src: cardSectionImgs.LONDON },
-      { tag: "태국", img_src: cardSectionImgs.JEJU },
+      { tag: "일본", img_src: cardSectionImgs.JAPAN },
+      { tag: "스페인", img_src: cardSectionImgs.SPAIN },
+      { tag: "프랑스", img_src: cardSectionImgs.FRANCE },
+      { tag: "태국", img_src: cardSectionImgs.THAILAND },
     ],
   },
 };

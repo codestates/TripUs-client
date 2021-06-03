@@ -12,6 +12,16 @@ import SearchBar from "../Common/SearchBar";
 const IMG_URL =
   "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2h8ZW58MHwwfDB8Ymx1ZXw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60";
 
+const MainSectionPage = styled(Page)`
+  @media (max-width: 911px) {
+    height: 100%;
+  }
+
+  @media (min-width: 911px) {
+    height: 90%;
+  }
+`;
+
 // section style
 const MainSectionWrapper = styled.div`
   display: flex;
@@ -42,7 +52,7 @@ const MainSection = ({
   setTravelType,
 }) => {
   return (
-    <Page background={IMG_URL} height={90} conditionalMinHeight minHeight={40}>
+    <MainSectionPage background={IMG_URL}>
       <OuterWrapper>
         <InnerWrapper>
           <MainSectionWrapper>
@@ -58,7 +68,7 @@ const MainSection = ({
           </MainSectionWrapper>
         </InnerWrapper>
       </OuterWrapper>
-    </Page>
+    </MainSectionPage>
   );
 };
 

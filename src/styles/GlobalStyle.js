@@ -28,10 +28,6 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  .root-wrapper {
-    height: 100%;
-  }
-
   ::-webkit-scrollbar {
     display: none;
   }

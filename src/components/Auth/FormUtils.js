@@ -2,19 +2,15 @@ import styled, { css } from "styled-components";
 
 export const FormDisplayScreen = styled.div`
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
 `;
 
 export const FormsContainer = styled.div`
-  position: relative;
-  height: 100%;
   width: 100%;
-  left: 0;
+  display: flex;
+  align-items: center;
   background: #fff;
+  height: 100%;
 
   @media (max-width: 901px) {
     width: 200%;
@@ -22,7 +18,6 @@ export const FormsContainer = styled.div`
 `;
 
 const FormPanel = styled.div`
-  position: absolute;
   height: 100%;
   width: 50%;
   display: flex;
@@ -31,12 +26,10 @@ const FormPanel = styled.div`
   align-items: center;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
-  padding: 0.5rem 2rem;
+  padding: 2rem;
 `;
 
 export const SignInPanel = styled(FormPanel)`
-  left: 0;
-
   ${(props) =>
     props.rightActive &&
     css`
@@ -53,8 +46,6 @@ export const SignInPanel = styled(FormPanel)`
 `;
 
 export const SignUpPanel = styled(FormPanel)`
-  right: 0;
-
   ${(props) =>
     !props.rightActive &&
     css`
@@ -65,15 +56,13 @@ export const SignUpPanel = styled(FormPanel)`
     ${(props) =>
       props.rightActive &&
       css`
-        left: 0;
-        transform: translateX(0%);
+        transform: translateX(-100%);
       `}
 
     ${(props) =>
       !props.rightActive &&
       css`
-        left: 0;
-        transform: translateX(100%);
+        transform: translateX(0%);
       `}
   }
 `;
