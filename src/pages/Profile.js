@@ -136,7 +136,7 @@ const Profile = () => {
     func((prev) => !prev);
   };
 
-  //! 취소시 프로필페이지
+  //! 취소시 프로필 페이지
 
   const handleClickCancel = () => {
     axios
