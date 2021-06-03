@@ -1,24 +1,41 @@
 import styled from "styled-components";
+import { Page, InnerWrapper } from "./DefaultPageSetUp";
 
-export const SearchPageWrapper = styled.div`
+export const StyledPage = styled(Page)`
+  min-height: 80%;
+`;
+
+export const StyledInnerWrapper = styled(InnerWrapper)`
   display: flex;
-  margin-top: 1rem;
   flex-direction: column;
+  margin-top: 1rem;
 `;
 
 export const ResultsSection = styled.div`
-  padding-right: 15px;
-  padding-left: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+`;
 
-  min-width: 100%;
-  min-height: 30rem;
+export const CardsWrapper = styled.div`
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 1920px) {
+    grid-template-columns: repeat(4, 24%);
+  }
+
+  @media (max-width: 1920px) {
+    grid-template-columns: repeat(3, 32%);
+  }
+
+  @media (max-width: 1439px) {
+    grid-template-columns: repeat(2, 45%);
+  }
 
   @media (max-width: 911px) {
-    margin-top: 1rem;
-    padding: 0;
+    grid-template-columns: 95%;
   }
 `;
 
@@ -29,12 +46,4 @@ export const SideBarSection = styled.div`
   @media (max-width: 911px) {
     padding: 0;
   }
-`;
-
-export const Cards = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
 `;

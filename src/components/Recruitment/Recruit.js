@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Formik } from "formik";
 import axios from "axios";
@@ -25,75 +25,40 @@ const Recruit = () => {
 
   const accessToken = localStorage.getItem("accessToken");
 
-  const refLike = useRef(null);
-  const refDislike = useRef(null);
-  const refDetails = useRef(null);
-
-  //! textarea 자동 사이즈 변환
-  const reSizeLike = useCallback(() => {
-    if (refLike === null || refLike.current === null) {
-      return;
-    }
-    refLike.current.style.height = "24px";
-    refLike.current.style.height = refLike.current.scrollHeight + "px";
-  }, []);
-
-  const reSizeDisLike = useCallback(() => {
-    if (refDislike === null || refDislike.current === null) {
-      return;
-    }
-    refDislike.current.style.height = "24px";
-    refDislike.current.style.height = refDislike.current.scrollHeight + "px";
-  }, []);
-
-  const reSizeDetails = useCallback(() => {
-    if (refDetails === null || refDetails.current === null) {
-      return;
-    }
-    refDetails.current.style.height = "24px";
-    refDetails.current.style.height = refDetails.current.scrollHeight + "px";
-  }, []);
+  if (!accessToken) {
+    history.push("/login");
+  }
 
   //! 새 글 작성
   const handleClick = (values) => {
-    if (accessToken === "" || accessToken === null) {
-      history.push("/");
-    } else {
-      axios
-        .post(
-          "https://server.tripus.me/trip",
-          {
-            dantalk: values.dantalk,
-            moim: values.moim,
-            details: values.details,
-            destination: values.destination,
-            departure_date: Date.parse(departureDate),
-            return_date: Date.parse(returnDate),
-            travel_type: values.travel_type,
-            transportation: values.transportation,
-            people_num: values.people_num,
-            like: values.like,
-            dislike: values.dislike,
-            title: values.title,
+    axios
+      .post(
+        "https://server.tripus.me/trip",
+        {
+          dantalk: values.dantalk,
+          moim: values.moim,
+          details: values.details,
+          destination: values.destination,
+          departure_date: Date.parse(departureDate),
+          return_date: Date.parse(returnDate),
+          travel_type: values.travel_type,
+          transportation: values.transportation,
+          people_num: values.people_num,
+          like: values.like,
+          dislike: values.dislike,
+          title: values.title,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
           },
-          {
-            headers: {
-              authorization: `Bearer ${accessToken}`,
-              "Content-Type": "application/json",
-            },
-            // withCredentials: true,
-          }
-        )
-        .then(() => {
-          history.push("/my-posts");
-          console.log("포스팅 완료!");
-        });
-    }
-  };
-
-  //! 취소버튼
-  const handleCancel = () => {
-    history.push("/");
+        }
+      )
+      .then(() => {
+        history.push("/my-posts");
+        console.log("포스팅 완료!");
+      });
   };
 
   return (
@@ -123,6 +88,7 @@ const Recruit = () => {
               <PageWrapper>
                 <MainContainer>
                   <h1 className="title">모집글 작성</h1>
+
                   <TextInput
                     name="title"
                     label="제목"
@@ -131,6 +97,7 @@ const Recruit = () => {
                     placeholder="제목을 자유롭게 작성해주세요"
                     width="full"
                   />
+
                   <TextInput
                     name="destination"
                     label="목적지"
@@ -139,6 +106,7 @@ const Recruit = () => {
                     placeholder="어디로 가실 계획인가요?"
                     width="full"
                   />
+
                   <TextInput
                     name="dantalk"
                     label="연락처"
@@ -147,6 +115,7 @@ const Recruit = () => {
                     placeholder="연락처를 작성해주세요"
                     width="full"
                   />
+
                   <TextInput
                     name="moim"
                     label="출발장소"
@@ -168,6 +137,7 @@ const Recruit = () => {
                       returnDate={returnDate}
                       dateFunc={setDepartureDate}
                     />
+
                     <Calendar
                       name="return"
                       role="return"
@@ -189,6 +159,7 @@ const Recruit = () => {
                       placeholder="어떤 종류의 동행을 구하시나요?"
                       width="half"
                     />
+
                     <TextInput
                       name="people_num"
                       label="인원 수"
@@ -225,14 +196,13 @@ const Recruit = () => {
                     placeholder="이번 여행에서 어떤 것을 피하고 싶으신가요?"
                     width="full"
                   />
+
                   <TextArea
                     name="details"
                     label="세부사항"
                     id="details"
                     placeholder="여행 관련 세부 사항을 작성해주세요"
                     width="full"
-                    ref={refDetails}
-                    onInput={reSizeDetails}
                   />
 
                   <div className="buttonWrapper">
@@ -240,7 +210,7 @@ const Recruit = () => {
                       완료
                     </button>
 
-                    <button className="btn cancel" onClick={handleCancel}>
+                    <button className="btn cancel" onClick={formik.handleReset}>
                       취소
                     </button>
                   </div>

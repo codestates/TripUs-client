@@ -4,6 +4,8 @@ import axios from "axios";
 import Card from "../Common/Card";
 import Loader from "../Common/Loader";
 
+import { ResultsSection, CardsWrapper } from "../../styles/SearchListStyles";
+
 const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -59,15 +61,40 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
   }, [searchResults]);
 
   if (searchResults.length > 0 && !loading) {
-    return <>{cards}</>;
+    return <CardsWrapper>{cards}</CardsWrapper>;
   }
-
   if (loading) {
-    return <Loader style={{ marginTop: "3rem" }} />;
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "3rem",
+          marginBottom: "3rem",
+        }}
+      >
+        <Loader style={{ marginTop: "3rem" }} />
+      </div>
+    );
   }
 
   if (searchResults.length === 0 && !loading) {
-    return <div>검색 결과가 없습니다.</div>;
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "3rem",
+          marginBottom: "3rem",
+        }}
+      >
+        검색 결과가 없습니다.
+      </div>
+    );
   }
 };
 
