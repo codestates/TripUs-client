@@ -1,19 +1,13 @@
 import React from "react";
 import { InputWrapper } from "../../styles/AccountStyle";
 
-export const TextInput = (props) => {
-  const { width, isEditable, getUserInfo } = props;
-
+const TextInput = (props) => {
   const handleChangeValue = (e) => {
     props.func(e.target.value);
   };
 
   return (
-    <InputWrapper
-      width={width}
-      getUserInfo={getUserInfo}
-      display={props.display}
-    >
+    <InputWrapper width={props.width} display={props.display}>
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
       </label>
@@ -22,10 +16,12 @@ export const TextInput = (props) => {
         type={props.type}
         id={props.id || props.name}
         placeholder={props.placeholder}
-        disabled={!isEditable}
+        disabled={!props.isEditable}
         value={props.value}
         onChange={handleChangeValue}
       ></input>
     </InputWrapper>
   );
 };
+
+export default TextInput;

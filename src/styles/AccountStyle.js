@@ -108,6 +108,7 @@ export const MainContainer = styled.div`
       border: none;
       transition: all 0.3s ease-in-out;
       margin-left: 1rem;
+      word-break: keep-all;
 
       &:hover,
       &:focus,

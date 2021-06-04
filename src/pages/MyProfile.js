@@ -9,16 +9,16 @@ import {
   SubContainer,
 } from "../styles/AccountStyle";
 
-import { TextInput } from "../components/Profile/ProfileUtils";
+import TextInput from "../components/Common/TextInput";
 
-const Profile = () => {
+const MyProfilePage = () => {
   const [visited, setVisited] = useState("");
   const [language, setLanguage] = useState("");
   const [travelStyle, setTravelStyle] = useState("");
   const [mbti, setMbti] = useState("");
   const [wishList, setWishList] = useState("");
   const [intro, setIntro] = useState("");
-  const [isModified, setIsModified] = useState(false);
+  const [isEditable, setIsEditable] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
 
@@ -91,7 +91,6 @@ const Profile = () => {
   };
 
   //! 취소시 프로필 페이지
-
   const handleClickCancel = () => {
     axios
       .get(BASE_URL + "/profile", {
@@ -124,62 +123,74 @@ const Profile = () => {
                 label="방문한 나라"
                 type="text"
                 placeholder="지금까지 여행해본 나라를 입력해 주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setVisited}
                 value={visited}
+                display={true}
+                width="full"
               />
 
               <TextInput
                 label="구사 언어"
                 type="text"
                 placeholder="구사 가능한 언어를 입력해 주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setLanguage}
                 value={language}
+                display={true}
+                width="full"
               />
 
               <TextInput
                 label="여행스타일"
                 type="text"
                 placeholder="자신의 여행스타일을 입력해 주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setTravelStyle}
                 value={travelStyle}
+                display={true}
+                width="full"
               />
 
               <TextInput
                 label="MBTI"
                 type="text"
                 placeholder="자신의 MBTI를 입력해 주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setMbti}
                 value={mbti}
+                display={true}
+                width="full"
               />
 
               <TextInput
                 label="가고 싶은 여행지"
                 type="text"
                 placeholder="방문하고 싶은 여행지를 입력해 주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setWishList}
                 value={wishList}
+                display={true}
+                width="full"
               />
 
               <TextInput
                 label="자기소개"
                 type="text"
                 placeholder="자신을 소개할 글을 입력해주세요"
-                isModified={isModified}
+                isEditable={isEditable}
                 func={setIntro}
                 value={intro}
+                display={true}
+                width="full"
               />
 
               <div className="buttonWrapper">
-                {!isModified ? (
+                {!isEditable ? (
                   <button
                     className="btn toggle"
                     onClick={() => {
-                      handleClickModified(setIsModified);
+                      handleClickModified(setIsEditable);
                     }}
                   >
                     수정하기
@@ -191,13 +202,14 @@ const Profile = () => {
                 )}
                 <button
                   className="btn cancel"
-                  disabled={!isModified}
+                  disabled={!isEditable}
                   onClick={handleClickCancel}
                 >
                   취소
                 </button>
               </div>
             </MainContainer>
+
             <SubContainer>
               <div>
                 <div className="safety-info-container profile">
@@ -241,4 +253,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfilePage;

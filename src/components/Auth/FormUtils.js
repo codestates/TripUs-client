@@ -19,6 +19,7 @@ export const FormsContainer = styled.div`
 
 const FormPanel = styled.div`
   height: 100%;
+  min-height: 350px;
   width: 50%;
   display: flex;
   flex-direction: column;

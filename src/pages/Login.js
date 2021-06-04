@@ -22,7 +22,7 @@ const Auth = styled(Page)`
   align-items: center;
 `;
 
-const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
+const LogInPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
   useEffect(() => {
     return () => {
       setIsRightActive(false);
@@ -51,4 +51,4 @@ const AuthPage = ({ isRightActive, setIsRightActive, setLogin, history }) => {
   );
 };
 
-export default withRouter(AuthPage);
+export default withRouter(LogInPage);
