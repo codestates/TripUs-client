@@ -7,26 +7,71 @@ export const StyledPage = styled(Page)`
 
 export const StyledInnerWrapper = styled(InnerWrapper)`
   display: flex;
-  justify-content: space-between;
-  margin-top: 5rem;
+  flex-direction: column;
+  margin-top: 1rem;
   margin-bottom: 5rem;
 
-  .title {
-    text-align: center;
+  .banner {
+    min-height: 10rem;
     color: #3b3d40;
     margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .title {
+      color: #f2f1ef;
+      letter-spacing: 0.5rem;
+      font-size: calc(1rem + 1vw);
+    }
   }
 
-  .double-input {
+  .banner.recruit {
+        background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15)
+      ),
+      url("https://images.unsplash.com/photo-1531263060782-b024de9b9793?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHRyaXB8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  }
+  }
+
+  .banner.account {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.1)
+      ),
+      url("https://images.unsplash.com/photo-1444771820225-000ebb5d7ac3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk2fHx0cmF2ZWx8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  }
+
+  .banner.profile {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url("https://images.unsplash.com/photo-1598749158550-bd1b7446e043?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjEzfHx0cmF2ZWx8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  }
+
+  .containers {
     display: flex;
-    width: 90%;
     justify-content: space-between;
 
-    @media (max-width: 911px) {
-      flex-direction: column;
+    .double-input {
+      display: flex;
+      width: 90%;
+      justify-content: space-between;
 
-      & > * {
-        width: 100%;
+      @media (max-width: 911px) {
+        flex-direction: column;
+
+        & > * {
+          width: 100%;
+        }
       }
     }
   }
@@ -72,41 +117,69 @@ export const MainContainer = styled.div`
     }
 
     .success {
-      background: #1e90ff;
-      color: #fff;
+      border: 3px solid #26c281;
+      background: #fff;
+      color: #26c281;
+
+      &:hover {
+        background: #26c281;
+        color: #fff;
+        border: 3px solid #26c281;
+      }
     }
 
     .cancel {
-      background: white;
-      color: gray;
-      border: 1px solid gray;
+      background: #fff;
+      color: #dc3023;
+      border: 3px solid #dc3023;
+
+      &:hover {
+        background: #dc3023;
+        color: #fff;
+        border: 3px solid #dc3023;
+      }
     }
 
     .email {
-      background: rgb(245, 66, 215);
-      color: #fff;
+      border: 3px solid rgb(123, 66, 245);
+      background: #fff;
+      color: rgb(123, 66, 245);
+
+      &:hover {
+        background: rgb(123, 66, 245);
+        color: #fff;
+        border: 3px solid rgb(123, 66, 245);
+      }
     }
 
     .toggle {
-      background: #1e90ff;
-      color: #fff;
+      border: 3px solid #1e90ff;
+      background: #fff;
+      color: #1e90ff;
+
+      &:hover {
+        background: #1e90ff;
+        color: #fff;
+        border: 3px solid #1e90ff;
+      }
     }
 
     .mobile {
-      background: rgb(245, 194, 66);
-      color: #fff;
-    }
+      border: 3px solid rgb(245, 194, 66);
+      background: #fff;
+      color: rgb(245, 194, 66);
 
-    .confirm {
-      background: rgb(123, 66, 245);
-      color: #fff;
+      &:hover {
+        background: rgb(245, 194, 66);
+        color: #fff;
+        border: 3px solid rgb(245, 194, 66);
+      }
     }
   }
 `;
 
 export const SubContainer = styled.div`
   width: 35%;
-  margin-top: 6rem;
 
   .sidebarTitle {
     font-size: 1rem;
@@ -148,6 +221,14 @@ export const SubContainer = styled.div`
 
   .safety i {
     color: rgb(242, 0, 0);
+  }
+
+  .profile i {
+    color: #22a7f0;
+  }
+
+  .account i {
+    color: rgb(245, 194, 66);
   }
 
   @media screen and (max-width: 911px) {
