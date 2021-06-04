@@ -50,7 +50,7 @@ const App = () => {
   };
 
   window.addEventListener("click", () => {
-    setDropdownOpen(false);
+    if (dropdownOpen) setDropdownOpen(false);
   });
 
   return (

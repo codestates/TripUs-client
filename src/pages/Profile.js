@@ -1,61 +1,15 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { Page, OuterWrapper, InnerWrapper } from "../styles/DefaultPageSetUp";
+import { OuterWrapper } from "../styles/DefaultPageSetUp";
+
+import {
+  StyledPage,
+  StyledInnerWrapper,
+  MainContainer,
+  SubContainer,
+} from "../styles/AccountStyle";
 
 import { TextInput } from "../components/Profile/ProfileUtils";
-
-const PageWrapper = styled.div`
-  border: 1px;
-  display: flex;
-  flex-direction: column;
-  /* min-height: 92rem; */
-  margin-top: 5rem;
-
-  .title {
-    text-align: center;
-    color: #3b3d40;
-    margin-bottom: 3rem;
-  }
-
-  .buttonWrapper {
-    display: flex;
-    justify-content: flex-end;
-    width: 90%;
-    margin-top: 2rem;
-
-    .btn {
-      font-size: 1rem;
-      font-weight: bold;
-      width: 120px;
-      padding: 8px;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease-in-out;
-
-      &:hover,
-      &:focus,
-      &:active {
-        opacity: 0.9;
-      }
-    }
-
-    .success {
-      background: #1e90ff;
-      color: #fff;
-      margin-right: 1rem;
-    }
-
-    .cancel {
-      background: white;
-      color: gray;
-      border: 1px solid gray;
-    }
-  }
-`;
 
 const Profile = () => {
   const [visited, setVisited] = useState("");
@@ -158,86 +112,132 @@ const Profile = () => {
   };
 
   return (
-    <Page>
+    <StyledPage>
       <OuterWrapper>
-        <InnerWrapper>
-          <PageWrapper>
-            <h1 className="title">프로필</h1>
-            <TextInput
-              label="방문한나라"
-              type="text"
-              placeholder="직접방문한 나라를 입력해 주세요"
-              isModified={isModified}
-              func={setVisited}
-              value={visited}
-            />
-            <TextInput
-              label="언어"
-              type="text"
-              placeholder="구사하는 언어를 입력해 주세요"
-              isModified={isModified}
-              func={setLanguage}
-              value={language}
-            />
-            <TextInput
-              label="여행스타일"
-              type="text"
-              placeholder="자신의 여행스타일을 입력해 주세요"
-              isModified={isModified}
-              func={setTravelStyle}
-              value={travelStyle}
-            />
-            <TextInput
-              label="mbti"
-              type="text"
-              placeholder="자신의 MBTI를 입력해 주세요"
-              isModified={isModified}
-              func={setMbti}
-              value={mbti}
-            />
-            <TextInput
-              label="가고싶은 여행지"
-              type="text"
-              placeholder="방문하고싶은 여행지를 입력해 주세요"
-              isModified={isModified}
-              func={setWishList}
-              value={wishList}
-            />
-            <TextInput
-              label="intro"
-              type="text"
-              placeholder="자신을 소개할 글을 입력해주세요"
-              isModified={isModified}
-              func={setIntro}
-              value={intro}
-            />
-            <div className="buttonWrapper">
-              {!isModified ? (
+        <StyledInnerWrapper>
+          <div className="banner profile">
+            <h1 className="title">My Profile</h1>
+          </div>
+          <div className="containers">
+            <MainContainer>
+              <TextInput
+                label="방문한 나라"
+                type="text"
+                placeholder="지금까지 여행해본 나라를 입력해 주세요"
+                isModified={isModified}
+                func={setVisited}
+                value={visited}
+              />
+
+              <TextInput
+                label="구사 언어"
+                type="text"
+                placeholder="구사 가능한 언어를 입력해 주세요"
+                isModified={isModified}
+                func={setLanguage}
+                value={language}
+              />
+
+              <TextInput
+                label="여행스타일"
+                type="text"
+                placeholder="자신의 여행스타일을 입력해 주세요"
+                isModified={isModified}
+                func={setTravelStyle}
+                value={travelStyle}
+              />
+
+              <TextInput
+                label="MBTI"
+                type="text"
+                placeholder="자신의 MBTI를 입력해 주세요"
+                isModified={isModified}
+                func={setMbti}
+                value={mbti}
+              />
+
+              <TextInput
+                label="가고 싶은 여행지"
+                type="text"
+                placeholder="방문하고 싶은 여행지를 입력해 주세요"
+                isModified={isModified}
+                func={setWishList}
+                value={wishList}
+              />
+
+              <TextInput
+                label="자기소개"
+                type="text"
+                placeholder="자신을 소개할 글을 입력해주세요"
+                isModified={isModified}
+                func={setIntro}
+                value={intro}
+              />
+
+              <div className="buttonWrapper">
+                {!isModified ? (
+                  <button
+                    className="btn toggle"
+                    onClick={() => {
+                      handleClickModified(setIsModified);
+                    }}
+                  >
+                    수정하기
+                  </button>
+                ) : (
+                  <button className="btn success" onClick={handleModifyProfile}>
+                    저장하기
+                  </button>
+                )}
                 <button
-                  className="btn modify"
-                  onClick={() => {
-                    handleClickModified(setIsModified);
-                  }}
+                  className="btn cancel"
+                  disabled={!isModified}
+                  onClick={handleClickCancel}
                 >
-                  수정
+                  취소
                 </button>
-              ) : (
-                <button className="btn success" onClick={handleModifyProfile}>
-                  완료
-                </button>
-              )}
-              <button
-                className="btn cancel"
-                disabled={!isModified}
-                onClick={handleClickCancel}
-              >
-                취소
-              </button>
-            </div>
-          </PageWrapper>
-        </InnerWrapper>
+              </div>
+            </MainContainer>
+            <SubContainer>
+              <div>
+                <div className="safety-info-container profile">
+                  <div className="sidebarTitle">프로필은 이렇게!</div>
+                  <ul>
+                    <li>
+                      <span>
+                        <i class="fas fa-grin-squint-tears"></i>
+                      </span>
+                      자기소개는 재미있을수록 좋아요!
+                    </li>
+
+                    <li>
+                      <span>
+                        <i class="far fa-angry"></i>
+                      </span>
+                      자기소개에 MSG를 너무 뿌리는 건 금지!
+                    </li>
+
+                    <li>
+                      <span>
+                        <i class="fab fa-angellist"></i>
+                      </span>
+                      외국어 잘하시는 분들이 인기가 많더라구요...?
+                    </li>
+
+                    <li>
+                      <span>
+                        <i class="fas fa-laugh-beam"></i>
+                      </span>
+                      여행 성향은 싫어하는 것보다는 좋아하는 것 위주로!
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </SubContainer>
+          </div>
+        </StyledInnerWrapper>
       </OuterWrapper>
-    </Page>
+    </StyledPage>
   );
 };
 

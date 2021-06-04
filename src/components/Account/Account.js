@@ -40,7 +40,7 @@ const Account = () => {
 
   const BASE_URL = "https://server.tripus.me";
 
-  useEffect(() => {
+  const requestInfo = () => {
     axios
       .get(BASE_URL + "/account-info", {
         headers: {
@@ -57,6 +57,10 @@ const Account = () => {
         setAge(res.data.data.age);
       })
       .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    requestInfo();
   }, []);
 
   //! 정보 수정
@@ -181,254 +185,215 @@ const Account = () => {
     <StyledPage>
       <OuterWrapper>
         <StyledInnerWrapper>
-          <MainContainer>
-            <h1 className="title">개인정보 수정</h1>
+          <div className="banner account">
+            <h1 className="title">My Account</h1>
+          </div>
+          <div className="containers">
+            <MainContainer>
+              <TextInput
+                label="이메일"
+                type="text"
+                placeholder="변경할 이메일을 입력해주세요"
+                width="full"
+                isEditable={isEditable}
+                func={setEmail}
+                value={email}
+                display={true}
+              />
 
-            <TextInput
-              label="이메일"
-              type="text"
-              placeholder="변경할 이메일을 입력해주세요"
-              width="full"
-              isEditable={isEditable}
-              func={setEmail}
-              value={email}
-              display={true}
-            />
+              <TextInput
+                label="이메일인증"
+                type="text"
+                placeholder="인증코드를 입력해주세요"
+                width="full"
+                isEditable={true}
+                func={setEmailCode}
+                value={emailCode}
+                display={emailRequested}
+              />
 
-            <TextInput
-              label="이메일인증"
-              type="text"
-              placeholder="인증코드를 입력해주세요"
-              width="full"
-              isEditable={true}
-              func={setEmailCode}
-              value={emailCode}
-              display={emailRequested}
-            />
+              <TextInput
+                label="패스워드"
+                type="password"
+                placeholder="새로운 암호를 입력해주세요"
+                width="full"
+                isEditable={isEditable}
+                func={setPw}
+                value={pw}
+                display={true}
+              />
 
-            <TextInput
-              label="패스워드"
-              type="password"
-              placeholder="새로운 암호를 입력해주세요"
-              width="full"
-              isEditable={isEditable}
-              func={setPw}
-              value={pw}
-              display={true}
-            />
+              <TextInput
+                label="새로운 패스워드"
+                type="password"
+                placeholder="새로운 암호를 입력해주세요"
+                width="full"
+                isEditable={isEditable}
+                func={setNewPw}
+                value={newPw}
+                display={isEditable}
+              />
 
-            <TextInput
-              label="새로운 패스워드"
-              type="password"
-              placeholder="새로운 암호를 입력해주세요"
-              width="full"
-              isEditable={isEditable}
-              func={setNewPw}
-              value={newPw}
-              display={isEditable}
-            />
+              <TextInput
+                label="새로운 패스워드 확인"
+                type="password"
+                placeholder="새로운 암호를 다시 한번 입력해주세요"
+                width="full"
+                isEditable={isEditable}
+                func={setConfirmNewPw}
+                value={confirmNewPw}
+                display={isEditable}
+              />
 
-            <TextInput
-              label="새로운 패스워드 확인"
-              type="password"
-              placeholder="새로운 암호를 다시 한번 입력해주세요"
-              width="full"
-              isEditable={isEditable}
-              func={setConfirmNewPw}
-              value={confirmNewPw}
-              display={isEditable}
-            />
+              <TextInput
+                label="이름"
+                type="text"
+                width="full"
+                isEditable={isEditable}
+                func={setName}
+                value={name}
+                display={true}
+              />
 
-            <TextInput
-              label="이름"
-              type="text"
-              width="full"
-              isEditable={isEditable}
-              func={setName}
-              value={name}
-              display={true}
-            />
+              <TextInput
+                label="닉네임"
+                type="text"
+                placeholder="닉네임"
+                width="full"
+                func={setNickname}
+                isEditable={isEditable}
+                value={nickname}
+                display={true}
+              />
 
-            <TextInput
-              label="닉네임"
-              type="text"
-              placeholder="닉네임"
-              width="full"
-              func={setNickname}
-              isEditable={isEditable}
-              value={nickname}
-              display={true}
-            />
+              <TextInput
+                label="모바일"
+                type="password"
+                placeholder="연락처"
+                width="full"
+                isEditable={isEditable}
+                func={setMobile}
+                value={mobile}
+                display={true}
+              />
 
-            <TextInput
-              label="모바일"
-              type="tel"
-              placeholder="연락처"
-              width="full"
-              isEditable={isEditable}
-              func={setMobile}
-              value={mobile}
-              display={true}
-            />
+              <TextInput
+                label="모바일인증"
+                type="tel"
+                placeholder="인증번호를 입력해주세요"
+                width="full"
+                isEditable={true}
+                func={setMobileCode}
+                value={mobileCode}
+                display={mobileRequested}
+              />
 
-            <TextInput
-              label="모바일인증"
-              type="tel"
-              placeholder="인증번호를 입력해주세요"
-              width="full"
-              isEditable={true}
-              func={setMobileCode}
-              value={mobileCode}
-              display={mobileRequested}
-            />
+              <TextInput
+                label="나이"
+                type="number"
+                placeholder="나이"
+                width="full"
+                isEditable={isEditable}
+                func={setAge}
+                value={age}
+                display={true}
+              />
 
-            <TextInput
-              label="나이"
-              type="number"
-              placeholder="나이"
-              width="full"
-              isEditable={isEditable}
-              func={setAge}
-              value={age}
-              display={true}
-            />
-
-            <div className="buttonWrapper">
-              {identification ? null : emailRequested ? (
+              <div className="buttonWrapper">
+                {identification ? null : emailRequested ? (
+                  <button
+                    className="btn verify"
+                    onClick={() => {
+                      handleEmailCode();
+                    }}
+                  >
+                    이메일인증 확인
+                  </button>
+                ) : (
+                  <button
+                    className="btn email"
+                    onClick={() => {
+                      handleClick(setEmailRequested);
+                      handleRequestEmailCode();
+                    }}
+                  >
+                    이메일인증
+                  </button>
+                )}
+                {identification ? null : mobileRequested ? (
+                  <button
+                    className="btn verify"
+                    onClick={() => {
+                      handleMobileCode();
+                    }}
+                  >
+                    휴대폰인증 확인
+                  </button>
+                ) : (
+                  <button
+                    className="btn mobile"
+                    onClick={() => {
+                      handleClick(setMobileRequested);
+                      handleRequestMobileCode();
+                    }}
+                  >
+                    휴대폰인증
+                  </button>
+                )}
+                {isEditable ? (
+                  <button className="btn success" onClick={handleSubmit}>
+                    저장하기
+                  </button>
+                ) : (
+                  <button
+                    className="btn toggle"
+                    onClick={() => {
+                      handleClick(() => {
+                        setIsEditable(true);
+                      });
+                    }}
+                  >
+                    수정하기
+                  </button>
+                )}
                 <button
-                  className="btn verify"
-                  onClick={() => {
-                    handleEmailCode();
-                  }}
+                  className="btn cancel"
+                  disabled={!isEditable}
+                  onClick={requestInfo}
                 >
-                  이메일인증 확인
+                  취소
                 </button>
-              ) : (
-                <button
-                  className="btn email"
-                  onClick={() => {
-                    handleClick(setEmailRequested);
-                    handleRequestEmailCode();
-                  }}
-                >
-                  이메일인증
-                </button>
-              )}
-              {identification ? null : mobileRequested ? (
-                <button
-                  className="btn verify"
-                  onClick={() => {
-                    handleMobileCode();
-                  }}
-                >
-                  휴대폰인증 확인
-                </button>
-              ) : (
-                <button
-                  className="btn mobile"
-                  onClick={() => {
-                    handleClick(setMobileRequested);
-                    handleRequestMobileCode();
-                  }}
-                >
-                  휴대폰인증
-                </button>
-              )}
-              {isEditable ? (
-                <button className="btn confirm" onClick={handleSubmit}>
-                  저장
-                </button>
-              ) : (
-                <button
-                  className="btn toggle"
-                  onClick={() => {
-                    handleClick(() => {
-                      setIsEditable(true);
-                    });
-                  }}
-                >
-                  수정하기
-                </button>
-              )}
-            </div>
-          </MainContainer>
-
-          <SubContainer>
-            <div>
-              <div className="safety-info-container covid">
-                <div className="sidebarTitle">COVID-19 주의사항</div>
-                <ul>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    백신 접종 완료자만 접촉
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    사람 많은 곳 피할것
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    경유가 거의 없는 단거리 자동차 여행
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    비행기 이용시 경유와 환승이 가장 적은 항공편이용
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    게스트하우스 등 많은 사람과 공간을 공유하는 숙박시설은
-                    피할것
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-check"></i>
-                    </span>
-                    음식점에서는 모든 직원이 마스크를 착용하고 사회적 거리두기가
-                    가능한 식당 실외 자리에서 먹기
-                  </li>
-                </ul>
               </div>
-              <div className="safety-info-container safety">
-                <div className="sidebarTitle">안전한 여행 요령</div>
-                <ul>
-                  <li>
-                    <span>
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                    구체적인 계획이 없는 모집
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                    자차동행 유도는 늘 의심!
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                    노골적인 이성 모집
-                  </li>
-                  <li>
-                    <span>
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                    여행이 아닌 단순놀기 및 유흥 모집
-                  </li>
-                </ul>
+            </MainContainer>
+
+            <SubContainer>
+              <div>
+                <div className="safety-info-container account">
+                  <div className="sidebarTitle">개인 정보 관련 유의사항</div>
+                  <ul>
+                    <li>
+                      <span>
+                        <i class="fas fa-lightbulb"></i>
+                      </span>
+                      비밀번호는 주기적으로 교체해주세요
+                    </li>
+                    <li>
+                      <span>
+                        <i class="fas fa-lightbulb"></i>
+                      </span>
+                      트립어스는 절대 메일을 통해 사용자의 암호를 묻지 않습니다
+                    </li>
+                    <li>
+                      <span>
+                        <i class="fas fa-lightbulb"></i>
+                      </span>
+                      공공 장소에서 접속한 경우, 로그아웃을 잊지 마세요
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </SubContainer>
+            </SubContainer>
+          </div>
         </StyledInnerWrapper>
       </OuterWrapper>
     </StyledPage>
