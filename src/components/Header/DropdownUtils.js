@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
 
 const DropdownContainer = styled.div`
   z-index: 999;
@@ -54,6 +53,7 @@ const DropdownItem = styled(Link)`
   flex-grow: 1;
   display: flex;
   align-items: center;
+  width: 100%;
 `;
 
 const StyleBreak = styled.hr`
@@ -74,15 +74,14 @@ const LongDropdownMenu = ({ isLogin, setLogin }) => {
       <DropdownItem to="/my-applications">내 신청목록</DropdownItem>
       <StyleBreak />
       {isLogin ? (
-        <DropdownItem to="/">
-          <p
-            onClick={() => {
-              localStorage.removeItem("accessToken");
-              setLogin(false);
-            }}
-          >
-            로그아웃
-          </p>
+        <DropdownItem
+          to="/"
+          onClick={() => {
+            localStorage.removeItem("accessToken");
+            setLogin(false);
+          }}
+        >
+          <p>로그아웃</p>
         </DropdownItem>
       ) : (
         <>

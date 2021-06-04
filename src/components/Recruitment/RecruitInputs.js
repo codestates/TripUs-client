@@ -4,14 +4,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import ko from "date-fns/locale/ko";
 import { useField } from "formik";
 
-import { InputWrapper } from "../../styles/RecruitmentStyles";
+import { InputWrapper } from "../../styles/AccountStyle";
 registerLocale("ko", ko);
 
 export const TextInput = (props) => {
   const [field, meta] = useField(props);
   const { width } = props;
   return (
-    <InputWrapper width={width}>
+    <InputWrapper width={width} display={props.display}>
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
         {meta.touched && meta.error ? (
@@ -34,7 +34,7 @@ export const SelectBox = (props) => {
   const { width } = props;
 
   return (
-    <InputWrapper width={width}>
+    <InputWrapper width={width} display={props.display}>
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
         {meta.touched && meta.error ? (
@@ -61,7 +61,7 @@ export const Calendar = (props) => {
   const { width } = props;
 
   return (
-    <InputWrapper width={width}>
+    <InputWrapper width={width} display={props.display}>
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
         {meta.touched && meta.error ? (
@@ -94,7 +94,7 @@ export const TextArea = (props) => {
   const [field, meta] = useField(props);
   const { width } = props;
   return (
-    <InputWrapper width={width}>
+    <InputWrapper width={width} display={props.display}>
       <label htmlFor={props.id || props.name} className="main-label">
         {props.label}
         {meta.touched && meta.error ? (
