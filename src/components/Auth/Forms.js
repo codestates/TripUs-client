@@ -12,7 +12,7 @@ import naver_icon_green from "../../images/naver_icon_green.png";
 const BASE_URL = "https://server.tripus.me";
 
 const NAVER_API_URL =
-  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=https://server.tripus.me/callback";
+  "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=V4VN6rip1a06VBrIxjEE&redirect_uri=https://tripus.me/";
 
 const onSignIn = (values, setLogin, history, setLoading) => {
   setLoading(true);
