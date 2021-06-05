@@ -18,6 +18,7 @@ import MyPostsPage from "./pages/MyPosts";
 import MyApplicationsPage from "./pages/MyApplications";
 import MyAccountPage from "./pages/MyAccount";
 import MyProfilePage from "./pages/MyProfile";
+import Trip from "./pages/Trip";
 
 const App = () => {
   // login
@@ -108,6 +109,9 @@ const App = () => {
         </Route>
         <Route exact path="/profile">
           <MyProfilePage />
+        </Route>
+        <Route exact path="/trip/:id">
+          <Trip />
         </Route>
         <Route path="/">
           <LandingPage

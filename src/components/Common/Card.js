@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled, { css } from "styled-components";
 import axios from "axios";
 
@@ -151,7 +151,7 @@ const Card = (props) => {
   const [image, setImage] = useState("");
   const [formattedDepDate, setFormattedDepDate] = useState("");
   const [formattedRetDate, setFormattedRetDate] = useState("");
-
+  const history = useHistory();
   useEffect(() => {
     const dDate = new Date(props.departure_date);
     setFormattedDepDate(
@@ -212,7 +212,13 @@ const Card = (props) => {
         </p>
         <p className="card-text">총인원: {props.people_num}</p>
 
-        <button type="button" className="card-button">
+        <button
+          type="button"
+          className="card-button"
+          onClick={() => {
+            history.push(`/trip/${props.id}`);
+          }}
+        >
           자세히 보기
         </button>
       </CardContentContainer>
