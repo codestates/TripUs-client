@@ -52,6 +52,7 @@ const SearchList = ({ destination, departureDate, returnDate, travelType }) => {
             people_num={data.people_num}
             nickname={data.nickname}
             key={data.post_id}
+            id={data.post_id}
             identification={data.identification}
             role="myLists"
           />
