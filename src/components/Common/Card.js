@@ -170,22 +170,22 @@ const Card = (props) => {
     );
   }, [props.return_date]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(AXIOS_URL, {
-  //       params: {
-  //         query: props.destination,
-  //         client_id: CLIENT_ID,
-  //         orientation: "landscape",
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setImage(
-  //         res.data.results[Math.floor(Math.random() * 10 + 1)].urls.regular
-  //       );
-  //     })
-  //     .catch((e) => console.log(e));
-  // }, [props.destination]);
+  useEffect(() => {
+    axios
+      .get(AXIOS_URL, {
+        params: {
+          query: "travel",
+          client_id: CLIENT_ID,
+          orientation: "landscape",
+        },
+      })
+      .then((res) => {
+        setImage(
+          res.data.results[Math.floor(Math.random() * 10 + 1)].urls.regular
+        );
+      })
+      .catch((e) => console.log(e));
+  }, [props.destination]);
 
   return (
     <CardContainer role={props.role}>

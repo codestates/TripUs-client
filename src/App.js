@@ -6,19 +6,18 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 
 //components & pages
 import { Header } from "./components/Header/Header";
-
-import AuthPage from "./pages/Auth";
-import LandingPage from "./pages/Landing";
 import FooterComponent from "./components/Footer";
+
+import LandingPage from "./pages/Landing";
+import LogInPage from "./pages/Login";
 import SearchListPage from "./pages/SearchListPage";
 import AboutPage from "./pages/About";
-
-import Account from "./components/Account/Account";
 
 import RecruitmentPage from "./pages/Recruitment";
 import MyPostsPage from "./pages/MyPosts";
 import MyApplicationsPage from "./pages/MyApplications";
-import Profile from "./pages/Profile";
+import MyAccountPage from "./pages/MyAccount";
+import MyProfilePage from "./pages/MyProfile";
 import Trip from "./pages/Trip";
 
 const App = () => {
@@ -51,7 +50,7 @@ const App = () => {
   };
 
   window.addEventListener("click", () => {
-    setDropdownOpen(false);
+    if (dropdownOpen) setDropdownOpen(false);
   });
 
   return (
@@ -70,7 +69,7 @@ const App = () => {
 
       <Switch>
         <Route exact path="/login">
-          <AuthPage
+          <LogInPage
             isRightActive={isRightActive}
             setIsRightActive={setIsRightActive}
             setLogin={setLogin}
@@ -106,10 +105,10 @@ const App = () => {
           <MyApplicationsPage />
         </Route>
         <Route exact path="/account">
-          <Account />
+          <MyAccountPage />
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          <MyProfilePage />
         </Route>
         <Route exact path="/trip/:id">
           <Trip />
