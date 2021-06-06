@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
+// import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { LoadDetails } from "../components/Trip/TripUtils";
 
-import { Page, OuterWrapper, InnerWrapper } from "../styles/DefaultPageSetUp";
+import { OuterWrapper } from "../styles/DefaultPageSetUp";
 import {
+  StyledPage,
+  StyledInnerWrapper,
   TitleSection,
   DetailSection,
-  SubContainer,
   MainContainer,
+  SubContainer,
   PageWrapper,
 } from "../styles/TripStyles";
 
@@ -106,25 +109,37 @@ const Trip = () => {
     history.push(`/trip/${id}/edit`);
   };
 
-  const timestamp = () => {
-    const nowTime = departure_date;
-    const date = new Date(nowTime);
-    console.log(date.getTime());
-  };
+  const depar_date = new Date(departure_date);
+  const getDepar = `${depar_date.getFullYear()}년 ${depar_date.getMonth()}월 ${depar_date.getDate()}일`.slice(
+    2
+  );
+
+  const arrival_date = new Date(return_date);
+  const getReturn = `${arrival_date.getFullYear()}년 ${arrival_date.getMonth()}월 ${arrival_date.getDate()}일`.slice(
+    2
+  );
+  // const mapStyles = {
+  //   width: "50%",
+  //   height: "50%",
+  // };
+  // const YOUR_API_KEY = "AIzaSyCJpXMlR0x5ojuRiUTwk_Ige1FGk6sRdns";
 
   return (
-    <Page>
+    <StyledPage>
       <OuterWrapper>
-        <InnerWrapper>
-          <PageWrapper>
+        <StyledInnerWrapper>
+          <div className="banner apply">
+            <h1 className="title">동행 지원서</h1>
+          </div>
+          <div className="containers">
             <MainContainer>
               <TitleSection>
+                <span className="destination">
+                  <i class="fas fa-map-marker-alt"></i>
+                  {destination}
+                </span>
                 <h1 className="titleMain">{title}</h1>
                 <div className="titleUserAndEditBtn">
-                  <span className="destination">
-                    <i class="fas fa-map-marker-alt"></i>
-                    {destination}
-                  </span>
                   <div className="User_nickName">
                     <i class="fas fa-user-circle"></i>
                     <h5>{nickname}</h5>
@@ -136,13 +151,13 @@ const Trip = () => {
                   name="출발날짜"
                   label="출발날짜"
                   width="full"
-                  value={timestamp}
+                  value={getDepar}
                 ></LoadDetails>
                 <LoadDetails
                   name="도착날짜"
                   label="도착날짜"
                   width="full"
-                  value={return_date}
+                  value={getReturn}
                 ></LoadDetails>
                 <LoadDetails
                   name="동행타입"
@@ -194,11 +209,11 @@ const Trip = () => {
                 <ul>
                   <li>
                     <span>
-                      <i class="fas fa-exclamation-triangle"></i>
-                      {departure_date}
+                      <i class="fas fa-calendar-check"></i>
+                      {getDepar}
                     </span>
                     <span>
-                      <i class="fas fa-exclamation-triangle"></i>
+                      <i class="fas fa-map-marked"></i>
                       {moim}
                     </span>
                   </li>
@@ -208,22 +223,34 @@ const Trip = () => {
                     </div>
                     <img className="user_thumbnail" src={user_picture}></img>
                   </div>
+                  {/* <Map
+                    google={this.props.google}
+                    zoom={8}
+                    styles={mapStyles}
+                    initialCenter={{ lat: 0, lng: 0 }}
+                  >
+                    <Marker position={{ lat: 0, lng: 0 }} />
+                  </Map> */}
+
                   <div className="btnWrapper">
                     <button className="btn apply" onClick={handleApply}>
                       지원하기
                     </button>
 
-                    <button className="btn edit" onClick={handleEdit}>
+                    <button
+                      className="btn edit"
+                      onClick={() => alert("준비중인 기능입니다!")}
+                    >
                       수정하기
                     </button>
                   </div>
                 </ul>
               </div>
             </SubContainer>
-          </PageWrapper>
-        </InnerWrapper>
+          </div>
+        </StyledInnerWrapper>
       </OuterWrapper>
-    </Page>
+    </StyledPage>
   );
 };
 export default Trip;
