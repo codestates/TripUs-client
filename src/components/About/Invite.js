@@ -14,7 +14,7 @@ const IMG_URL =
 const InviteWrapper = styled.div`
   word-break: keep-all;
   width: 80%;
-  height: 100%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,8 +27,11 @@ const InviteWrapper = styled.div`
   }
 
   a {
+    width: 20%;
     text-decoration: none;
     color: #f5f5f5;
+    padding: 5px;
+    border-bottom: 2px solid white;
   }
 `;
 
@@ -53,7 +56,7 @@ const Invite = ({
         <InnerWrapper>
           <InviteWrapper>
             <div className="title">
-              6720개의 모임이 당신을 기다리고 있습니다.
+              현재 6720개의 모임이 당신을 기다리고 있습니다.
             </div>
             <Link to="/search" className="button" onClick={searchTrips}>
               시작하기

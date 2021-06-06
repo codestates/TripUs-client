@@ -30,13 +30,12 @@ export const StyledInnerWrapper = styled(InnerWrapper)`
   }
 
   .banner.recruit {
-        background-image: linear-gradient(
+    background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.15),
         rgba(0, 0, 0, 0.15)
       ),
       url("https://images.unsplash.com/photo-1531263060782-b024de9b9793?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHRyaXB8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
-  }
   }
 
   .banner.account {
@@ -82,6 +81,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  font-weight: 700;
 
   @media screen and (min-width: 911px) {
     width: 65%;
@@ -246,7 +246,7 @@ export const InputWrapper = styled.div`
   .main-label {
     margin-bottom: 2rem;
     font-family: "Noto Serif";
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .main-input {
