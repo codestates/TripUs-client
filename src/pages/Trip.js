@@ -218,9 +218,10 @@ const Trip = () => {
                     </span>
                   </li>
                   <div className="randomUser_info">
-                    <div className="randomUser">
+                    <div className="interested ">
                       {user_count}명의 회원들이 이 모임에 관심을 갖고있습니다
                     </div>
+                    <h5>동행 리더 : {nickname} </h5>
                     <img className="user_thumbnail" src={user_picture}></img>
                   </div>
                   {/* <Map
