@@ -1,5 +1,6 @@
 import React from "react";
 import { InfoWrapper } from "../../styles/TripStyles";
+// import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 export const LoadTitle = (props) => {
   const { width, destination, nickname, title } = props;
@@ -29,3 +30,7 @@ export const LoadDetails = (props) => {
     </InfoWrapper>
   );
 };
+
+// export const GoogleApiWrapper = () =>{
+//   apiKey: 'AIzaSyCJpXMlR0x5ojuRiUTwk_Ige1FGk6sRdns'
+// }
