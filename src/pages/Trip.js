@@ -234,7 +234,11 @@ const Trip = () => {
                   </Map> */}
 
                   <div className="btnWrapper">
-                    <button className="btn apply" onClick={handleApply}>
+                    <button
+                      className="btn apply"
+                      onClick={handleApply}
+                      onClick={() => alert("동행 신청이 완료되었습니다!")}
+                    >
                       지원하기
                     </button>
 
