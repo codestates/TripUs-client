@@ -119,6 +119,7 @@ export const TitleSection = styled.section`
   min-width: 100%;
   height: 100%;
   width: 100%;
+
   .destination {
     color: #848484;
     font-size: 14px;
@@ -130,11 +131,12 @@ export const TitleSection = styled.section`
     }
   }
   h1 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
     width: 100%;
     height: 30%;
     margin: 0px 0px 10px 10px;
+    line-height: 2rem;
     color: #333;
     @media (max-width: 911px) {
     }
@@ -319,7 +321,7 @@ export const InfoWrapper = styled.div`
   .main-label {
     margin-bottom: 0.8rem;
     font-family: "Noto Serif";
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 
     font-weight: 700;
   }
