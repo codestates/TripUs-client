@@ -282,8 +282,11 @@ export const SubContainer = styled.div`
     }
   }
   .randomUser_info {
-    .randomUser {
+    .interested {
       padding-bottom: 1rem;
+    }
+    h5 {
+      display: contents;
     }
     .user_thumbnail {
       border-radius: 50%;
