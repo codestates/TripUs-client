@@ -105,7 +105,7 @@ const App = () => {
           <MyApplicationsPage />
         </Route>
         <Route exact path="/account">
-          <MyAccountPage />
+          <MyAccountPage setLogin={setLogin} />
         </Route>
         <Route exact path="/profile">
           <MyProfilePage />

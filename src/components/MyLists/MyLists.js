@@ -12,8 +12,6 @@ const MyLists = ({ token, role }) => {
   const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState([]);
 
-  console.log(searchResults);
-
   const path = {
     posts: "/myposts",
     applications: "/applied",

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
+
 import { OuterWrapper } from "../styles/DefaultPageSetUp";
 
 import {
@@ -21,10 +23,15 @@ const MyProfilePage = () => {
   const [isEditable, setIsEditable] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
+  const history = useHistory();
+
+  if (!accessToken) {
+    history.push("/login");
+  }
 
   const BASE_URL = "https://server.tripus.me";
 
-  useEffect(() => {
+  const requestInfo = () => {
     axios
       .get(BASE_URL + "/profile", {
         headers: {
@@ -33,14 +40,21 @@ const MyProfilePage = () => {
         },
       })
       .then((res) => {
-        console.log(res);
         setVisited(res.data.data.visited);
         setLanguage(res.data.data.language);
         setTravelStyle(res.data.data.travel_style);
         setMbti(res.data.data.mbti);
         setWishList(res.data.data.wishlist);
         setIntro(res.data.data.intro);
+        setIsEditable(false);
+      })
+      .catch((e) => {
+        console.log(e);
       });
+  };
+
+  useEffect(() => {
+    requestInfo();
   }, []);
 
   //! 프로필 수정
@@ -64,24 +78,7 @@ const MyProfilePage = () => {
         }
       )
       .then((res) => {
-        console.log("프로필 수정 완료!");
-
-        axios
-          .get(BASE_URL + "/profile", {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-              "Content-type": "application/json",
-            },
-          })
-          .then((res) => {
-            setVisited(res.data.data.visited);
-            setLanguage(res.data.data.language);
-            setTravelStyle(res.data.data.travel_style);
-            setMbti(res.data.data.mbti);
-            setWishList(res.data.data.wishlist);
-            setIntro(res.data.data.intro);
-          })
-          .catch((err) => console.error(err));
+        history.push("/");
       })
       .catch((err) => console.error(err));
   };
@@ -92,22 +89,7 @@ const MyProfilePage = () => {
 
   //! 취소시 프로필 페이지
   const handleClickCancel = () => {
-    axios
-      .get(BASE_URL + "/profile", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-type": "application/json",
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        setVisited(res.data.data.visited);
-        setLanguage(res.data.data.language);
-        setTravelStyle(res.data.data.travel_style);
-        setMbti(res.data.data.mbti);
-        setWishList(res.data.data.wishlist);
-        setIntro(res.data.data.intro);
-      });
+    requestInfo();
   };
 
   return (
@@ -126,7 +108,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setVisited}
                 value={visited}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -137,7 +119,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setLanguage}
                 value={language}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -148,7 +130,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setTravelStyle}
                 value={travelStyle}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -159,7 +141,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setMbti}
                 value={mbti}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -170,7 +152,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setWishList}
                 value={wishList}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -181,7 +163,7 @@ const MyProfilePage = () => {
                 isEditable={isEditable}
                 func={setIntro}
                 value={intro}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -217,21 +199,21 @@ const MyProfilePage = () => {
                   <ul>
                     <li>
                       <span>
-                        <i class="fas fa-grin-squint-tears"></i>
+                        <i className="fas fa-grin-squint-tears"></i>
                       </span>
                       자기소개는 재미있을수록 좋아요!
                     </li>
 
                     <li>
                       <span>
-                        <i class="far fa-angry"></i>
+                        <i className="far fa-angry"></i>
                       </span>
                       자기소개에 MSG를 너무 뿌리는 건 금지!
                     </li>
 
                     <li>
                       <span>
-                        <i class="fab fa-angellist"></i>
+                        <i className="fab fa-angellist"></i>
                       </span>
                       외국어 잘하시는 분들이 인기가 많더라구요...?
                     </li>
