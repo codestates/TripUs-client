@@ -2,38 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import {
-  Page,
-  OuterWrapper,
-  InnerWrapper,
-} from "../../styles/DefaultPageSetUp";
+import { OuterWrapper } from "../../styles/DefaultPageSetUp";
+
+import { StyledPage, StyledInnerWrapper } from "../../styles/AboutStyle.js";
 
 const IMG_URL =
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZnJpZW5kc3xlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60";
-
-const InviteWrapper = styled.div`
-  word-break: keep-all;
-  width: 80%;
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 2rem;
-  color: #f5f5f5;
-
-  .title {
-    margin-bottom: 2rem;
-    font-weight: bold;
-  }
-
-  a {
-    width: 20%;
-    text-decoration: none;
-    color: #f5f5f5;
-    padding: 5px;
-    border-bottom: 2px solid white;
-  }
-`;
 
 const Invite = ({
   setDestination,
@@ -51,20 +25,20 @@ const Invite = ({
   };
 
   return (
-    <Page background={IMG_URL} height={50} overlay={0.4}>
+    <StyledPage background={IMG_URL} overlay={0.4}>
       <OuterWrapper>
-        <InnerWrapper>
-          <InviteWrapper>
-            <div className="title">
-              현재 6720개의 모임이 당신을 기다리고 있습니다.
-            </div>
+        <StyledInnerWrapper>
+          <div className="title">
+            현재 6720개의 모임이 당신을 기다리고 있습니다.
+          </div>
+          <div className="link">
             <Link to="/search" className="button" onClick={searchTrips}>
               시작하기
             </Link>
-          </InviteWrapper>
-        </InnerWrapper>
+          </div>
+        </StyledInnerWrapper>
       </OuterWrapper>
-    </Page>
+    </StyledPage>
   );
 };
 
