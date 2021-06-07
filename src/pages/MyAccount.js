@@ -13,7 +13,7 @@ import {
 
 import TextInput from "../components/Common/TextInput";
 
-const MyAccountPage = () => {
+const MyAccountPage = ({ setLogin }) => {
   // 회원정보 관련
   const [identification, setIdentification] = useState("");
   const [email, setEmail] = useState("");
@@ -35,8 +35,11 @@ const MyAccountPage = () => {
   const [isEditable, setIsEditable] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
-
   const history = useHistory();
+
+  if (!accessToken) {
+    history.push("/login");
+  }
 
   const BASE_URL = "https://server.tripus.me";
 
@@ -55,6 +58,7 @@ const MyAccountPage = () => {
         setName(res.data.data.name);
         setMobile(res.data.data.mobile);
         setAge(res.data.data.age);
+        setIsEditable(false);
       })
       .catch((err) => console.error(err));
   };
@@ -64,32 +68,30 @@ const MyAccountPage = () => {
   }, []);
 
   //! 정보 수정
-  const handleSubmit = () => {
-    if (accessToken === "" || accessToken === null) {
-      history.push("/");
-    } else {
-      axios
-        .patch(
-          "https://server.tripus.me/account-info",
-          {
-            email: email,
-            pw: pw,
-            nickname: nickname,
-            name: name,
-            mobile: mobile,
-            age: age,
+  const handleSubmit = ({}) => {
+    axios
+      .patch(
+        "https://server.tripus.me/account-info",
+        {
+          email: email,
+          pw: pw,
+          nickname: nickname,
+          name: name,
+          mobile: mobile,
+          age: age,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
           },
-          {
-            headers: {
-              authorization: `Bearer ${accessToken}`,
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(() => {
-          console.log("수정 완료!");
-        });
-    }
+        }
+      )
+      .then((res) => {
+        localStorage.removeItem("accessToken");
+        setLogin(false);
+      })
+      .catch((e) => console.log(e));
   };
 
   //! 휴대폰인증 요청
@@ -198,7 +200,7 @@ const MyAccountPage = () => {
                 isEditable={isEditable}
                 func={setEmail}
                 value={email}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -252,7 +254,7 @@ const MyAccountPage = () => {
                 isEditable={isEditable}
                 func={setName}
                 value={name}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -263,7 +265,7 @@ const MyAccountPage = () => {
                 func={setNickname}
                 isEditable={isEditable}
                 value={nickname}
-                display={true}
+                display={"true"}
                 width="full"
               />
 
@@ -374,19 +376,19 @@ const MyAccountPage = () => {
                   <ul>
                     <li>
                       <span>
-                        <i class="fas fa-lightbulb"></i>
+                        <i className="fas fa-lightbulb"></i>
                       </span>
                       비밀번호는 주기적으로 교체해주세요
                     </li>
                     <li>
                       <span>
-                        <i class="fas fa-lightbulb"></i>
+                        <i className="fas fa-lightbulb"></i>
                       </span>
                       트립어스는 절대 메일을 통해 사용자의 암호를 묻지 않습니다
                     </li>
                     <li>
                       <span>
-                        <i class="fas fa-lightbulb"></i>
+                        <i className="fas fa-lightbulb"></i>
                       </span>
                       공공 장소에서 접속한 경우, 로그아웃을 잊지 마세요
                     </li>
