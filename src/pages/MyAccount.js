@@ -66,16 +66,11 @@ const MyAccountPage = () => {
   //! 정보 수정
   const handleSubmit = () => {
     if (accessToken === "" || accessToken === null) {
+      history.push("/");
     } else {
       axios
         .patch(
           "https://server.tripus.me/account-info",
-          {
-            headers: {
-              authorization: `Bearer ${accessToken}`,
-              "Content-Type": "application/json",
-            },
-          },
           {
             email: email,
             pw: pw,
@@ -83,6 +78,12 @@ const MyAccountPage = () => {
             name: name,
             mobile: mobile,
             age: age,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
           }
         )
         .then(() => {
@@ -131,7 +132,7 @@ const MyAccountPage = () => {
   //! 이메일 인증 요청
   const handleRequestEmailCode = () => {
     axios.post(
-      "https://server.tripus.me/send-email",
+      "http://localhost:80/send-email",
       { email: "rnjswjadhr09@gmail.com" },
       {
         headers: {
@@ -145,7 +146,7 @@ const MyAccountPage = () => {
   const handleEmailCode = () => {
     axios
       .post(
-        "https://server.tripus.me/send-email",
+        "http://localhost:80/send-email",
         { authentication_code: emailCode },
         {
           headers: {
