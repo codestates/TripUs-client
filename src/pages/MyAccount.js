@@ -132,7 +132,7 @@ const MyAccountPage = () => {
   //! 이메일 인증 요청
   const handleRequestEmailCode = () => {
     axios.post(
-      "http://localhost:80/send-email",
+      "https://server.tripus.me/send-email",
       { email: "rnjswjadhr09@gmail.com" },
       {
         headers: {
@@ -146,7 +146,7 @@ const MyAccountPage = () => {
   const handleEmailCode = () => {
     axios
       .post(
-        "http://localhost:80/send-email",
+        "https://server.tripus.me/send-email",
         { authentication_code: emailCode },
         {
           headers: {

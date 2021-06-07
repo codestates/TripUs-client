@@ -16,7 +16,7 @@ const MyLists = ({ token, role }) => {
 
   const path = {
     posts: "/myposts",
-    applications: "/my-applications",
+    applications: "/applied",
   };
 
   const config = {
