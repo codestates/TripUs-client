@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styled, { css } from "styled-components";
-import axios from "axios";
+import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 
 const DEFAULT_IMG =
   "https://images.unsplash.com/photo-1596786314237-367dcf7ab268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMzQ2ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjIyOTQzMjk&ixlib=rb-1.2.1&q=80&w=1080";
@@ -144,9 +143,6 @@ const CardContentContainer = styled.div`
   }
 `;
 
-const AXIOS_URL = "https://api.unsplash.com/search/photos";
-const CLIENT_ID = "3R-WZJq3nUxiCeL7ygi_qNZLe7vaMk1Wpd0EYMlogMQ";
-
 const Card = (props) => {
   const [image, setImage] = useState("");
   const [formattedDepDate, setFormattedDepDate] = useState("");
@@ -169,23 +165,6 @@ const Card = (props) => {
       }월 ${rDate.getDate()}일`
     );
   }, [props.return_date]);
-
-  useEffect(() => {
-    axios
-      .get(AXIOS_URL, {
-        params: {
-          query: "travel",
-          client_id: CLIENT_ID,
-          orientation: "landscape",
-        },
-      })
-      .then((res) => {
-        setImage(
-          res.data.results[Math.floor(Math.random() * 10 + 1)].urls.regular
-        );
-      })
-      .catch((e) => console.log(e));
-  }, [props.destination]);
 
   return (
     <CardContainer role={props.role}>
