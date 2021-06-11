@@ -98,7 +98,7 @@ const MyAccountPage = ({ setLogin }) => {
   const handleRequestMobileCode = () => {
     axios.post(
       "https://server.tripus.me/send-sms",
-      { phone_number: "+821051652420" },
+      { phone_number: mobile },
       {
         headers: {
           authorization: `Bearer ${accessToken}`,
@@ -135,7 +135,7 @@ const MyAccountPage = ({ setLogin }) => {
   const handleRequestEmailCode = () => {
     axios.post(
       "https://server.tripus.me/send-email",
-      { email: "rnjswjadhr09@gmail.com" },
+      { email: email },
       {
         headers: {
           authorization: `Bearer ${accessToken}`,
