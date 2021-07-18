@@ -1,7 +1,7 @@
 
 
 <p align=center>
-![logo]<img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dea27db2-d7a7-4f93-8149-5360b8a16ece/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210604%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210604T075309Z&X-Amz-Expires=86400&X-Amz-Signature=2ba41a4aa338de6cf29ae2bc80e608221fda15cb647d10f367fb12b732ee0b58&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22" width="600px"> </p>
+<img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dea27db2-d7a7-4f93-8149-5360b8a16ece/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210604%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210604T075309Z&X-Amz-Expires=86400&X-Amz-Signature=2ba41a4aa338de6cf29ae2bc80e608221fda15cb647d10f367fb12b732ee0b58&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22" width="600px"> </p>
 
 
 ![blue](https://img.shields.io/badge/version-v.1.0.0-blue) ![green](https://img.shields.io/badge/node-v14.17.0-green)![red](https://img.shields.io/badge/npm-7.15.0-red)
@@ -45,10 +45,10 @@
 # 📌 FlowChart
 
 ### 프론트엔드
-![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/62d8d23c-feab-4c5c-bd4c-1e0fa594739b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210602%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210602T063155Z&X-Amz-Expires=86400&X-Amz-Signature=81d75b26a50a36525bc29e4ad854b23370e770ecda6c8164e26c7c18e7c7707c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![flowChart](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/62d8d23c-feab-4c5c-bd4c-1e0fa594739b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210602%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210602T063155Z&X-Amz-Expires=86400&X-Amz-Signature=81d75b26a50a36525bc29e4ad854b23370e770ecda6c8164e26c7c18e7c7707c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 ### 백엔드
-![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff01bb96-42ea-474b-9244-6559a78241fd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210602%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210602T063238Z&X-Amz-Expires=86400&X-Amz-Signature=5f2ff76dcadc777bd3fb7783ecf419e9261ade330c3d883a3d9e0579a4a0f37a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![flowChart2](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff01bb96-42ea-474b-9244-6559a78241fd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210602%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210602T063238Z&X-Amz-Expires=86400&X-Amz-Signature=5f2ff76dcadc777bd3fb7783ecf419e9261ade330c3d883a3d9e0579a4a0f37a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 # 더 많은 정보는
 [👉 WIKI!!](https://github.com/codestates/TripUs-client/wiki)
