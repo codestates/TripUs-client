@@ -1,5 +1,3 @@
-
-
 <p align=center>
 <img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dea27db2-d7a7-4f93-8149-5360b8a16ece/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210604%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210604T075309Z&X-Amz-Expires=86400&X-Amz-Signature=2ba41a4aa338de6cf29ae2bc80e608221fda15cb647d10f367fb12b732ee0b58&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22" width="600px"> </p>
 
@@ -53,8 +51,4 @@
 # 더 많은 정보는
 [👉 WIKI!!](https://github.com/codestates/TripUs-client/wiki)
 
-[And Go to Backend](https://github.com/codestates/TripUs-server)
-11
-
-
-
+[Backend Repo](https://github.com/codestates/TripUs-server)
